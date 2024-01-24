@@ -1,4 +1,4 @@
 (library
  (name pl)
- (modules nip)
+ (modules nip pesel)
  (libraries tools))

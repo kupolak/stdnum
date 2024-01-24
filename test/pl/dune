@@ -2,3 +2,9 @@
  (name test_nip)
  (libraries alcotest pl)
  (modules test_nip))
+
+(test
+ (name test_pesel)
+ (libraries alcotest pl)
+ (modules test_pesel))
+ 
