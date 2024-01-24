@@ -5,7 +5,7 @@
 
 DUNE 	= dune
 
-.PHONY: all install test clean uninstall format
+.PHONY: all install test clean uninstall format install-ocamlformat
 
 all:
 	$(DUNE) build
@@ -32,3 +32,6 @@ format:
 	$(DUNE) build --auto-promote @fmt
 	opam lint --normalise hello.opam > hello.tmp && mv hello.tmp hello.opam
 	git ls-files '**/*.[ch]' | xargs -n1 indent -nut -i8
+
+install-ocamlformat:
+	opam install -y ocamlformat=0.26.1

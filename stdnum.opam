@@ -23,6 +23,7 @@ depends: [
   "ocaml"
   "dune" {>= "3.13"}
   "odoc" {with-doc}
+  "alcotest" {with-test}
 ]
 build: [
   ["dune" "subst"] {dev}
