@@ -7,4 +7,8 @@
  (name test_pesel)
  (libraries alcotest pl)
  (modules test_pesel))
- 
+
+(test
+ (name test_regon)
+ (libraries alcotest pl)
+ (modules test_regon))
