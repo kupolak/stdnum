@@ -1,0 +1,4 @@
+(library
+ (name pl)
+ (modules nip)
+ (libraries tools))
