@@ -1,1 +1,4 @@
-*.mli linguist-language=Ocaml
+* text=auto
+* text eol=lf
+*.ml linguist-language=OCaml
+*.mli linguist-language=OCaml
