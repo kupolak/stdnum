@@ -30,4 +30,4 @@ let suite =
   ; ("test_is_not_valid", `Quick, test_is_not_valid)
   ]
 
-let () = Alcotest.run "Anum" [ ("suite", suite) ]
+let () = Alcotest.run "Hu.Anum" [ ("suite", suite) ]

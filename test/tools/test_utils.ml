@@ -36,4 +36,4 @@ let test_clean () =
 let suite =
   [ ("is_digits", `Quick, test_is_digits); ("clean", `Quick, test_clean) ]
 
-let () = run "Utils" [ ("tools", suite) ]
+let () = run "Utils" [ ("Tools.Utils", suite) ]

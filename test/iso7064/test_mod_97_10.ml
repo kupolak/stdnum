@@ -29,4 +29,4 @@ let suite =
   ; ("test_is_valid", `Quick, test_is_valid)
   ]
 
-let () = Alcotest.run "Mod_37_2" [ ("suite", suite) ]
+let () = Alcotest.run "Iso7064.Mod_37_2" [ ("suite", suite) ]

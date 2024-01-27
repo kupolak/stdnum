@@ -70,4 +70,4 @@ let suite =
   ; ("test_format", `Quick, test_format)
   ]
 
-let () = Alcotest.run "test_nip" [ ("suite", suite) ]
+let () = Alcotest.run "Pl.Nip" [ ("suite", suite) ]

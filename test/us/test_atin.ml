@@ -21,4 +21,4 @@ let suite =
   ; ("test_is_not_valid", `Quick, test_is_not_valid)
   ]
 
-let () = Alcotest.run "ATIN" [ ("suite", suite) ]
+let () = Alcotest.run "Us.Atin" [ ("suite", suite) ]

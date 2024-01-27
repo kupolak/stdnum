@@ -87,4 +87,4 @@ let suite =
   ; ("test_is_valid", `Quick, test_is_valid)
   ]
 
-let () = Alcotest.run "My first test" [ ("suite", suite) ]
+let () = Alcotest.run "Pl.Regon" [ ("suite", suite) ]
