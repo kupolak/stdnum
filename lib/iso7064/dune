@@ -1,0 +1,4 @@
+(library
+ (name iso7064)
+ (modules mod_37_2)
+ (libraries tools))
