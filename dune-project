@@ -20,7 +20,7 @@
  (synopsis "Ocaml library to provide functions to handle, parse and validate standard numbers.")
  (description "The stdnum library in OCaml provides functions for handling, parsing,
   and validating standard numbers. It can be used for identifiers like PESEL, NIP, REGON.")
- (depends ocaml dune)
+ (depends ocaml dune alcotest)
  (tags
   (validation, identity-card-validation standards utils check checker)))
 

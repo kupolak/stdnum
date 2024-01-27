@@ -147,8 +147,6 @@ let test_is_valid () =
     ; ("PL12345678901", false) (* Invalid length *)
     ; ("PL123456789A", false) (* Invalid format *)
     ; ("PL1234567891", false)
-      (* Invalid checksum *)
-      (* Add more test cases here *)
     ]
   in
   List.iter

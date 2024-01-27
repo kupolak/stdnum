@@ -22,8 +22,8 @@ bug-reports: "https://github.com/kupolak/stdnum/issues"
 depends: [
   "ocaml"
   "dune" {>= "3.13"}
+  "alcotest"
   "odoc" {with-doc}
-  "alcotest" {with-test}
 ]
 build: [
   ["dune" "subst"] {dev}
