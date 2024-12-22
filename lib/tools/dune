@@ -1,3 +1,4 @@
 (library
  (name tools)
+ (public_name stdnum.tools)
  (libraries str))
