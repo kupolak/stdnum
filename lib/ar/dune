@@ -1,0 +1,4 @@
+(library
+ (name ar)
+ (public_name stdnum.ar)
+ (libraries stdnum.tools))

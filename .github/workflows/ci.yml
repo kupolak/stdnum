@@ -10,12 +10,13 @@ on:
 jobs:
   fmt:
     name: Format
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
       - uses: ocaml/setup-ocaml@v2
         with:
           ocaml-compiler: ocaml-base-compiler.4.14.1
+          dune-cache: true
 
       - name: Install ocamlformat
         run: make install-ocamlformat
@@ -32,7 +33,7 @@ jobs:
       matrix:
         os:
           - macos-latest
-          - ubuntu-latest
+          - ubuntu-22.04
         ocaml-compiler:
           - ocaml-base-compiler.4.14.1
     steps:
@@ -42,6 +43,7 @@ jobs:
         uses: ocaml/setup-ocaml@v2
         with:
           ocaml-compiler: ${{ matrix.ocaml-compiler }}
+          dune-cache: true
 
       - name: Install opam dependencies
         run: opam install --deps-only --with-test .
