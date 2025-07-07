@@ -1,0 +1,4 @@
+(test
+ (name test_rif)
+ (libraries alcotest ve)
+ (modules test_rif))

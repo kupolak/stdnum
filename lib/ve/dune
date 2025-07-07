@@ -1,0 +1,5 @@
+(library
+ (name ve)
+ (public_name stdnum.ve)
+ (libraries tools)
+ (modules rif))
