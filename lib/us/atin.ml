@@ -9,9 +9,9 @@ let is_valid number =
   try
     ignore (validate number);
     true
-  with Failure _ -> false
+  with Invalid_format -> false
 
-let format_number number =
+let format number =
   if String.length number = 9 then
     String.sub number 0 3 ^ "-" ^ String.sub number 3 2 ^ "-"
     ^ String.sub number 5 4
