@@ -1,4 +1,5 @@
 (library
  (name ad)
+ (public_name stdnum.ad)
  (modules nrt)
  (libraries tools))

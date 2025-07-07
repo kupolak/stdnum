@@ -1,4 +1,5 @@
 (library
  (name iso7064)
+ (public_name stdnum.iso7064)
  (modules mod_37_2 mod_97_10)
  (libraries tools))
