@@ -18,5 +18,5 @@ val validate : string -> string
 val is_valid : string -> bool
 (** Check if the number is a valid ATIN. *)
 
-val format_number : string -> string
+val format : string -> string
 (** Reformat the number to the standard presentation format. *)

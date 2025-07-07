@@ -12,7 +12,7 @@ let test_is_valid () =
 
 let test_is_not_valid () =
   Alcotest.check_raises "Invalid Length" Us.Atin.Invalid_format (fun () ->
-      ignore (Us.Atin.is_valid "123"))
+      ignore (Us.Atin.validate "123"))
 
 let suite =
   [
