@@ -1,0 +1,5 @@
+(library
+ (name vn)
+ (public_name stdnum.vn)
+ (libraries tools)
+ (modules mst))
