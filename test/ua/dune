@@ -1,0 +1,4 @@
+(executable
+ (public_name test_rntrc)
+ (name test_rntrc)
+ (libraries alcotest ua))
