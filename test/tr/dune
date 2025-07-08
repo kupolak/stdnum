@@ -1,0 +1,4 @@
+(executable
+ (public_name test_vkn)
+ (name test_vkn)
+ (libraries alcotest tr))
