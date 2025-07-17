@@ -1,3 +1,4 @@
 (library
  (name stdnum)
- (public_name stdnum))
+ (public_name stdnum)
+ (modules_without_implementation stdnum))
