@@ -1,0 +1,5 @@
+(library
+ (name uy)
+ (public_name stdnum.uy)
+ (libraries tools)
+ (modules rut))
