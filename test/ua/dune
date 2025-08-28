@@ -1,4 +1,11 @@
 (executable
  (public_name test_rntrc)
  (name test_rntrc)
- (libraries alcotest ua))
+ (libraries alcotest ua)
+ (modules test_rntrc))
+
+(executable
+ (public_name test_edrpou)
+ (name test_edrpou)
+ (libraries alcotest ua)
+ (modules test_edrpou))
