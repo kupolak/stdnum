@@ -2,3 +2,8 @@
  (name test_utils)
  (libraries alcotest tools)
  (modules test_utils))
+
+(test
+ (name test_luhn)
+ (libraries alcotest tools)
+ (modules test_luhn))
