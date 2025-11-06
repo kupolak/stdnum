@@ -2,4 +2,4 @@
  (name tr)
  (public_name stdnum.tr)
  (libraries tools)
- (modules vkn))
+ (modules tckimlik vkn))
