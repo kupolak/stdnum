@@ -1,0 +1,5 @@
+(library
+ (name sm)
+ (public_name stdnum.sm)
+ (libraries tools)
+ (modules coe))
