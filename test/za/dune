@@ -2,3 +2,8 @@
  (name test_tin)
  (libraries alcotest za)
  (modules test_tin))
+
+(test
+ (name test_idnr)
+ (libraries alcotest za)
+ (modules test_idnr))

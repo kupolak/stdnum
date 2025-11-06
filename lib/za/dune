@@ -2,4 +2,4 @@
  (name za)
  (public_name stdnum.za)
  (libraries tools)
- (modules tin))
+ (modules tin idnr))
