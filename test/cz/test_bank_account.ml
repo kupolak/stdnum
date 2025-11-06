@@ -9,8 +9,7 @@ let test_valid_numbers () =
   List.iter
     (fun n ->
       Alcotest.(check bool)
-        (n ^ " should be valid")
-        true
+        (n ^ " should be valid") true
         (Cz.Bank_account.is_valid n))
     numbers
 
