@@ -40,38 +40,16 @@ let validate number =
         | Pl.Nip.Invalid_format -> raise Invalid_format
         | Pl.Nip.Invalid_length -> raise Invalid_length
         | Pl.Nip.Invalid_checksum -> raise Invalid_format)
-    | "TR" -> (
-        try "TR" ^ Tr.Vkn.validate local with
-        | Tr.Vkn.Invalid_format -> raise Invalid_format
-        | Tr.Vkn.Invalid_length -> raise Invalid_length
-        | Tr.Vkn.Invalid_checksum -> raise Invalid_format)
-    | "TW" -> (
-        try "TW" ^ Tw.Ubn.validate local with _ -> raise Invalid_format)
-    | "UA" -> (
-        try "UA" ^ Ua.Rntrc.validate local with _ -> raise Invalid_format)
     | "US" -> (
         (* US does not have VAT, but accept TIN forms when prefixed. *)
         try "US" ^ Us.Tin.validate local with _ -> raise Invalid_format)
-    | "VE" -> (
-        try "VE" ^ Ve.Rif.validate local with
-        | Ve.Rif.Invalid_length -> raise Invalid_length
-        | Ve.Rif.Invalid_format -> raise Invalid_format
-        | Ve.Rif.Invalid_component -> raise Invalid_component
-        | Ve.Rif.Invalid_checksum -> raise Invalid_format)
-    | "VN" -> (
-        try "VN" ^ Vn.Mst.validate local with _ -> raise Invalid_format)
     | _ -> raise Invalid_component
   else
     (* No or invalid country prefix: try known validators directly. *)
     let try_validators =
       [
         (fun () -> "PL" ^ Pl.Nip.validate n)
-      ; (fun () -> "TR" ^ Tr.Vkn.validate n)
-      ; (fun () -> "TW" ^ Tw.Ubn.validate n)
-      ; (fun () -> "UA" ^ Ua.Rntrc.validate n)
       ; (fun () -> "US" ^ Us.Tin.validate n)
-      ; (fun () -> "VE" ^ Ve.Rif.validate n)
-      ; (fun () -> "VN" ^ Vn.Mst.validate n)
       ]
     in
     let rec attempt = function
