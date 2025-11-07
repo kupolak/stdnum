@@ -7,3 +7,8 @@
  (name test_verhoeff)
  (libraries alcotest tools)
  (modules test_verhoeff))
+
+(test
+ (name test_luhn)
+ (libraries alcotest tools)
+ (modules test_luhn))
