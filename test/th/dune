@@ -1,0 +1,14 @@
+(test
+ (name test_pin)
+ (libraries alcotest th)
+ (modules test_pin))
+
+(test
+ (name test_moa)
+ (libraries alcotest th)
+ (modules test_moa))
+
+(test
+ (name test_tin)
+ (libraries alcotest th)
+ (modules test_tin))

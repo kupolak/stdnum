@@ -1,0 +1,5 @@
+(library
+ (name sk)
+ (public_name stdnum.sk)
+ (libraries tools)
+ (modules dph))

@@ -1,0 +1,4 @@
+(test
+ (name test_maticna)
+ (libraries alcotest si)
+ (modules test_maticna))
