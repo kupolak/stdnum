@@ -2,4 +2,4 @@
  (name us)
  (public_name stdnum.us)
  (libraries tools)
- (modules atin ein itin ptin ssn tin))
+ (modules atin ein itin ptin rtn ssn tin))
