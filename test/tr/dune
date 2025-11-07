@@ -1,4 +1,9 @@
-(executable
- (public_name test_vkn)
+(test
+ (name test_tckimlik)
+ (libraries alcotest tr)
+ (modules test_tckimlik))
+
+(test
  (name test_vkn)
- (libraries alcotest tr))
+ (libraries alcotest tr)
+ (modules test_vkn))

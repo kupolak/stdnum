@@ -1,4 +1,4 @@
 (library
  (name stdnum)
  (public_name stdnum)
- (libraries tools pl tn us))
+ (libraries tools cz pl th us))

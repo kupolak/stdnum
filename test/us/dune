@@ -4,6 +4,11 @@
  (modules test_atin))
 
 (test
+ (name test_rtn)
+ (libraries alcotest us)
+ (modules test_rtn))
+
+(test
  (name test_tin)
  (libraries alcotest us)
  (modules test_tin))
