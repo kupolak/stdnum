@@ -1,0 +1,5 @@
+(library
+ (name si)
+ (public_name stdnum.si)
+ (libraries tools)
+ (modules maticna))
