@@ -1,0 +1,5 @@
+(library
+ (name sg)
+ (public_name stdnum.sg)
+ (libraries tools unix)
+ (modules uen))
