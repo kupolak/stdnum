@@ -4,6 +4,11 @@
  (modules test_utils))
 
 (test
+ (name test_damm)
+ (libraries alcotest tools)
+ (modules test_damm))
+
+(test
  (name test_luhn)
  (libraries alcotest tools)
  (modules test_luhn))
