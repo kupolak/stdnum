@@ -1,0 +1,5 @@
+(library
+ (name se)
+ (public_name stdnum.se)
+ (libraries tools)
+ (modules orgnr vat))

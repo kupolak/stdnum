@@ -1,0 +1,4 @@
+(test
+ (name test_bank_account)
+ (libraries alcotest cz)
+ (modules test_bank_account))

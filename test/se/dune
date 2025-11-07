@@ -1,0 +1,9 @@
+(test
+ (name test_orgnr)
+ (libraries alcotest se)
+ (modules test_orgnr))
+
+(test
+ (name test_vat)
+ (libraries alcotest se)
+ (modules test_vat))

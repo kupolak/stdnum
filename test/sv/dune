@@ -1,0 +1,4 @@
+(test
+ (name test_nit)
+ (libraries alcotest sv)
+ (modules test_nit))

@@ -2,4 +2,4 @@
  (name tools)
  (public_name stdnum.tools)
  (libraries str)
- (modules damm utils))
+ (modules damm luhn utils))

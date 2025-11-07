@@ -1,0 +1,5 @@
+(library
+ (name th)
+ (public_name stdnum.th)
+ (libraries tools)
+ (modules pin moa tin))

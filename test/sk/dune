@@ -1,0 +1,4 @@
+(test
+ (name test_dph)
+ (libraries alcotest sk)
+ (modules test_dph))
