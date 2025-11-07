@@ -1,4 +1,9 @@
 (test
+ (name test_mod_11_10)
+ (libraries alcotest iso7064)
+ (modules test_mod_11_10))
+
+(test
  (name test_mod_37_2)
  (libraries alcotest iso7064)
  (modules test_mod_37_2))

@@ -1,0 +1,4 @@
+(test
+ (name test_mf)
+ (libraries alcotest tn)
+ (modules test_mf))

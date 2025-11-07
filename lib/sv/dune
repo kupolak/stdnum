@@ -1,0 +1,5 @@
+(library
+ (name sv)
+ (public_name stdnum.sv)
+ (libraries tools)
+ (modules nit))
