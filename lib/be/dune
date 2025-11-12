@@ -1,0 +1,5 @@
+(library
+ (name be)
+ (public_name stdnum.be)
+ (modules bis eid iban nn ssn vat)
+ (libraries tools unix))
