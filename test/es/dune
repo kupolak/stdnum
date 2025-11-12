@@ -1,0 +1,49 @@
+(test
+ (name test_cae)
+ (libraries alcotest es)
+ (modules test_cae))
+
+(test
+ (name test_ccc)
+ (libraries alcotest es)
+ (modules test_ccc))
+
+(test
+ (name test_cif)
+ (libraries alcotest es)
+ (modules test_cif))
+
+(test
+ (name test_cups)
+ (libraries alcotest es)
+ (modules test_cups))
+
+(test
+ (name test_dni)
+ (libraries alcotest es)
+ (modules test_dni))
+
+(test
+ (name test_iban)
+ (libraries alcotest es)
+ (modules test_iban))
+
+(test
+ (name test_nie)
+ (libraries alcotest es)
+ (modules test_nie))
+
+(test
+ (name test_nif)
+ (libraries alcotest es)
+ (modules test_nif))
+
+(test
+ (name test_postal_code)
+ (libraries alcotest es)
+ (modules test_postal_code))
+
+(test
+ (name test_referenciacatastral)
+ (libraries alcotest es)
+ (modules test_referenciacatastral))
