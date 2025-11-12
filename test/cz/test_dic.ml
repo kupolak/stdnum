@@ -56,8 +56,9 @@ let test_validate_rc_10_digit () =
 
 let test_validate_rc_9_digit () =
   (* Valid 9-digit RČ (not starting with 6, so treated as RČ) *)
-  let result = Cz.Dic.validate "710319274" in
-  Alcotest.(check string) "test_validate_rc_9_digit" "710319274" result
+  (* From Python doctest: validate('991231123') *)
+  let result = Cz.Dic.validate "991231123" in
+  Alcotest.(check string) "test_validate_rc_9_digit" "991231123" result
 
 let test_validate_invalid_length () =
   Alcotest.check_raises "Invalid Length" Cz.Dic.Invalid_length (fun () ->
