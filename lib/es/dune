@@ -1,0 +1,5 @@
+(library
+ (name es)
+ (public_name stdnum.es)
+ (modules ccc cif cups dni iban nie nif postal_code referenciacatastral)
+ (libraries tools))
