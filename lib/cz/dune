@@ -1,5 +1,5 @@
 (library
  (name cz)
  (public_name stdnum.cz)
- (modules bank_account)
+ (modules bank_account dic rc)
  (libraries tools))

@@ -2,3 +2,13 @@
  (name test_bank_account)
  (libraries alcotest cz)
  (modules test_bank_account))
+
+(test
+ (name test_rc)
+ (libraries alcotest cz)
+ (modules test_rc))
+
+(test
+ (name test_dic)
+ (libraries alcotest cz)
+ (modules test_dic))
