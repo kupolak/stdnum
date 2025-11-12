@@ -6,11 +6,12 @@ exception Invalid_checksum
 exception Invalid_component
 
 let compact number =
-  let number = Utils.clean number "[ /]" |> String.uppercase_ascii |> String.trim in
+  let number =
+    Utils.clean number "[ /]" |> String.uppercase_ascii |> String.trim
+  in
   if String.length number > 2 && String.sub number 0 2 = "CZ" then
     String.sub number 2 (String.length number - 2)
-  else
-    number
+  else number
 
 let calc_check_digit_legal number =
   (* Calculate check digit for 8-digit legal entities (7 digits + check digit) *)
@@ -41,31 +42,25 @@ let validate number =
 
   let len = String.length number in
 
-  if len = 8 then begin
+  if len = 8 then (
     (* Legal entities - 8 digit numbers *)
     if number.[0] = '9' then raise Invalid_component;
     let base = String.sub number 0 7 in
     let check = String.sub number 7 1 in
-    if calc_check_digit_legal base <> check then raise Invalid_checksum
-  end
-  else if len = 9 && number.[0] = '6' then begin
+    if calc_check_digit_legal base <> check then raise Invalid_checksum)
+  else if len = 9 && number.[0] = '6' then (
     (* Special cases - 9 digit numbers starting with 6 *)
     let middle = String.sub number 1 7 in
     let check = String.sub number 8 1 in
-    if calc_check_digit_special middle <> check then raise Invalid_checksum
-  end
-  else if len = 9 || len = 10 then begin
+    if calc_check_digit_special middle <> check then raise Invalid_checksum)
+  else if len = 9 || len = 10 then
     (* 9 or 10 digit individual - must be valid RČ *)
-    try
-      ignore (Rc.validate number)
-    with
+    try ignore (Rc.validate number) with
     | Rc.Invalid_format -> raise Invalid_format
     | Rc.Invalid_length -> raise Invalid_length
     | Rc.Invalid_checksum -> raise Invalid_checksum
     | Rc.Invalid_component -> raise Invalid_component
-  end
-  else
-    raise Invalid_length;
+  else raise Invalid_length;
 
   number
 
@@ -73,4 +68,6 @@ let is_valid number =
   try
     ignore (validate number);
     true
-  with Invalid_format | Invalid_length | Invalid_checksum | Invalid_component -> false
+  with
+  | Invalid_format | Invalid_length | Invalid_checksum | Invalid_component ->
+    false

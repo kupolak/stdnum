@@ -25,12 +25,11 @@ let validate number =
   if dd < 1 || dd > 31 then raise Invalid_component;
 
   (* For 10-digit numbers, validate the check digit using modulo 11 *)
-  if len = 10 then begin
-    let base_number = String.sub number 0 9 in
-    let check_digit = int_of_char number.[9] - int_of_char '0' in
-    let calculated = (int_of_string base_number) mod 11 in
-    if calculated <> check_digit then raise Invalid_checksum
-  end;
+  (if len = 10 then
+     let base_number = String.sub number 0 9 in
+     let check_digit = int_of_char number.[9] - int_of_char '0' in
+     let calculated = int_of_string base_number mod 11 in
+     if calculated <> check_digit then raise Invalid_checksum);
 
   number
 
@@ -38,4 +37,6 @@ let is_valid number =
   try
     ignore (validate number);
     true
-  with Invalid_format | Invalid_length | Invalid_checksum | Invalid_component -> false
+  with
+  | Invalid_format | Invalid_length | Invalid_checksum | Invalid_component ->
+    false

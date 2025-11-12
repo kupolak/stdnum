@@ -93,10 +93,16 @@ let suite =
   ; ("test_calc_check_digit_legal", `Quick, test_calc_check_digit_legal)
   ; ("test_calc_check_digit_special", `Quick, test_calc_check_digit_special)
   ; ("test_validate_legal_entity", `Quick, test_validate_legal_entity)
-  ; ("test_validate_legal_entity_invalid_checksum", `Quick, test_validate_legal_entity_invalid_checksum)
-  ; ("test_validate_legal_entity_starts_with_9", `Quick, test_validate_legal_entity_starts_with_9)
+  ; ( "test_validate_legal_entity_invalid_checksum"
+    , `Quick
+    , test_validate_legal_entity_invalid_checksum )
+  ; ( "test_validate_legal_entity_starts_with_9"
+    , `Quick
+    , test_validate_legal_entity_starts_with_9 )
   ; ("test_validate_special_case", `Quick, test_validate_special_case)
-  ; ("test_validate_special_case_invalid_checksum", `Quick, test_validate_special_case_invalid_checksum)
+  ; ( "test_validate_special_case_invalid_checksum"
+    , `Quick
+    , test_validate_special_case_invalid_checksum )
   ; ("test_validate_rc_10_digit", `Quick, test_validate_rc_10_digit)
   ; ("test_validate_rc_9_digit", `Quick, test_validate_rc_9_digit)
   ; ("test_validate_invalid_length", `Quick, test_validate_invalid_length)

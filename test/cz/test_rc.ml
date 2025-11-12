@@ -70,7 +70,9 @@ let suite =
   ; ("test_validate_invalid_format", `Quick, test_validate_invalid_format)
   ; ("test_validate_invalid_month", `Quick, test_validate_invalid_month)
   ; ("test_validate_invalid_day", `Quick, test_validate_invalid_day)
-  ; ("test_validate_month_plus_50_female", `Quick, test_validate_month_plus_50_female)
+  ; ( "test_validate_month_plus_50_female"
+    , `Quick
+    , test_validate_month_plus_50_female )
   ; ("test_is_valid_true", `Quick, test_is_valid_true)
   ; ("test_is_valid_false", `Quick, test_is_valid_false)
   ]
