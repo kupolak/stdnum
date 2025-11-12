@@ -1,4 +1,9 @@
 (test
+ (name test_cae)
+ (libraries alcotest es)
+ (modules test_cae))
+
+(test
  (name test_ccc)
  (libraries alcotest es)
  (modules test_ccc))
