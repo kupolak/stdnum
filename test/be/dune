@@ -1,0 +1,29 @@
+(test
+ (name test_bis)
+ (libraries alcotest be)
+ (modules test_bis))
+
+(test
+ (name test_eid)
+ (libraries alcotest be)
+ (modules test_eid))
+
+(test
+ (name test_iban)
+ (libraries alcotest be)
+ (modules test_iban))
+
+(test
+ (name test_nn)
+ (libraries alcotest be)
+ (modules test_nn))
+
+(test
+ (name test_ssn)
+ (libraries alcotest be)
+ (modules test_ssn))
+
+(test
+ (name test_vat)
+ (libraries alcotest be)
+ (modules test_vat))
