@@ -1,0 +1,9 @@
+(test
+ (name test_cn)
+ (libraries alcotest jp)
+ (modules test_cn))
+
+(test
+ (name test_in)
+ (libraries alcotest jp)
+ (modules test_in))
