@@ -2,3 +2,4 @@
  (name stdnum)
  (public_name stdnum)
  (libraries tools cz it_stdnum no pl se sg si sk sm sv th us))
+ (libraries tools cz it_stdnum do_stdnum no pl se sg si sk sm sv th us))
