@@ -1,0 +1,24 @@
+(test
+ (name test_fodselsnummer)
+ (libraries alcotest no)
+ (modules test_fodselsnummer))
+
+(test
+ (name test_kontonr)
+ (libraries alcotest no)
+ (modules test_kontonr))
+
+(test
+ (name test_iban)
+ (libraries alcotest no)
+ (modules test_iban))
+
+(test
+ (name test_orgnr)
+ (libraries alcotest no)
+ (modules test_orgnr))
+
+(test
+ (name test_mva)
+ (libraries alcotest no)
+ (modules test_mva))

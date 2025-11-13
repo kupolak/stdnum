@@ -1,0 +1,5 @@
+(library
+ (name no)
+ (public_name stdnum.no)
+ (modules fodselsnummer kontonr iban orgnr mva)
+ (libraries tools unix))
