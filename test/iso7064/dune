@@ -4,9 +4,19 @@
  (modules test_mod_11_10))
 
 (test
+ (name test_mod_11_2)
+ (libraries alcotest iso7064)
+ (modules test_mod_11_2))
+
+(test
  (name test_mod_37_2)
  (libraries alcotest iso7064)
  (modules test_mod_37_2))
+
+(test
+ (name test_mod_37_36)
+ (libraries alcotest iso7064)
+ (modules test_mod_37_36))
 
 (test
  (name test_mod_97_10)

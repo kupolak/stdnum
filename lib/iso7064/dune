@@ -1,4 +1,4 @@
 (library
  (name iso7064)
- (modules mod_11_10 mod_37_2 mod_97_10)
+ (modules mod_11_10 mod_11_2 mod_37_2 mod_37_36 mod_97_10)
  (libraries tools))
