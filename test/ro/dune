@@ -1,0 +1,19 @@
+(test
+ (name test_onrc)
+ (libraries alcotest ro)
+ (modules test_onrc))
+
+(test
+ (name test_cui)
+ (libraries alcotest ro)
+ (modules test_cui))
+
+(test
+ (name test_cnp)
+ (libraries alcotest ro)
+ (modules test_cnp))
+
+(test
+ (name test_cf)
+ (libraries alcotest ro)
+ (modules test_cf))
