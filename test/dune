@@ -17,3 +17,18 @@
  (name test_cfi)
  (libraries alcotest stdnum)
  (modules test_cfi))
+
+(test
+ (name test_cusip)
+ (libraries alcotest stdnum)
+ (modules test_cusip))
+
+(test
+ (name test_ean)
+ (libraries alcotest stdnum)
+ (modules test_ean))
+
+(test
+ (name test_figi)
+ (libraries alcotest stdnum)
+ (modules test_figi))
