@@ -1,0 +1,4 @@
+(test
+ (name test_bic)
+ (libraries alcotest stdnum)
+ (modules test_bic))
