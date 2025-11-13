@@ -1,0 +1,5 @@
+(library
+ (name it_stdnum)
+ (public_name stdnum.it)
+ (modules aic iva codicefiscale)
+ (libraries tools unix))
