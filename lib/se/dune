@@ -1,5 +1,5 @@
 (library
  (name se)
  (public_name stdnum.se)
- (libraries tools)
- (modules orgnr vat))
+ (libraries tools unix)
+ (modules orgnr personnummer postnummer vat))

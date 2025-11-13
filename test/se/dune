@@ -4,6 +4,16 @@
  (modules test_orgnr))
 
 (test
+ (name test_personnummer)
+ (libraries alcotest se)
+ (modules test_personnummer))
+
+(test
+ (name test_postnummer)
+ (libraries alcotest se)
+ (modules test_postnummer))
+
+(test
  (name test_vat)
  (libraries alcotest se)
  (modules test_vat))
