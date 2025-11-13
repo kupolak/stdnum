@@ -1,0 +1,5 @@
+(library
+ (name ro)
+ (public_name stdnum.ro)
+ (libraries tools unix str)
+ (modules cf cnp cui onrc))
