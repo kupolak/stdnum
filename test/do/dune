@@ -1,0 +1,14 @@
+(test
+ (name test_ncf)
+ (libraries alcotest do_stdnum)
+ (modules test_ncf))
+
+(test
+ (name test_rnc)
+ (libraries alcotest do_stdnum)
+ (modules test_rnc))
+
+(test
+ (name test_cedula)
+ (libraries alcotest do_stdnum)
+ (modules test_cedula))
