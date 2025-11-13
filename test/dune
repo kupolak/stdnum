@@ -7,3 +7,8 @@
  (name test_bitcoin)
  (libraries alcotest stdnum)
  (modules test_bitcoin))
+
+(test
+ (name test_casrn)
+ (libraries alcotest stdnum)
+ (modules test_casrn))
