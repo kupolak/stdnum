@@ -1,4 +1,19 @@
 (library
  (name stdnum)
  (public_name stdnum)
- (libraries tools cz no pl se sg si sk sm sv th us))
+ (libraries
+  tools
+  ch_stdnum
+  cz
+  iso7064
+  nl_stdnum
+  no
+  pl
+  se
+  sg
+  si
+  sk
+  sm
+  sv
+  th
+  us))
