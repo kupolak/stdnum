@@ -1,0 +1,9 @@
+(test
+ (name test_aic)
+ (libraries alcotest it_stdnum)
+ (modules test_aic))
+
+(test
+ (name test_codicefiscale)
+ (libraries alcotest it_stdnum)
+ (modules test_codicefiscale))
