@@ -1,0 +1,29 @@
+(test
+ (name test_brin)
+ (libraries alcotest nl_stdnum)
+ (modules test_brin))
+
+(test
+ (name test_bsn)
+ (libraries alcotest nl_stdnum)
+ (modules test_bsn))
+
+(test
+ (name test_btw)
+ (libraries alcotest nl_stdnum)
+ (modules test_btw))
+
+(test
+ (name test_identiteitskaartnummer)
+ (libraries alcotest nl_stdnum)
+ (modules test_identiteitskaartnummer))
+
+(test
+ (name test_onderwijsnummer)
+ (libraries alcotest nl_stdnum)
+ (modules test_onderwijsnummer))
+
+(test
+ (name test_postcode)
+ (libraries alcotest nl_stdnum)
+ (modules test_postcode))
