@@ -12,3 +12,8 @@
  (name test_casrn)
  (libraries alcotest stdnum)
  (modules test_casrn))
+
+(test
+ (name test_cfi)
+ (libraries alcotest stdnum)
+ (modules test_cfi))
