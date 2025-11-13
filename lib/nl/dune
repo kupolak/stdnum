@@ -1,0 +1,5 @@
+(library
+ (name nl_stdnum)
+ (public_name stdnum.nl)
+ (modules brin bsn btw identiteitskaartnummer onderwijsnummer postcode)
+ (libraries tools iso7064))
