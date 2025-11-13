@@ -11,7 +11,7 @@ let test_compact () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = Do_stdnum.Ncf.compact input in
+      let result = Do.Ncf.compact input in
       Alcotest.(check string) ("test_compact_" ^ input) expected_result result)
     test_cases
 
@@ -26,7 +26,7 @@ let test_validate () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = Do_stdnum.Ncf.validate input in
+      let result = Do.Ncf.validate input in
       Alcotest.(check string) ("test_validate_" ^ input) expected_result result)
     test_cases
 
@@ -45,7 +45,7 @@ let test_is_valid () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = Do_stdnum.Ncf.is_valid input in
+      let result = Do.Ncf.is_valid input in
       Alcotest.(check bool) ("test_is_valid_" ^ input) expected_result result)
     test_cases
 
@@ -56,4 +56,4 @@ let suite =
   ; ("test_is_valid", `Quick, test_is_valid)
   ]
 
-let () = Alcotest.run "Do_stdnum.Ncf" [ ("suite", suite) ]
+let () = Alcotest.run "Do.Ncf" [ ("suite", suite) ]

@@ -10,7 +10,7 @@ let test_compact () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = De_stdnum.Handelsregisternummer.compact input in
+      let result = De.Handelsregisternummer.compact input in
       Alcotest.(check string) ("test_compact_" ^ input) expected_result result)
     test_cases
 
@@ -27,21 +27,20 @@ let test_validate () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = De_stdnum.Handelsregisternummer.validate input in
+      let result = De.Handelsregisternummer.validate input in
       Alcotest.(check string) ("test_validate_" ^ input) expected_result result)
     test_cases
 
 let test_validate_with_company_form () =
   (* Valid: GmbH should have HRB *)
   let result1 =
-    De_stdnum.Handelsregisternummer.validate ~company_form:"GmbH"
-      "Aachen HRB 11223"
+    De.Handelsregisternummer.validate ~company_form:"GmbH" "Aachen HRB 11223"
   in
   Alcotest.(check string) "test_validate_gmbh_hrb" "Aachen HRB 11223" result1;
 
   (* Valid: e.G. should have GnR *)
   let result2 =
-    De_stdnum.Handelsregisternummer.validate ~company_form:"e.G."
+    De.Handelsregisternummer.validate ~company_form:"e.G."
       "Frankfurt/Oder GnR 11223"
   in
   Alcotest.(check string)
@@ -51,10 +50,10 @@ let test_validate_with_company_form () =
   let invalid =
     try
       ignore
-        (De_stdnum.Handelsregisternummer.validate ~company_form:"GmbH"
+        (De.Handelsregisternummer.validate ~company_form:"GmbH"
            "Aachen HRA 11223");
       false
-    with De_stdnum.Handelsregisternummer.Invalid_component -> true
+    with De.Handelsregisternummer.Invalid_component -> true
   in
   Alcotest.(check bool) "test_validate_gmbh_hra_invalid" true invalid
 
@@ -71,7 +70,7 @@ let test_is_valid () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = De_stdnum.Handelsregisternummer.is_valid input in
+      let result = De.Handelsregisternummer.is_valid input in
       Alcotest.(check bool) ("test_is_valid_" ^ input) expected_result result)
     test_cases
 
@@ -83,4 +82,4 @@ let suite =
   ; ("test_is_valid", `Quick, test_is_valid)
   ]
 
-let () = Alcotest.run "De_stdnum.Handelsregisternummer" [ ("suite", suite) ]
+let () = Alcotest.run "De.Handelsregisternummer" [ ("suite", suite) ]

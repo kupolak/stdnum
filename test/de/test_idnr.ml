@@ -9,7 +9,7 @@ let test_compact () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = De_stdnum.Idnr.compact input in
+      let result = De.Idnr.compact input in
       Alcotest.(check string) ("test_compact_" ^ input) expected_result result)
     test_cases
 
@@ -19,7 +19,7 @@ let test_validate () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = De_stdnum.Idnr.validate input in
+      let result = De.Idnr.validate input in
       Alcotest.(check string) ("test_validate_" ^ input) expected_result result)
     test_cases
 
@@ -38,7 +38,7 @@ let test_is_valid () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = De_stdnum.Idnr.is_valid input in
+      let result = De.Idnr.is_valid input in
       Alcotest.(check bool) ("test_is_valid_" ^ input) expected_result result)
     test_cases
 
@@ -48,7 +48,7 @@ let test_format () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = De_stdnum.Idnr.format input in
+      let result = De.Idnr.format input in
       Alcotest.(check string) ("test_format_" ^ input) expected_result result)
     test_cases
 
@@ -60,4 +60,4 @@ let suite =
   ; ("test_format", `Quick, test_format)
   ]
 
-let () = Alcotest.run "De_stdnum.Idnr" [ ("suite", suite) ]
+let () = Alcotest.run "De.Idnr" [ ("suite", suite) ]

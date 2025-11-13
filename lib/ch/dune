@@ -1,5 +1,5 @@
 (library
- (name ch_stdnum)
+ (name ch)
  (public_name stdnum.ch)
  (modules esr ssn uid vat)
  (libraries tools))

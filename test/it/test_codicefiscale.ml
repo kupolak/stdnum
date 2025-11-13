@@ -8,7 +8,7 @@ let test_compact () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = It_stdnum.Codicefiscale.compact input in
+      let result = It.Codicefiscale.compact input in
       Alcotest.(check string) ("test_compact_" ^ input) expected_result result)
     test_cases
 
@@ -16,7 +16,7 @@ let test_calc_check_digit () =
   let test_cases = [ ("RCCMNL83S18D969", "H"); ("CNTCHR83T41D969", "D") ] in
   List.iter
     (fun (input, expected_result) ->
-      let result = It_stdnum.Codicefiscale.calc_check_digit input in
+      let result = It.Codicefiscale.calc_check_digit input in
       Alcotest.(check string)
         ("test_calc_check_digit_" ^ input)
         expected_result result)
@@ -32,7 +32,7 @@ let test_get_birth_date () =
   in
   List.iter
     (fun (input, (exp_year, exp_month, exp_day)) ->
-      let _time, tm = It_stdnum.Codicefiscale.get_birth_date input in
+      let _time, tm = It.Codicefiscale.get_birth_date input in
       Alcotest.(check int)
         ("test_birth_year_" ^ input)
         exp_year (tm.Unix.tm_year + 1900);
@@ -46,7 +46,7 @@ let test_get_gender () =
   let test_cases = [ ("RCCMNL83S18D969H", "M"); ("CNTCHR83T41D969D", "F") ] in
   List.iter
     (fun (input, expected_result) ->
-      let result = It_stdnum.Codicefiscale.get_gender input in
+      let result = It.Codicefiscale.get_gender input in
       Alcotest.(check string)
         ("test_get_gender_" ^ input)
         expected_result result)
@@ -62,7 +62,7 @@ let test_validate () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = It_stdnum.Codicefiscale.validate input in
+      let result = It.Codicefiscale.validate input in
       Alcotest.(check string) ("test_validate_" ^ input) expected_result result)
     test_cases
 
@@ -80,7 +80,7 @@ let test_is_valid () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = It_stdnum.Codicefiscale.is_valid input in
+      let result = It.Codicefiscale.is_valid input in
       Alcotest.(check bool) ("test_is_valid_" ^ input) expected_result result)
     test_cases
 
@@ -94,4 +94,4 @@ let suite =
   ; ("test_is_valid", `Quick, test_is_valid)
   ]
 
-let () = Alcotest.run "It_stdnum.Codicefiscale" [ ("suite", suite) ]
+let () = Alcotest.run "It.Codicefiscale" [ ("suite", suite) ]

@@ -9,7 +9,7 @@ let test_compact () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = Nl_stdnum.Postcode.compact input in
+      let result = Nl.Postcode.compact input in
       Alcotest.(check string) ("test_compact_" ^ input) expected_result result)
     test_cases
 
@@ -19,7 +19,7 @@ let test_validate () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = Nl_stdnum.Postcode.validate input in
+      let result = Nl.Postcode.validate input in
       Alcotest.(check string) ("test_validate_" ^ input) expected_result result)
     test_cases
 
@@ -40,7 +40,7 @@ let test_is_valid () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = Nl_stdnum.Postcode.is_valid input in
+      let result = Nl.Postcode.is_valid input in
       Alcotest.(check bool) ("test_is_valid_" ^ input) expected_result result)
     test_cases
 
@@ -51,4 +51,4 @@ let suite =
   ; ("test_is_valid", `Quick, test_is_valid)
   ]
 
-let () = Alcotest.run "Nl_stdnum.Postcode" [ ("suite", suite) ]
+let () = Alcotest.run "Nl.Postcode" [ ("suite", suite) ]

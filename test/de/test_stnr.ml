@@ -8,7 +8,7 @@ let test_compact () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = De_stdnum.Stnr.compact input in
+      let result = De.Stnr.compact input in
       Alcotest.(check string) ("test_compact_" ^ input) expected_result result)
     test_cases
 
@@ -22,31 +22,25 @@ let test_validate () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = De_stdnum.Stnr.validate input in
+      let result = De.Stnr.validate input in
       Alcotest.(check string) ("test_validate_" ^ input) expected_result result)
     test_cases
 
 let test_validate_with_region () =
   (* Valid for Sachsen *)
-  let result1 =
-    De_stdnum.Stnr.validate ~region:De_stdnum.Stnr.Sachsen "201/123/12340"
-  in
+  let result1 = De.Stnr.validate ~region:De.Stnr.Sachsen "201/123/12340" in
   Alcotest.(check string) "test_validate_sachsen" "20112312340" result1;
 
   (* Valid for Thüringen *)
-  let result2 =
-    De_stdnum.Stnr.validate ~region:De_stdnum.Stnr.Thueringen "4151081508156"
-  in
+  let result2 = De.Stnr.validate ~region:De.Stnr.Thueringen "4151081508156" in
   Alcotest.(check string) "test_validate_thueringen" "4151081508156" result2;
 
   (* Invalid for Thüringen (wrong format) *)
   let invalid =
     try
-      ignore
-        (De_stdnum.Stnr.validate ~region:De_stdnum.Stnr.Thueringen
-           "4151181508156");
+      ignore (De.Stnr.validate ~region:De.Stnr.Thueringen "4151181508156");
       false
-    with De_stdnum.Stnr.Invalid_format -> true
+    with De.Stnr.Invalid_format -> true
   in
   Alcotest.(check bool) "test_validate_thueringen_invalid" true invalid
 
@@ -64,7 +58,7 @@ let test_is_valid () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = De_stdnum.Stnr.is_valid input in
+      let result = De.Stnr.is_valid input in
       Alcotest.(check bool) ("test_is_valid_" ^ input) expected_result result)
     test_cases
 
@@ -72,7 +66,7 @@ let test_format () =
   let test_cases = [ ("18181508155", "181/815/08155") ] in
   List.iter
     (fun (input, expected_result) ->
-      let result = De_stdnum.Stnr.format input in
+      let result = De.Stnr.format input in
       Alcotest.(check string) ("test_format_" ^ input) expected_result result)
     test_cases
 
@@ -85,4 +79,4 @@ let suite =
   ; ("test_format", `Quick, test_format)
   ]
 
-let () = Alcotest.run "De_stdnum.Stnr" [ ("suite", suite) ]
+let () = Alcotest.run "De.Stnr" [ ("suite", suite) ]

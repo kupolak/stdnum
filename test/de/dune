@@ -1,24 +1,24 @@
 (test
  (name test_handelsregisternummer)
- (libraries alcotest de_stdnum)
+ (libraries alcotest de)
  (modules test_handelsregisternummer))
 
 (test
  (name test_idnr)
- (libraries alcotest de_stdnum)
+ (libraries alcotest de)
  (modules test_idnr))
 
 (test
  (name test_stnr)
- (libraries alcotest de_stdnum)
+ (libraries alcotest de)
  (modules test_stnr))
 
 (test
  (name test_vat)
- (libraries alcotest de_stdnum)
+ (libraries alcotest de)
  (modules test_vat))
 
 (test
  (name test_wkn)
- (libraries alcotest de_stdnum)
+ (libraries alcotest de)
  (modules test_wkn))

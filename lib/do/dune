@@ -1,5 +1,5 @@
 (library
- (name do_stdnum)
+ (name do)
  (public_name stdnum.do)
  (modules ncf rnc cedula)
  (libraries tools))

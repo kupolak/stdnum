@@ -1,19 +1,19 @@
 (test
  (name test_esr)
- (libraries alcotest ch_stdnum)
+ (libraries alcotest ch)
  (modules test_esr))
 
 (test
  (name test_ssn)
- (libraries alcotest ch_stdnum)
+ (libraries alcotest ch)
  (modules test_ssn))
 
 (test
  (name test_uid)
- (libraries alcotest ch_stdnum)
+ (libraries alcotest ch)
  (modules test_uid))
 
 (test
  (name test_vat)
- (libraries alcotest ch_stdnum)
+ (libraries alcotest ch)
  (modules test_vat))

@@ -9,7 +9,7 @@ let test_compact () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = Do_stdnum.Rnc.compact input in
+      let result = Do.Rnc.compact input in
       Alcotest.(check string) ("test_compact_" ^ input) expected_result result)
     test_cases
 
@@ -17,7 +17,7 @@ let test_calc_check_digit () =
   let test_cases = [ ("10185004", "3"); ("13124679", "6") ] in
   List.iter
     (fun (input, expected_result) ->
-      let result = Do_stdnum.Rnc.calc_check_digit input in
+      let result = Do.Rnc.calc_check_digit input in
       Alcotest.(check string)
         ("test_calc_check_digit_" ^ input)
         expected_result result)
@@ -33,7 +33,7 @@ let test_validate () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = Do_stdnum.Rnc.validate input in
+      let result = Do.Rnc.validate input in
       Alcotest.(check string) ("test_validate_" ^ input) expected_result result)
     test_cases
 
@@ -50,7 +50,7 @@ let test_is_valid () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = Do_stdnum.Rnc.is_valid input in
+      let result = Do.Rnc.is_valid input in
       Alcotest.(check bool) ("test_is_valid_" ^ input) expected_result result)
     test_cases
 
@@ -60,7 +60,7 @@ let test_format () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = Do_stdnum.Rnc.format input in
+      let result = Do.Rnc.format input in
       Alcotest.(check string) ("test_format_" ^ input) expected_result result)
     test_cases
 
@@ -73,4 +73,4 @@ let suite =
   ; ("test_format", `Quick, test_format)
   ]
 
-let () = Alcotest.run "Do_stdnum.Rnc" [ ("suite", suite) ]
+let () = Alcotest.run "Do.Rnc" [ ("suite", suite) ]

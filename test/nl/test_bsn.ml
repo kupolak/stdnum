@@ -9,7 +9,7 @@ let test_compact () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = Nl_stdnum.Bsn.compact input in
+      let result = Nl.Bsn.compact input in
       Alcotest.(check string) ("test_compact_" ^ input) expected_result result)
     test_cases
 
@@ -17,7 +17,7 @@ let test_checksum () =
   let test_cases = [ ("111222333", 0); ("111252333", 4) ] in
   List.iter
     (fun (input, expected_result) ->
-      let result = Nl_stdnum.Bsn.checksum input in
+      let result = Nl.Bsn.checksum input in
       Alcotest.(check int) ("test_checksum_" ^ input) expected_result result)
     test_cases
 
@@ -25,7 +25,7 @@ let test_validate () =
   let test_cases = [ ("1112.22.333", "111222333") ] in
   List.iter
     (fun (input, expected_result) ->
-      let result = Nl_stdnum.Bsn.validate input in
+      let result = Nl.Bsn.validate input in
       Alcotest.(check string) ("test_validate_" ^ input) expected_result result)
     test_cases
 
@@ -42,7 +42,7 @@ let test_is_valid () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = Nl_stdnum.Bsn.is_valid input in
+      let result = Nl.Bsn.is_valid input in
       Alcotest.(check bool) ("test_is_valid_" ^ input) expected_result result)
     test_cases
 
@@ -52,7 +52,7 @@ let test_format () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = Nl_stdnum.Bsn.format input in
+      let result = Nl.Bsn.format input in
       Alcotest.(check string) ("test_format_" ^ input) expected_result result)
     test_cases
 
@@ -65,4 +65,4 @@ let suite =
   ; ("test_format", `Quick, test_format)
   ]
 
-let () = Alcotest.run "Nl_stdnum.Bsn" [ ("suite", suite) ]
+let () = Alcotest.run "Nl.Bsn" [ ("suite", suite) ]

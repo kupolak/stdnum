@@ -9,7 +9,7 @@ let test_compact () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = De_stdnum.Wkn.compact input in
+      let result = De.Wkn.compact input in
       Alcotest.(check string) ("test_compact_" ^ input) expected_result result)
     test_cases
 
@@ -19,7 +19,7 @@ let test_validate () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = De_stdnum.Wkn.validate input in
+      let result = De.Wkn.validate input in
       Alcotest.(check string) ("test_validate_" ^ input) expected_result result)
     test_cases
 
@@ -37,7 +37,7 @@ let test_is_valid () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = De_stdnum.Wkn.is_valid input in
+      let result = De.Wkn.is_valid input in
       Alcotest.(check bool) ("test_is_valid_" ^ input) expected_result result)
     test_cases
 
@@ -45,7 +45,7 @@ let test_to_isin () =
   let test_cases = [ ("SKWM02", "DE000SKWM021") ] in
   List.iter
     (fun (input, expected_result) ->
-      let result = De_stdnum.Wkn.to_isin input in
+      let result = De.Wkn.to_isin input in
       Alcotest.(check string) ("test_to_isin_" ^ input) expected_result result)
     test_cases
 
@@ -57,4 +57,4 @@ let suite =
   ; ("test_to_isin", `Quick, test_to_isin)
   ]
 
-let () = Alcotest.run "De_stdnum.Wkn" [ ("suite", suite) ]
+let () = Alcotest.run "De.Wkn" [ ("suite", suite) ]

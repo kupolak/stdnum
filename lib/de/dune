@@ -1,5 +1,5 @@
 (library
- (name de_stdnum)
+ (name de)
  (public_name stdnum.de)
  (modules handelsregisternummer idnr stnr vat wkn)
  (libraries tools iso7064 str))

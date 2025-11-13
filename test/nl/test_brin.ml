@@ -9,7 +9,7 @@ let test_compact () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = Nl_stdnum.Brin.compact input in
+      let result = Nl.Brin.compact input in
       Alcotest.(check string) ("test_compact_" ^ input) expected_result result)
     test_cases
 
@@ -17,7 +17,7 @@ let test_validate () =
   let test_cases = [ ("05 KO", "05KO"); ("07NU 00", "07NU00") ] in
   List.iter
     (fun (input, expected_result) ->
-      let result = Nl_stdnum.Brin.validate input in
+      let result = Nl.Brin.validate input in
       Alcotest.(check string) ("test_validate_" ^ input) expected_result result)
     test_cases
 
@@ -37,7 +37,7 @@ let test_is_valid () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = Nl_stdnum.Brin.is_valid input in
+      let result = Nl.Brin.is_valid input in
       Alcotest.(check bool) ("test_is_valid_" ^ input) expected_result result)
     test_cases
 
@@ -48,4 +48,4 @@ let suite =
   ; ("test_is_valid", `Quick, test_is_valid)
   ]
 
-let () = Alcotest.run "Nl_stdnum.Brin" [ ("suite", suite) ]
+let () = Alcotest.run "Nl.Brin" [ ("suite", suite) ]
