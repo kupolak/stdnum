@@ -32,3 +32,8 @@
  (name test_figi)
  (libraries alcotest stdnum)
  (modules test_figi))
+
+(test
+ (name test_grid)
+ (libraries alcotest stdnum)
+ (modules test_grid))
