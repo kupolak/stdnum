@@ -37,3 +37,8 @@
  (name test_grid)
  (libraries alcotest stdnum)
  (modules test_grid))
+
+(test
+ (name test_iban)
+ (libraries alcotest stdnum)
+ (modules test_iban))
