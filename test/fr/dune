@@ -1,0 +1,9 @@
+(test
+ (name test_siren)
+ (libraries alcotest stdnum)
+ (modules test_siren))
+
+(test
+ (name test_tva)
+ (libraries alcotest stdnum)
+ (modules test_tva))
