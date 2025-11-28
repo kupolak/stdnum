@@ -2,3 +2,8 @@
  (name test_maticna)
  (libraries alcotest si)
  (modules test_maticna))
+
+(test
+ (name test_emso)
+ (libraries alcotest stdnum)
+ (modules test_emso))
