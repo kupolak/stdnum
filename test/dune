@@ -47,3 +47,8 @@
  (name test_iso6346)
  (libraries alcotest stdnum)
  (modules test_iso6346))
+
+(test
+ (name test_iso11649)
+ (libraries alcotest stdnum)
+ (modules test_iso11649))
