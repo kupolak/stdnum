@@ -12,3 +12,8 @@
  (name test_siret)
  (libraries alcotest stdnum)
  (modules test_siret))
+
+(test
+ (name test_nir)
+ (libraries alcotest stdnum)
+ (modules test_nir))

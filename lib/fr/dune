@@ -1,5 +1,5 @@
 (library
  (name fr)
  (public_name stdnum.fr)
- (modules siren tva siret)
+ (modules siren tva siret nir)
  (libraries tools))
