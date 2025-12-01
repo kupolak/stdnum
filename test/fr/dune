@@ -17,3 +17,8 @@
  (name test_nir)
  (libraries alcotest stdnum)
  (modules test_nir))
+
+(test
+ (name test_nif)
+ (libraries alcotest stdnum)
+ (modules test_nif))
