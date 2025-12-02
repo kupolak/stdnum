@@ -1,5 +1,5 @@
 (library
  (name cn)
  (public_name stdnum.cn)
- (modules uscc)
+ (modules uscc ric)
  (libraries tools))

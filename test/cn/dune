@@ -2,3 +2,8 @@
  (name test_uscc)
  (libraries alcotest stdnum)
  (modules test_uscc))
+
+(test
+ (name test_ric)
+ (libraries alcotest cn)
+ (modules test_ric))
