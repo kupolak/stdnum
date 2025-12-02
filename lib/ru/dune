@@ -1,0 +1,5 @@
+(library
+ (name ru)
+ (public_name stdnum.ru)
+ (libraries tools)
+ (modules inn))
