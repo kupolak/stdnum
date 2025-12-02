@@ -1,0 +1,5 @@
+(library
+ (name cr)
+ (public_name stdnum.cr)
+ (modules cpf)
+ (libraries tools))
