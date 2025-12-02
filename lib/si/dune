@@ -2,4 +2,4 @@
  (name si)
  (public_name stdnum.si)
  (libraries tools)
- (modules maticna emso))
+ (modules maticna emso ddv))
