@@ -1,0 +1,4 @@
+(test
+ (name test_uscc)
+ (libraries alcotest stdnum)
+ (modules test_uscc))
