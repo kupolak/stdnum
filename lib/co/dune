@@ -1,0 +1,5 @@
+(library
+ (name co)
+ (public_name stdnum.co)
+ (modules nit)
+ (libraries tools))
