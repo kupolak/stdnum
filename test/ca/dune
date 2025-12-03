@@ -1,0 +1,4 @@
+(test
+ (name test_sin)
+ (libraries alcotest ca)
+ (modules test_sin))
