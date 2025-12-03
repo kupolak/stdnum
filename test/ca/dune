@@ -2,3 +2,8 @@
  (name test_sin)
  (libraries alcotest ca)
  (modules test_sin))
+
+(test
+ (name test_bn)
+ (libraries alcotest ca)
+ (modules test_bn))
