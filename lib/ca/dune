@@ -1,3 +1,4 @@
 (library
  (name ca)
+ (public_name stdnum.ca)
  (libraries tools))
