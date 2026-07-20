@@ -35,11 +35,12 @@ let calc_check_digits number =
   Printf.sprintf "%02d" (98 - checksum (number ^ "00"))
 
 let validate number =
-  try
-    let valid = checksum number = 1 in
-    if not valid then raise Invalid_checksum;
-    number
-  with _ -> raise Invalid_format
+  let valid =
+    try checksum number = 1
+    with Failure _ -> raise Invalid_format
+  in
+  if not valid then raise Invalid_checksum;
+  number
 
 let is_valid number =
   try

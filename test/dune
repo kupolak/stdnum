@@ -77,3 +77,8 @@
  (name test_isrc)
  (libraries alcotest stdnum)
  (modules test_isrc))
+
+(test
+ (name test_lei)
+ (libraries alcotest stdnum)
+ (modules test_lei))
