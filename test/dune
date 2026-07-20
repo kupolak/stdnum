@@ -57,3 +57,8 @@
  (name test_imei)
  (libraries alcotest stdnum)
  (modules test_imei))
+
+(test
+ (name test_imo)
+ (libraries alcotest stdnum)
+ (modules test_imo))
