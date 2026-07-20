@@ -21,7 +21,10 @@ let calc_check_digit number =
   if c' = 10 then "X" else string_of_int c'
 
 let validate number =
-  let is_valid = try checksum number = 1 with _ -> false in
+  let is_valid =
+    try checksum number = 1
+    with Invalid_format -> raise Invalid_format
+  in
   if not is_valid then raise Invalid_checksum;
   number
 
