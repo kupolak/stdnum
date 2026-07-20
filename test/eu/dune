@@ -12,3 +12,8 @@
  (name test_ecnumber)
  (libraries alcotest stdnum stdnum.eu)
  (modules test_ecnumber))
+
+(test
+ (name test_eic)
+ (libraries alcotest stdnum stdnum.eu)
+ (modules test_eic))
