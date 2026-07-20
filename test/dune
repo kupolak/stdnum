@@ -102,3 +102,8 @@
  (name test_isni)
  (libraries alcotest stdnum)
  (modules test_isni))
+
+(test
+ (name test_upi)
+ (libraries alcotest stdnum)
+ (modules test_upi))
