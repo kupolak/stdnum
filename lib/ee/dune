@@ -1,0 +1,5 @@
+(library
+ (name ee)
+ (public_name stdnum.ee)
+ (modules ik)
+ (libraries tools stdnum))
