@@ -92,3 +92,8 @@
  (name test_isan)
  (libraries alcotest stdnum)
  (modules test_isan))
+
+(test
+ (name test_ismn)
+ (libraries alcotest stdnum)
+ (modules test_ismn))
