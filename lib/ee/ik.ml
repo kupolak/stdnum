@@ -58,8 +58,9 @@ let get_gender number =
   | _ -> raise Invalid_component
 
 let calc_check_digit number =
+  let len = String.length number in
   let sum1 = ref 0 in
-  for i = 0 to 9 do
+  for i = 0 to len - 2 do
     let digit = int_of_char number.[i] - int_of_char '0' in
     let weight = (i mod 9) + 1 in
     sum1 := !sum1 + (weight * digit)
@@ -68,7 +69,7 @@ let calc_check_digit number =
   let check =
     if check1 = 10 then begin
       let sum2 = ref 0 in
-      for i = 0 to 9 do
+      for i = 0 to len - 2 do
         let digit = int_of_char number.[i] - int_of_char '0' in
         let weight = ((i + 2) mod 9) + 1 in
         sum2 := !sum2 + (weight * digit)

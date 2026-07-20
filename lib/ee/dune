@@ -1,5 +1,5 @@
 (library
  (name ee)
  (public_name stdnum.ee)
- (modules ik kmkr)
+ (modules ik kmkr registrikood)
  (libraries tools stdnum))

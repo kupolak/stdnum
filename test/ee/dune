@@ -7,3 +7,8 @@
  (name test_kmkr)
  (libraries alcotest stdnum stdnum.ee)
  (modules test_kmkr))
+
+(test
+ (name test_registrikood)
+ (libraries alcotest stdnum stdnum.ee)
+ (modules test_registrikood))
