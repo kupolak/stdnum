@@ -7,3 +7,8 @@
  (name test_bn)
  (libraries alcotest ca)
  (modules test_bn))
+
+(test
+ (name test_bc_phn)
+ (libraries alcotest ca)
+ (modules test_bc_phn))
