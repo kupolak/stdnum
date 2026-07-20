@@ -17,3 +17,8 @@
  (name test_nhs)
  (libraries alcotest stdnum stdnum.gb)
  (modules test_nhs))
+
+(test
+ (name test_vat)
+ (libraries alcotest stdnum stdnum.gb)
+ (modules test_vat))
