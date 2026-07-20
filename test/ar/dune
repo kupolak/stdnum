@@ -1,3 +1,11 @@
 (test
  (name test_cbu)
  (libraries alcotest stdnum.tools stdnum.ar))
+
+(test
+ (name test_cuit)
+ (libraries alcotest stdnum stdnum.ar))
+
+(test
+ (name test_dni)
+ (libraries alcotest stdnum stdnum.ar))
