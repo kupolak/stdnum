@@ -1,0 +1,5 @@
+(library
+ (name cu)
+ (public_name stdnum.cu)
+ (modules ni)
+ (libraries tools stdnum))
