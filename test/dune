@@ -52,3 +52,8 @@
  (name test_iso11649)
  (libraries alcotest stdnum)
  (modules test_iso11649))
+
+(test
+ (name test_imei)
+ (libraries alcotest stdnum)
+ (modules test_imei))
