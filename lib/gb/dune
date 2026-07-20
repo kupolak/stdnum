@@ -1,5 +1,5 @@
 (library
  (name gb)
  (public_name stdnum.gb)
- (modules sedol utr)
+ (modules sedol utr upn)
  (libraries tools stdnum))
