@@ -87,3 +87,8 @@
  (name test_meid)
  (libraries alcotest stdnum)
  (modules test_meid))
+
+(test
+ (name test_isan)
+ (libraries alcotest stdnum)
+ (modules test_isan))

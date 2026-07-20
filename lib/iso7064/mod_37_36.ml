@@ -34,7 +34,10 @@ let calc_check_digit ?(alphabet = alphabet) number =
   alphabet.[idx]
 
 let validate ?(alphabet = alphabet) number =
-  let is_valid = try checksum ~alphabet number = 1 with _ -> false in
+  let is_valid =
+    try checksum ~alphabet number = 1
+    with Invalid_format -> raise Invalid_format
+  in
   if not is_valid then raise Invalid_checksum;
   number
 
