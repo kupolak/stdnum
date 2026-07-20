@@ -12,3 +12,8 @@
  (name test_upn)
  (libraries alcotest stdnum stdnum.gb)
  (modules test_upn))
+
+(test
+ (name test_nhs)
+ (libraries alcotest stdnum stdnum.gb)
+ (modules test_nhs))
