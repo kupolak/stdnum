@@ -1,5 +1,5 @@
 (library
  (name ec)
  (public_name stdnum.ec)
- (modules ci)
+ (modules ci ruc)
  (libraries tools stdnum))

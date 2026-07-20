@@ -2,3 +2,8 @@
  (name test_ci)
  (libraries alcotest stdnum stdnum.ec)
  (modules test_ci))
+
+(test
+ (name test_ruc)
+ (libraries alcotest stdnum stdnum.ec)
+ (modules test_ruc))
