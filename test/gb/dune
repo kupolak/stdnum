@@ -2,3 +2,8 @@
  (name test_sedol)
  (libraries alcotest stdnum stdnum.gb)
  (modules test_sedol))
+
+(test
+ (name test_utr)
+ (libraries alcotest stdnum stdnum.gb)
+ (modules test_utr))
