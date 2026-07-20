@@ -47,4 +47,4 @@ let is_valid ?(alphabet = "0123456789") number =
 let calc_check_digit ?(alphabet = "0123456789") number =
   let ck = checksum ~alphabet (number ^ String.make 1 alphabet.[0]) in
   let n = String.length alphabet in
-  String.make 1 alphabet.[n - ck]
+  String.make 1 alphabet.[(n - ck) mod n]

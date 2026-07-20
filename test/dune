@@ -82,3 +82,8 @@
  (name test_lei)
  (libraries alcotest stdnum)
  (modules test_lei))
+
+(test
+ (name test_meid)
+ (libraries alcotest stdnum)
+ (modules test_meid))
