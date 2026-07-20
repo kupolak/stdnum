@@ -62,3 +62,8 @@
  (name test_imo)
  (libraries alcotest stdnum)
  (modules test_imo))
+
+(test
+ (name test_issn)
+ (libraries alcotest stdnum)
+ (modules test_issn))
