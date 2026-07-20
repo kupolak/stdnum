@@ -1,0 +1,5 @@
+(library
+ (name gb)
+ (public_name stdnum.gb)
+ (modules sedol)
+ (libraries tools stdnum))
