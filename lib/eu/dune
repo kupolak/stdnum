@@ -1,5 +1,5 @@
 (library
  (name eu)
  (public_name stdnum.eu)
- (modules at_02)
+ (modules at_02 banknote)
  (libraries tools iso7064))
