@@ -2,3 +2,8 @@
  (name test_abn)
  (libraries alcotest stdnum stdnum.au)
  (modules test_abn))
+
+(test
+ (name test_acn)
+ (libraries alcotest stdnum stdnum.au)
+ (modules test_acn))

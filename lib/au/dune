@@ -1,5 +1,5 @@
 (library
  (name au)
  (public_name stdnum.au)
- (modules abn)
+ (modules abn acn)
  (libraries tools stdnum))
