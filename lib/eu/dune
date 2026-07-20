@@ -1,0 +1,5 @@
+(library
+ (name eu)
+ (public_name stdnum.eu)
+ (modules at_02)
+ (libraries tools iso7064))
