@@ -22,3 +22,8 @@
  (name test_wkn)
  (libraries alcotest de)
  (modules test_wkn))
+
+(test
+ (name test_leitweg)
+ (libraries alcotest stdnum stdnum.de)
+ (modules test_leitweg))
