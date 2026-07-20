@@ -1,0 +1,5 @@
+(library
+ (name eg)
+ (public_name stdnum.eg)
+ (modules tn)
+ (libraries tools stdnum str))
