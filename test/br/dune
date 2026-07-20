@@ -1,0 +1,9 @@
+(test
+ (name test_cpf)
+ (libraries alcotest stdnum stdnum.br)
+ (modules test_cpf))
+
+(test
+ (name test_cnpj)
+ (libraries alcotest stdnum stdnum.br)
+ (modules test_cnpj))

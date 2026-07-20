@@ -1,0 +1,5 @@
+(library
+ (name br)
+ (public_name stdnum.br)
+ (modules cpf cnpj)
+ (libraries tools unix))
