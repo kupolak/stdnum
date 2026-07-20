@@ -1,0 +1,5 @@
+(library
+ (name dz)
+ (public_name stdnum.dz)
+ (modules nif)
+ (libraries tools stdnum))
