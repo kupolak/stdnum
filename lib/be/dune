@@ -1,5 +1,5 @@
 (library
  (name be)
  (public_name stdnum.be)
- (modules bis eid iban nn ssn vat)
+ (modules bis eid iban nn ssn vat ogm_vcs)
  (libraries tools unix))

@@ -27,3 +27,8 @@
  (name test_vat)
  (libraries alcotest be)
  (modules test_vat))
+
+(test
+ (name test_ogm_vcs)
+ (libraries alcotest be)
+ (modules test_ogm_vcs))
