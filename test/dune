@@ -67,3 +67,8 @@
  (name test_issn)
  (libraries alcotest stdnum)
  (modules test_issn))
+
+(test
+ (name test_isin)
+ (libraries alcotest stdnum)
+ (modules test_isin))
