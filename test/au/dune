@@ -7,3 +7,8 @@
  (name test_acn)
  (libraries alcotest stdnum stdnum.au)
  (modules test_acn))
+
+(test
+ (name test_tfn)
+ (libraries alcotest stdnum stdnum.au)
+ (modules test_tfn))
