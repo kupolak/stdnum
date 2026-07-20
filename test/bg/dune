@@ -2,3 +2,8 @@
  (name test_egn)
  (libraries alcotest stdnum stdnum.bg)
  (modules test_egn))
+
+(test
+ (name test_pnf)
+ (libraries alcotest stdnum stdnum.bg)
+ (modules test_pnf))
