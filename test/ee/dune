@@ -2,3 +2,8 @@
  (name test_ik)
  (libraries alcotest stdnum stdnum.ee)
  (modules test_ik))
+
+(test
+ (name test_kmkr)
+ (libraries alcotest stdnum stdnum.ee)
+ (modules test_kmkr))
