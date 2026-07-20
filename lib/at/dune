@@ -1,5 +1,5 @@
 (library
  (name at)
  (public_name stdnum.at)
- (modules uid vnr)
+ (modules uid vnr businessid)
  (libraries tools stdnum))

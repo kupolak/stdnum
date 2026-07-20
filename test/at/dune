@@ -7,3 +7,8 @@
  (name test_vnr)
  (libraries alcotest stdnum stdnum.at)
  (modules test_vnr))
+
+(test
+ (name test_businessid)
+ (libraries alcotest stdnum stdnum.at)
+ (modules test_businessid))
