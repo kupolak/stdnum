@@ -1,5 +1,5 @@
 (library
  (name eu)
  (public_name stdnum.eu)
- (modules at_02 banknote ecnumber eic)
+ (modules at_02 banknote ecnumber eic excise)
  (libraries tools iso7064))

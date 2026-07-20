@@ -17,3 +17,8 @@
  (name test_eic)
  (libraries alcotest stdnum stdnum.eu)
  (modules test_eic))
+
+(test
+ (name test_excise)
+ (libraries alcotest stdnum stdnum.eu)
+ (modules test_excise))
