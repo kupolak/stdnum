@@ -12,3 +12,8 @@
  (name test_businessid)
  (libraries alcotest stdnum stdnum.at)
  (modules test_businessid))
+
+(test
+ (name test_tin)
+ (libraries alcotest stdnum stdnum.at)
+ (modules test_tin))
