@@ -1,0 +1,5 @@
+(library
+ (name ec)
+ (public_name stdnum.ec)
+ (modules ci)
+ (libraries tools stdnum))
