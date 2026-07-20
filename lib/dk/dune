@@ -1,5 +1,5 @@
 (library
  (name dk)
  (public_name stdnum.dk)
- (modules cpr)
+ (modules cpr cvr)
  (libraries tools stdnum unix))

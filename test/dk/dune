@@ -2,3 +2,8 @@
  (name test_cpr)
  (libraries alcotest stdnum stdnum.dk)
  (modules test_cpr))
+
+(test
+ (name test_cvr)
+ (libraries alcotest stdnum stdnum.dk)
+ (modules test_cvr))
