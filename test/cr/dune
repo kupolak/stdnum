@@ -2,3 +2,13 @@
  (name test_cpf)
  (libraries alcotest stdnum)
  (modules test_cpf))
+
+(test
+ (name test_cpj)
+ (libraries alcotest stdnum stdnum.cr)
+ (modules test_cpj))
+
+(test
+ (name test_dimex)
+ (libraries alcotest stdnum stdnum.cr)
+ (modules test_dimex))
