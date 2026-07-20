@@ -1,0 +1,4 @@
+(test
+ (name test_cpr)
+ (libraries alcotest stdnum stdnum.dk)
+ (modules test_cpr))
