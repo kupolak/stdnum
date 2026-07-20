@@ -7,3 +7,8 @@
  (name test_pnf)
  (libraries alcotest stdnum stdnum.bg)
  (modules test_pnf))
+
+(test
+ (name test_vat)
+ (libraries alcotest stdnum stdnum.bg)
+ (modules test_vat))

@@ -1,5 +1,5 @@
 (library
  (name bg)
  (public_name stdnum.bg)
- (modules egn pnf)
+ (modules egn pnf vat)
  (libraries tools stdnum))
