@@ -12,3 +12,8 @@
  (name test_pan)
  (libraries alcotest stdnum stdnum.in_)
  (modules test_pan))
+
+(test
+ (name test_gstin)
+ (libraries alcotest stdnum stdnum.in_)
+ (modules test_gstin))
