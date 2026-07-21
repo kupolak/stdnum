@@ -1,0 +1,5 @@
+(library
+ (name mt)
+ (public_name stdnum.mt)
+ (modules vat)
+ (libraries tools))
