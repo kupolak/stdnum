@@ -15,5 +15,10 @@
 
 (test
  (name test_tin)
- (libraries alcotest stdnum stdnum.at)
+ (libraries alcotest stdnum at)
  (modules test_tin))
+
+(test
+ (name test_postleitzahl)
+ (libraries alcotest stdnum at)
+ (modules test_postleitzahl))
