@@ -2,3 +2,8 @@
  (name test_amka)
  (libraries alcotest stdnum stdnum.gr)
  (modules test_amka))
+
+(test
+ (name test_vat)
+ (libraries alcotest stdnum stdnum.gr)
+ (modules test_vat))

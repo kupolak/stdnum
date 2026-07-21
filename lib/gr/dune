@@ -1,5 +1,5 @@
 (library
  (name gr)
  (public_name stdnum.gr)
- (modules amka)
+ (modules amka vat)
  (libraries tools))
