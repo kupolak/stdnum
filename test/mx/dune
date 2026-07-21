@@ -2,3 +2,8 @@
  (name test_curp)
  (libraries alcotest stdnum stdnum.mx)
  (modules test_curp))
+
+(test
+ (name test_rfc)
+ (libraries alcotest stdnum stdnum.mx)
+ (modules test_rfc))

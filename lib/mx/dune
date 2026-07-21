@@ -1,5 +1,5 @@
 (library
  (name mx)
  (public_name stdnum.mx)
- (modules curp)
+ (modules curp rfc)
  (libraries tools str))
