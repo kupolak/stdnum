@@ -27,3 +27,8 @@
  (name test_nace)
  (libraries alcotest stdnum stdnum.eu)
  (modules test_nace))
+
+(test
+ (name test_oss)
+ (libraries alcotest stdnum stdnum.eu)
+ (modules test_oss))
