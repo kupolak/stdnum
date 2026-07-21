@@ -1,0 +1,9 @@
+(test
+ (name test_ruc)
+ (libraries alcotest stdnum stdnum.pe)
+ (modules test_ruc))
+
+(test
+ (name test_cui)
+ (libraries alcotest stdnum stdnum.pe)
+ (modules test_cui))

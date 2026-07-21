@@ -1,0 +1,5 @@
+(library
+ (name pe)
+ (public_name stdnum.pe)
+ (modules ruc cui)
+ (libraries tools))
