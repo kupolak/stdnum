@@ -22,3 +22,8 @@
  (name test_nif)
  (libraries alcotest stdnum)
  (modules test_nif))
+
+(test
+ (name test_accise)
+ (libraries alcotest stdnum stdnum.fr)
+ (modules test_accise))
