@@ -2,4 +2,4 @@
  (name fr)
  (public_name stdnum.fr)
  (modules siren tva siret nir nif accise rcs)
- (libraries tools))
+ (libraries tools str))

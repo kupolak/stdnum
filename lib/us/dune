@@ -1,5 +1,5 @@
 (library
  (name us)
  (public_name stdnum.us)
- (libraries tools)
+ (libraries tools str)
  (modules atin ein itin ptin rtn ssn tin))

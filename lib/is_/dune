@@ -2,4 +2,4 @@
  (name is_)
  (public_name stdnum.is_)
  (modules kennitala vsk)
- (libraries tools))
+ (libraries tools str))

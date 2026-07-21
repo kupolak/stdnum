@@ -1,4 +1,4 @@
 (library
  (name by)
  (public_name stdnum.by)
- (libraries tools))
+ (libraries tools str))

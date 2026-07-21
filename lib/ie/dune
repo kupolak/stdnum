@@ -2,4 +2,4 @@
  (name ie)
  (public_name stdnum.ie)
  (modules vat pps)
- (libraries tools))
+ (libraries tools str))

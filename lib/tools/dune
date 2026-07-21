@@ -1,5 +1,4 @@
 (library
  (name tools)
  (public_name stdnum.tools)
- (libraries str)
  (modules damm error luhn utils verhoeff))

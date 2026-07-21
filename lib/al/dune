@@ -2,4 +2,4 @@
  (name al)
  (public_name stdnum.al)
  (modules nipt)
- (libraries tools))
+ (libraries tools str))

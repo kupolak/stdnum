@@ -2,4 +2,4 @@
  (name gh)
  (public_name stdnum.gh)
  (modules tin)
- (libraries tools))
+ (libraries tools str))

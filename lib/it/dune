@@ -2,4 +2,4 @@
  (name it)
  (public_name stdnum.it)
  (modules aic iva codicefiscale)
- (libraries tools unix))
+ (libraries tools unix str))

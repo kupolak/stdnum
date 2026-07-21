@@ -2,4 +2,4 @@
  (name hu)
  (public_name stdnum.hu)
  (modules anum)
- (libraries tools))
+ (libraries tools str))
