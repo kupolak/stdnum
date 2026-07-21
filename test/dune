@@ -99,6 +99,11 @@
  (modules test_isbn))
 
 (test
+ (name test_isil)
+ (libraries alcotest stdnum)
+ (modules test_isil))
+
+(test
  (name test_isan)
  (libraries alcotest stdnum)
  (modules test_isan))
