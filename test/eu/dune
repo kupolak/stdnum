@@ -22,3 +22,8 @@
  (name test_excise)
  (libraries alcotest stdnum stdnum.eu)
  (modules test_excise))
+
+(test
+ (name test_nace)
+ (libraries alcotest stdnum stdnum.eu)
+ (modules test_nace))
