@@ -1,0 +1,4 @@
+(test
+ (name test_aadhaar)
+ (libraries alcotest stdnum stdnum.in_)
+ (modules test_aadhaar))

@@ -1,0 +1,5 @@
+(library
+ (name in_)
+ (public_name stdnum.in_)
+ (modules aadhaar)
+ (libraries tools))
