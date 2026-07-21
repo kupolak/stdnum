@@ -2,3 +2,8 @@
  (name test_hp)
  (libraries alcotest stdnum stdnum.il)
  (modules test_hp))
+
+(test
+ (name test_idnr)
+ (libraries alcotest stdnum stdnum.il)
+ (modules test_idnr))
