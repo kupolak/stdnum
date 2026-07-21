@@ -2,3 +2,8 @@
  (name test_kennitala)
  (libraries alcotest stdnum stdnum.is_)
  (modules test_kennitala))
+
+(test
+ (name test_vsk)
+ (libraries alcotest stdnum stdnum.is_)
+ (modules test_vsk))

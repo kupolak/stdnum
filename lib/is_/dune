@@ -1,5 +1,5 @@
 (library
  (name is_)
  (public_name stdnum.is_)
- (modules kennitala)
+ (modules kennitala vsk)
  (libraries tools))
