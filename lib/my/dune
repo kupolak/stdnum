@@ -1,0 +1,5 @@
+(library
+ (name my)
+ (public_name stdnum.my)
+ (modules nric)
+ (libraries tools))
