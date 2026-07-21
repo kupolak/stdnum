@@ -1,0 +1,5 @@
+(library
+ (name rs)
+ (public_name stdnum.rs)
+ (modules pib)
+ (libraries tools stdnum.iso7064))
