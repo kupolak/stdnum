@@ -2,3 +2,8 @@
  (name test_alv)
  (libraries alcotest stdnum stdnum.fi)
  (modules test_alv))
+
+(test
+ (name test_associationid)
+ (libraries alcotest stdnum stdnum.fi)
+ (modules test_associationid))
