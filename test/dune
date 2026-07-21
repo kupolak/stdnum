@@ -94,6 +94,11 @@
  (modules test_imsi))
 
 (test
+ (name test_isbn)
+ (libraries alcotest stdnum)
+ (modules test_isbn))
+
+(test
  (name test_isan)
  (libraries alcotest stdnum)
  (modules test_isan))
