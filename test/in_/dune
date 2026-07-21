@@ -7,3 +7,8 @@
  (name test_epic)
  (libraries alcotest stdnum stdnum.in_)
  (modules test_epic))
+
+(test
+ (name test_pan)
+ (libraries alcotest stdnum stdnum.in_)
+ (modules test_pan))
