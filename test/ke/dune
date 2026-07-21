@@ -1,0 +1,4 @@
+(test
+ (name test_pin)
+ (libraries alcotest stdnum stdnum.ke)
+ (modules test_pin))

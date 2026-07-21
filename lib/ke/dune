@@ -1,0 +1,5 @@
+(library
+ (name ke)
+ (public_name stdnum.ke)
+ (modules pin)
+ (libraries tools))
