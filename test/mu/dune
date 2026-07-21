@@ -1,0 +1,4 @@
+(test
+ (name test_nid)
+ (libraries alcotest stdnum stdnum.mu)
+ (modules test_nid))
