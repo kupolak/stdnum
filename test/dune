@@ -104,6 +104,11 @@
  (modules test_isil))
 
 (test
+ (name test_mac)
+ (libraries alcotest stdnum)
+ (modules test_mac))
+
+(test
  (name test_isan)
  (libraries alcotest stdnum)
  (modules test_isan))
