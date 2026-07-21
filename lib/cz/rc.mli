@@ -13,17 +13,12 @@
     This number is identical to the Slovak counterpart. *)
 
 exception Invalid_length
+exception Invalid_format
+exception Invalid_checksum
+exception Invalid_component
+
 (** Exception raised when the number has an invalid length (not 9 or 10 digits),
     or when a 9-digit number is used after January 1st 1954. *)
-
-exception Invalid_format
-(** Exception raised when the number contains non-digit characters. *)
-
-exception Invalid_checksum
-(** Exception raised when the modulo 11 checksum is invalid. *)
-
-exception Invalid_component
-(** Exception raised when the birth date components are invalid. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. This strips spaces,
@@ -37,7 +32,6 @@ val get_birth_date : string -> int * int * int
     serial overflows (since 2004). 9 digit numbers were used until January 1st
     1954.
 
-    @raise Invalid_component if the date components form an invalid date
     @raise Invalid_length if a 9-digit number is used after 1953 *)
 
 val validate : string -> string
@@ -45,11 +39,11 @@ val validate : string -> string
     formatting, birth date validity, and check digit (for 10-digit numbers).
     Returns the normalized number if valid.
 
-    @raise Invalid_format if the number contains non-digit characters
-    @raise Invalid_length
-      if the number is not 9 or 10 digits, or if a 9-digit number is after 1953
-    @raise Invalid_checksum if the modulo 11 checksum is invalid
+    if the number is not 9 or 10 digits, or if a 9-digit number is after 1953
     @raise Invalid_component if the birth date components are invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid birth number. Returns [true] if valid,

@@ -29,6 +29,10 @@ let calc_check_digit ?(alphabet = alphabet) number =
 let validate ?(alphabet = alphabet) number =
   if checksum ~alphabet number = 1 then number else raise Invalid_checksum
 
+let validate_result number =
+  try Ok (validate number)
+  with Invalid_checksum -> Error Tools.Error.Invalid_checksum
+
 let is_valid number =
   try
     ignore (validate number);

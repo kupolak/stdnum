@@ -75,6 +75,12 @@ let validate number =
       number
   | _ -> raise Invalid_format
 
+let validate_result number =
+  try Ok (validate number) with
+  | Invalid_length -> Error Tools.Error.Invalid_length
+  | Invalid_format -> Error Tools.Error.Invalid_format
+  | Invalid_component -> Error Tools.Error.Invalid_component
+
 let is_valid number =
   try
     ignore (validate number);

@@ -12,19 +12,15 @@ More information:
 *)
 
 exception Invalid_length
-(** Exception raised when the CBU number has an invalid length. *)
-
 exception Invalid_format
-(** Exception raised when the CBU number has an invalid format. *)
-
 exception Invalid_checksum
-(** Exception raised when the CBU number has an invalid checksum. *)
 
 val validate : string -> string
 (** Check if the number is a valid CBU. Returns the normalized number if valid.
-    @raise Invalid_length if the number length is not 22
-    @raise Invalid_format if the number contains non-digit characters
     @raise Invalid_checksum if either check digit is invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid CBU. Returns true if valid, false otherwise.

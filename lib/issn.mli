@@ -12,13 +12,8 @@
     - https://www.issn.org/ *)
 
 exception Invalid_format
-(** Exception raised when the ISSN has invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the ISSN has invalid length. *)
-
 exception Invalid_checksum
-(** Exception raised when the checksum validation fails. *)
 
 val compact : string -> string
 (** Convert the ISSN to the minimal representation. This strips the number of
@@ -34,10 +29,11 @@ val validate : string -> string
 (** Check if the number is a valid ISSN. This checks the length and whether the
     check digit is correct. Returns the normalized number if valid.
 
-    @raise Invalid_format
-      if the number contains non-digit characters (excluding check digit)
-    @raise Invalid_length if the number has invalid length (not 8 digits)
+    if the number contains non-digit characters (excluding check digit)
     @raise Invalid_checksum if the checksum validation fails *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number provided is a valid ISSN. Returns [true] if valid,

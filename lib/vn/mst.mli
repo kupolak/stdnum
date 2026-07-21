@@ -43,6 +43,9 @@ val validate : string -> string
 (** [validate number] checks if the number is a valid Vietnam MST number. This
     checks the length, formatting and check digit. *)
 
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
+
 val is_valid : string -> bool
 (** [is_valid number] checks if the number is a valid Vietnam MST number. *)
 

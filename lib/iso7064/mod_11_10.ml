@@ -23,6 +23,11 @@ let validate number =
   if not is_valid then raise Invalid_checksum;
   number
 
+let validate_result number =
+  try Ok (validate number) with
+  | Invalid_format -> Error Tools.Error.Invalid_format
+  | Invalid_checksum -> Error Tools.Error.Invalid_checksum
+
 let is_valid number =
   try
     ignore (validate number);

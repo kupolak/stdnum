@@ -12,16 +12,9 @@
     - https://en.bitcoin.it/wiki/Address *)
 
 exception Invalid_format
-(** Exception raised when the Bitcoin address has invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the Bitcoin address has invalid length. *)
-
 exception Invalid_checksum
-(** Exception raised when the checksum validation fails. *)
-
 exception Invalid_component
-(** Exception raised when a component of the address is invalid. *)
 
 val compact : string -> string
 (** Convert the address to the minimal representation. This strips the address
@@ -35,10 +28,10 @@ val validate : string -> string
 (** Check if the address is valid. This checks the length and checksum. Returns
     the normalized address if valid.
 
-    @raise Invalid_format if the address contains invalid characters
-    @raise Invalid_length if the address has invalid length
-    @raise Invalid_checksum if the checksum validation fails
     @raise Invalid_component if a component is invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the address is valid. Returns [true] if valid, [false] otherwise.

@@ -31,6 +31,11 @@ let validate number =
   if not (Str.string_match pin_re number 0) then raise Invalid_format;
   number
 
+let validate_result number =
+  try Ok (validate number) with
+  | Invalid_format -> Error Error.Invalid_format
+  | Invalid_length -> Error Error.Invalid_length
+
 let is_valid number =
   try
     ignore (validate number);

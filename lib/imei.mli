@@ -8,13 +8,8 @@
     - https://en.wikipedia.org/wiki/International_Mobile_Equipment_Identity *)
 
 exception Invalid_format
-(** Exception raised when the IMEI has invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the IMEI has invalid length. *)
-
 exception Invalid_checksum
-(** Exception raised when the checksum validation fails. *)
 
 val compact : string -> string
 (** Convert the IMEI number to the minimal representation. This strips the
@@ -26,11 +21,11 @@ val validate : string -> string
 (** Check if the number provided is a valid IMEI (or IMEISV) number. Returns the
     normalized number if valid.
 
-    @raise Invalid_format if the number contains non-digit characters
-    @raise Invalid_length
-      if the number has invalid length (not 14, 15, or 16 digits)
-    @raise Invalid_checksum
-      if the Luhn checksum validation fails (15-digit only) *)
+    if the number has invalid length (not 14, 15, or 16 digits) if the Luhn
+    checksum validation fails (15-digit only) *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val imei_type : string -> string option
 (** Check the passed number and return [Some "IMEI"], [Some "IMEISV"] or [None]

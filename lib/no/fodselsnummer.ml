@@ -114,6 +114,13 @@ let validate number =
   | None -> raise Invalid_component);
   number
 
+let validate_result number =
+  try Ok (validate number) with
+  | Invalid_component -> Error Tools.Error.Invalid_component
+  | Invalid_length -> Error Error.Invalid_length
+  | Invalid_checksum -> Error Error.Invalid_checksum
+  | Invalid_format -> Error Error.Invalid_format
+
 let is_valid number =
   try
     ignore (validate number);

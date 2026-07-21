@@ -15,6 +15,9 @@ let validate number =
   else if Pin.is_valid number then Pin.validate number
   else raise Invalid_format
 
+let validate_result number =
+  try Ok (validate number) with Invalid_format -> Error Error.Invalid_format
+
 let is_valid number =
   try
     ignore (validate number);

@@ -14,13 +14,8 @@
     5-25 characters *)
 
 exception Invalid_checksum
-(** Exception raised when the check digits are invalid. *)
-
 exception Invalid_length
-(** Exception raised when the number has an invalid length. *)
-
 exception Invalid_format
-(** Exception raised when the number has an invalid format. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. This strips the number of
@@ -32,10 +27,11 @@ val validate : string -> string
 (** Check if the number provided is a valid ISO 11649 structured creditor
     reference number. Returns the normalized number if valid.
 
-    @raise Invalid_checksum if the check digits are invalid
-    @raise Invalid_format
-      if the number has an invalid format (doesn't start with RF)
+    if the number has an invalid format (doesn't start with RF)
     @raise Invalid_length if the number has an invalid length *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number provided is a valid ISO 11649 structured creditor

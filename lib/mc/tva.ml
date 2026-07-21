@@ -13,6 +13,10 @@ let validate number =
   if String.sub number 2 3 <> "000" then raise Invalid_component;
   "FR" ^ number
 
+let validate_result number =
+  try Ok (validate number)
+  with Invalid_component -> Error Tools.Error.Invalid_component
+
 let is_valid number =
   try
     ignore (validate number);

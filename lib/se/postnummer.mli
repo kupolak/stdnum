@@ -13,9 +13,8 @@
     - https://sv.wikipedia.org/wiki/Postnummer_i_Sverige *)
 
 exception Invalid_length
-(** Exception raised when the number has an invalid length (not 5 digits). *)
-
 exception Invalid_format
+
 (** Exception raised when the number contains non-digit characters or starts
     with '0'. *)
 
@@ -32,9 +31,11 @@ val validate : string -> string
     format. Note: This does not verify whether the code corresponds to a real
     address.
 
-    @raise Invalid_format
-      if the number contains non-digit characters or starts with '0'
+    if the number contains non-digit characters or starts with '0'
     @raise Invalid_length if the number is not 5 digits *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid postal code. Returns [true] if valid, [false]

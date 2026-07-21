@@ -11,14 +11,11 @@
     - https://en.wikipedia.org/wiki/ISO_9362 *)
 
 exception Invalid_format
-(** Exception raised when the BIC has invalid format (wrong characters). *)
-
 exception Invalid_length
+exception Invalid_component
+
 (** Exception raised when the BIC has invalid length (not 8 or 11 characters).
 *)
-
-exception Invalid_component
-(** Exception raised when the country code is not valid. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. This strips the number of
@@ -30,9 +27,10 @@ val validate : string -> string
 (** Check if the number is a valid BIC. This checks the length and characters in
     each position. Returns the normalized number if valid.
 
-    @raise Invalid_format if the number contains invalid characters
-    @raise Invalid_length if the number is not 8 or 11 characters
     @raise Invalid_component if the country code is not valid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid BIC. Returns [true] if valid, [false]

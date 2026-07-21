@@ -33,6 +33,12 @@ let validate number =
 
   number
 
+let validate_result number =
+  try Ok (validate number) with
+  | Invalid_format -> Error Error.Invalid_format
+  | Invalid_length -> Error Error.Invalid_length
+  | Invalid_checksum -> Error Error.Invalid_checksum
+
 let imei_type number =
   try
     let number = validate number in

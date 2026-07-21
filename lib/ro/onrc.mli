@@ -15,13 +15,8 @@
     - https://en.wikipedia.org/wiki/Registrul_Comertului *)
 
 exception Invalid_length
-(** Exception raised when a component has an invalid length. *)
-
 exception Invalid_format
-(** Exception raised when the number has an invalid format. *)
-
 exception Invalid_component
-(** Exception raised when a component (type, county, or year) is invalid. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. This strips the number of
@@ -35,9 +30,10 @@ val validate : string -> string
 (** Check if the number is a valid ONRC. This checks the format, type, county,
     serial length, and year range. Returns the normalized number if valid.
 
-    @raise Invalid_format if the number has an invalid format
-    @raise Invalid_component if the type, county, or year is invalid
     @raise Invalid_length if the serial number or year has invalid length *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid ONRC. Returns [true] if valid, [false]

@@ -146,12 +146,12 @@ let validate number =
   then validate_local_company number
   else validate_other number
 
-let is_valid number =
-  try
-    ignore (validate number);
-    true
-  with
-  | Invalid_format | Invalid_length | Invalid_component | Invalid_checksum ->
-    false
+let validate_result number =
+  try Ok (validate number) with
+  | Invalid_length -> Error Error.Invalid_length
+  | Invalid_format -> Error Error.Invalid_format
+  | Invalid_component -> Error Tools.Error.Invalid_component
+  | Invalid_checksum -> Error Error.Invalid_checksum
 
+let is_valid number = Result.is_ok (validate_result number)
 let format number = compact number

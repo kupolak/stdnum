@@ -8,17 +8,12 @@
     - https://www.riigiteataja.ee/akt/106032012004 *)
 
 exception Invalid_format
-(** Exception raised when the IK has invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the IK has invalid length. *)
-
 exception Invalid_component
+exception Invalid_checksum
+
 (** Exception raised when the IK has an invalid date of birth or century/gender
     digit. *)
-
-exception Invalid_checksum
-(** Exception raised when the checksum validation fails. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. This strips the number of
@@ -38,10 +33,10 @@ val validate : string -> string
 (** Check if the number provided is valid. This checks the length, formatting,
     embedded date and check digit.
 
-    @raise Invalid_format if the number contains invalid characters
-    @raise Invalid_length if the length is not 11
-    @raise Invalid_component if the date of birth or gender is invalid
     @raise Invalid_checksum if the checksum fails *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number provided is valid. *)

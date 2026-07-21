@@ -15,5 +15,8 @@ val validate : string -> string
 (** Check if the number provided is a valid NCF. Raises Invalid_format,
     Invalid_length, or Invalid_component if invalid. *)
 
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
+
 val is_valid : string -> bool
 (** Check if the number provided is a valid NCF. *)

@@ -16,16 +16,9 @@
     - https://techscience.org/a/2015092901/ *)
 
 exception Invalid_format
-(** Exception raised when the number has invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the number has invalid length. *)
-
 exception Invalid_component
-(** Exception raised when a component of the number is invalid. *)
-
 exception Invalid_checksum
-(** Exception raised when the checksum validation fails. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. This strips the number of
@@ -43,10 +36,11 @@ val validate : ?allow_future:bool -> string -> string
     check digit. If allow_future is False birth dates in the future are
     rejected.
 
-    @raise Invalid_format if the number contains invalid characters
-    @raise Invalid_length if the length is not 13
-    @raise Invalid_component if the date or place of birth is invalid
     @raise Invalid_checksum if the checksum fails *)
+
+val validate_result :
+  ?allow_future:bool -> string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : ?allow_future:bool -> string -> bool
 (** Check if the number provided is valid. *)

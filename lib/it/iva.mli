@@ -16,9 +16,10 @@ val calc_check_digit : string -> string
 
 val validate : string -> string
 (** Check if the given IVA number is valid.
-    @raise Invalid_format if the number contains non-digit characters
-    @raise Invalid_length if the number is not 11 digits
     @raise Invalid_checksum if the check digit is invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the given IVA number is valid. *)

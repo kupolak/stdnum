@@ -23,9 +23,10 @@ val compact : string -> string
 val validate : string -> string
 (** Check if the number is a valid passport number. This checks the length and
     format.
-    @raise Invalid_length if the number is not 9 characters
-    @raise Invalid_format if the format is invalid
     @raise Invalid_component if the letter 'O' is present *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid Dutch passport number. *)

@@ -7,13 +7,8 @@
 *)
 
 exception Invalid_format
-(** Exception raised for invalid format of REGON. *)
-
 exception Invalid_length
-(** Exception raised for invalid length of REGON. *)
-
 exception Invalid_checksum
-(** Exception raised for invalid checksum of REGON. *)
 
 val compact : string -> string
 (** [compact number] converts the REGON number to minimal representation. *)
@@ -24,6 +19,9 @@ val calc_check_digit : string -> string
 val validate : string -> string
 (** [validate number] checks if the REGON number is valid (length, format,
     checksum). *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** [is_valid number] checks if the REGON number is a valid REGON number. *)

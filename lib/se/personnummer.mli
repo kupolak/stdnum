@@ -15,17 +15,12 @@
     - https://en.wikipedia.org/wiki/Personal_identity_number_(Sweden) *)
 
 exception Invalid_length
+exception Invalid_format
+exception Invalid_checksum
+exception Invalid_component
+
 (** Exception raised when the number has an invalid length (not 11 or 13
     characters). *)
-
-exception Invalid_format
-(** Exception raised when the number has an invalid format. *)
-
-exception Invalid_checksum
-(** Exception raised when the Luhn checksum is invalid. *)
-
-exception Invalid_component
-(** Exception raised when the birth date is invalid. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. This strips spaces and
@@ -39,7 +34,6 @@ val get_birth_date : string -> (float * Unix.tm) option
     For people aged 100 and up, the minus/dash in the personnummer is changed to
     a plus on New Year's Eve the year they turn 100.
 
-    @raise Invalid_component if the date components are invalid
     @return Some (time, tm) tuple or raises Invalid_component *)
 
 val get_gender : string -> char
@@ -52,10 +46,10 @@ val validate : string -> string
     format, birth date validity, and Luhn check digit. Returns the normalized
     number if valid.
 
-    @raise Invalid_format if the number has an invalid format
-    @raise Invalid_length if the number length is not 11 or 13 characters
-    @raise Invalid_checksum if the Luhn checksum is invalid
     @raise Invalid_component if the birth date is invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid identity number. Returns [true] if valid,

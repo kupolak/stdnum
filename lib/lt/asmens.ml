@@ -28,10 +28,12 @@ let validate ?(validate_birth_date = true) number =
     raise Invalid_checksum;
   number
 
-let is_valid ?(validate_birth_date = true) number =
-  try
-    ignore (validate ~validate_birth_date number);
-    true
-  with
-  | Invalid_format | Invalid_length | Invalid_component | Invalid_checksum ->
-    false
+let validate_result ?validate_birth_date number =
+  try Ok (validate ?validate_birth_date number) with
+  | Invalid_format -> Error Error.Invalid_format
+  | Invalid_length -> Error Error.Invalid_length
+  | Invalid_component -> Error Tools.Error.Invalid_component
+  | Invalid_checksum -> Error Error.Invalid_checksum
+
+let is_valid ?validate_birth_date number =
+  Result.is_ok (validate_result ?validate_birth_date number)

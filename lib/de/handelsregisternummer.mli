@@ -26,8 +26,11 @@ val validate : ?company_form:string -> string -> string
 (** Check if the number is a valid company registry number. If a company_form
     (eg. GmbH or PartG) is given, the number is validated to have the correct
     registry type.
-    @raise Invalid_format if the number format is invalid
     @raise Invalid_component if the court or registry type is invalid *)
+
+val validate_result :
+  ?company_form:string -> string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid company registry number. *)

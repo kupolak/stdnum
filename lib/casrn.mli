@@ -7,13 +7,8 @@
     - https://en.wikipedia.org/wiki/CAS_Registry_Number *)
 
 exception Invalid_format
-(** Exception raised when the CAS RN has invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the CAS RN has invalid length. *)
-
 exception Invalid_checksum
-(** Exception raised when the checksum validation fails. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. This adds hyphens if they
@@ -31,9 +26,10 @@ val validate : string -> string
 (** Check if the number is valid. This checks the length, format and checksum.
     Returns the normalized number if valid.
 
-    @raise Invalid_format if the number has invalid format
-    @raise Invalid_length if the number has invalid length (not 7-12 chars)
     @raise Invalid_checksum if the checksum validation fails *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is valid. Returns [true] if valid, [false] otherwise. *)

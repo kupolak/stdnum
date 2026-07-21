@@ -8,13 +8,8 @@
     - https://www.postdata.club/issues/201609/es-usted-unico-en-cuba.html *)
 
 exception Invalid_format
-(** Exception raised when the NI has invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the NI has invalid length. *)
-
 exception Invalid_component
-(** Exception raised when the NI has an invalid date of birth. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. This strips surrounding
@@ -31,9 +26,10 @@ val validate : string -> string
 (** Check if the number is a valid NI. This checks the length, formatting and
     date component.
 
-    @raise Invalid_format if the number contains invalid characters
-    @raise Invalid_length if the length is not 11
     @raise Invalid_component if the date component is invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid NI. *)

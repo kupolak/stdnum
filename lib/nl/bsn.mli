@@ -25,9 +25,10 @@ val checksum : string -> int
 val validate : string -> string
 (** Check if the number is a valid BSN. This checks the length and whether the
     check digit is correct.
-    @raise Invalid_format if the number contains non-digit characters or is zero
-    @raise Invalid_length if the number is not 9 digits
     @raise Invalid_checksum if the checksum is invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid BSN. *)

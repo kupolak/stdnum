@@ -19,6 +19,9 @@ val validate : string -> string
     formatting and check digit. Raises Invalid_format, Invalid_length, or
     Invalid_checksum if invalid. *)
 
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
+
 val is_valid : string -> bool
 (** Check if the number is a valid organisation number. *)
 

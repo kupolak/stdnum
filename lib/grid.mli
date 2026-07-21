@@ -8,13 +8,8 @@
     - https://en.wikipedia.org/wiki/Global_Release_Identifier *)
 
 exception Invalid_length
-(** Exception raised when the GRid has invalid length. *)
-
 exception Invalid_checksum
-(** Exception raised when the checksum validation fails. *)
-
 exception Invalid_format
-(** Exception raised when the GRid has invalid format. *)
 
 val compact : string -> string
 (** Convert the GRid to the minimal representation. This strips the number of
@@ -29,9 +24,10 @@ val validate : string -> string
     7064 Mod 37, 36 algorithm for checksum validation. Returns the normalized
     number if valid.
 
-    @raise Invalid_length if the number has invalid length (not 18 characters)
-    @raise Invalid_checksum if the checksum validation fails
     @raise Invalid_format if the number has invalid format *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is valid. Returns [true] if valid, [false] otherwise. *)

@@ -18,12 +18,9 @@
     - https://www.hacienda.go.cr/ATV/frmConsultaSituTributaria.aspx *)
 
 exception Invalid_format
-(** Exception raised when the CR has invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the CR has invalid length. *)
-
 exception Invalid_component
+
 (** Exception raised when the CR has an invalid component (e.g. doesn't start
     with 1). *)
 
@@ -36,9 +33,10 @@ val validate : string -> string
 
     This checks the length and formatting.
 
-    @raise Invalid_format if the number contains invalid characters
-    @raise Invalid_length if the length is not 11 or 12
     @raise Invalid_component if the number doesn't start with 1 *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid Costa Rica CR number. *)

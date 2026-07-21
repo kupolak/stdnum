@@ -15,13 +15,8 @@
 *)
 
 exception Invalid_format
-(** Exception raised when the number format is invalid. *)
-
 exception Invalid_length
-(** Exception raised when the number length is invalid. *)
-
 exception Invalid_checksum
-(** Exception raised when the check digit is invalid. *)
 
 val compact : string -> string
 (** [compact number] converts the number to the minimal representation by
@@ -35,11 +30,12 @@ val validate : string -> string
 (** [validate number] checks if the number is a valid USCC number. Returns the
     validated number in compact form.
 
-    @raise Invalid_length if the number length is not 18
-    @raise Invalid_format
-      if the first 8 characters are not digits or if characters 9-18 contain
-      invalid characters (I, O, Z, S, V)
+    if the first 8 characters are not digits or if characters 9-18 contain
+    invalid characters (I, O, Z, S, V)
     @raise Invalid_checksum if the check digit is invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** [is_valid number] checks if the number is a valid USCC number. Returns

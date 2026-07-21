@@ -7,16 +7,9 @@
     - https://en.wikipedia.org/wiki/Mobile_Equipment_Identifier *)
 
 exception Invalid_format
-(** Exception raised when the MEID has invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the MEID has invalid length. *)
-
 exception Invalid_component
-(** Exception raised when the MEID contains invalid component. *)
-
 exception Invalid_checksum
-(** Exception raised when the checksum validation fails. *)
 
 val compact_clean : ?strip_check_digit:bool -> string -> string
 (** Convert the MEID number to the minimal (hexadecimal) representation. This
@@ -32,6 +25,9 @@ val validate : ?strip_check_digit:bool -> string -> string
 (** Check if the number is a valid MEID number. This converts the representation
     format of the number (if it is decimal it is not converted to hexadecimal).
 *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid MEID number. Returns [true] if valid, [false]

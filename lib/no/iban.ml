@@ -94,13 +94,14 @@ let validate number =
 
   number
 
-let is_valid number =
-  try
-    ignore (validate number);
-    true
-  with
-  | Invalid_format | Invalid_length | Invalid_checksum | Invalid_component ->
-      false
-  | Kontonr.Invalid_format | Kontonr.Invalid_length | Kontonr.Invalid_checksum
-    ->
-      false
+let validate_result number =
+  try Ok (validate number) with
+  | Invalid_format -> Error Tools.Error.Invalid_format
+  | Invalid_length -> Error Tools.Error.Invalid_length
+  | Invalid_checksum -> Error Tools.Error.Invalid_checksum
+  | Invalid_component -> Error Tools.Error.Invalid_component
+  | Kontonr.Invalid_format -> Error Tools.Error.Invalid_format
+  | Kontonr.Invalid_length -> Error Tools.Error.Invalid_length
+  | Kontonr.Invalid_checksum -> Error Tools.Error.Invalid_checksum
+
+let is_valid number = Result.is_ok (validate_result number)

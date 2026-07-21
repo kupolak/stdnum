@@ -83,13 +83,15 @@ let validate ?(allow_future = true) number =
     raise Invalid_checksum;
   number
 
-let is_valid ?(allow_future = true) number =
-  try
-    ignore (validate ~allow_future number);
-    true
-  with
-  | Invalid_format | Invalid_length | Invalid_component | Invalid_checksum ->
-    false
+let validate_result ?allow_future number =
+  try Ok (validate ?allow_future number) with
+  | Invalid_format -> Error Error.Invalid_format
+  | Invalid_length -> Error Error.Invalid_length
+  | Invalid_component -> Error Tools.Error.Invalid_component
+  | Invalid_checksum -> Error Error.Invalid_checksum
+
+let is_valid ?allow_future number =
+  Result.is_ok (validate_result ?allow_future number)
 
 let format number =
   let number = compact number in

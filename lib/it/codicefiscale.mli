@@ -32,8 +32,7 @@ val get_birth_date : ?minyear:int -> string -> float * Unix.tm
     will be returned in the range from minyear to minyear + 100. Default minyear
     is 1920.
 
-    @raise Invalid_component
-      if the number is not 16 characters or date is invalid *)
+    if the number is not 16 characters or date is invalid *)
 
 val get_gender : string -> string
 (** Get the gender of the person's fiscal code. Returns "M" or "F".
@@ -42,10 +41,10 @@ val get_gender : string -> string
 val validate : string -> string
 (** Check if the given fiscal code is valid. This checks the length and whether
     the check digit is correct. For 11-digit numbers, validates as IVA.
-    @raise Invalid_length if the number length is invalid
-    @raise Invalid_format if the number format is invalid
-    @raise Invalid_checksum if the check digit is invalid
     @raise Invalid_component if the birth date is invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the given fiscal code is valid. *)

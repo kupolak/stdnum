@@ -32,6 +32,9 @@ let validate number =
   if not (is_lower_letter number.[len - 1]) then raise Invalid_format;
   number
 
+let validate_result number =
+  try Ok (validate number) with Invalid_format -> Error Error.Invalid_format
+
 let is_valid number =
   try
     ignore (validate number);

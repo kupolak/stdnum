@@ -38,6 +38,12 @@ let validate number =
   end;
   number
 
+let validate_result number =
+  try Ok (validate number) with
+  | Invalid_format -> Error Error.Invalid_format
+  | Invalid_length -> Error Error.Invalid_length
+  | Invalid_checksum -> Error Error.Invalid_checksum
+
 let is_valid number =
   try
     ignore (validate number);

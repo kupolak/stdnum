@@ -21,6 +21,11 @@ let validate number =
   if not (Str.string_match nipt_re number 0) then raise Invalid_format
   else number
 
+let validate_result number =
+  try Ok (validate number) with
+  | Invalid_length -> Error Error.Invalid_length
+  | Invalid_format -> Error Error.Invalid_format
+
 let is_valid number =
   try
     ignore (validate number);

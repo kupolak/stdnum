@@ -107,6 +107,13 @@ let validate number =
   | "za" -> cc_upper ^ Za.Tin.validate rest
   | _ -> raise Invalid_component
 
+let validate_result number =
+  try Ok (validate number) with
+  | Invalid_format -> Error Tools.Error.Invalid_format
+  | Invalid_length -> Error Tools.Error.Invalid_length
+  | Invalid_checksum -> Error Tools.Error.Invalid_checksum
+  | Invalid_component -> Error Tools.Error.Invalid_component
+
 let is_valid number =
   try
     ignore (validate number);

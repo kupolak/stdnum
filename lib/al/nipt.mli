@@ -13,10 +13,7 @@ followed by a check letter (check digit algorithm unknown).
 *)
 
 exception Invalid_length
-(** Exception raised when the NIPT number has an invalid length. *)
-
 exception Invalid_format
-(** Exception raised when the NIPT number has an invalid format. *)
 
 val nipt_re : Str.regexp
 
@@ -26,6 +23,9 @@ val compact : string -> string
 val validate : string -> string
 (** [validate number] checks if [number] is a valid NIPT number. It raises
     [Invalid_length] or [Invalid_format] if the number is not valid. *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** [is_valid number] checks if [number] is a valid NIPT number. It returns

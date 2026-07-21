@@ -5,7 +5,6 @@
     "FN 122119m". *)
 
 exception Invalid_format
-(** Exception raised when the Company Register Number has invalid format. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. This strips the number of
@@ -17,6 +16,9 @@ val validate : string -> string
     formatting.
 
     @raise Invalid_format if the number is improperly formatted *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid company register number. *)

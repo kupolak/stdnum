@@ -26,16 +26,15 @@ More information:
 *)
 
 exception Invalid_length
-(** Exception raised when the MF number has an invalid length. *)
-
 exception Invalid_format
-(** Exception raised when the MF number has an invalid format. *)
 
 val validate : string -> string
 (** Check if the number is a valid Tunisia MF number. This checks the length and
     formatting. Returns the normalized number if valid.
-    @raise Invalid_length if the number length is not 8 or 13
     @raise Invalid_format if the number has invalid format or characters *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid Tunisia MF number. Returns true if valid,

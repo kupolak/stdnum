@@ -302,6 +302,11 @@ let validate ?company_form number =
          court; registry; num; (match qualifier with Some q -> q | None -> "")
        ])
 
+let validate_result ?company_form number =
+  try Ok (validate ?company_form number) with
+  | Invalid_format -> Error Error.Invalid_format
+  | Invalid_component -> Error Tools.Error.Invalid_component
+
 let is_valid number =
   try
     ignore (validate number);

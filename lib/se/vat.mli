@@ -5,10 +5,11 @@
     digits are a valid Organisationsnummer with Luhn checksum. *)
 
 exception Invalid_format
+exception Invalid_checksum
+
 (** Exception raised when the VAT number has invalid format (non-digits or last
     two digits are not "01"). *)
 
-exception Invalid_checksum
 (** Exception raised when the Luhn checksum of the first 10 digits is invalid.
     This exception is re-exported from the Orgnr module. *)
 
@@ -24,12 +25,14 @@ val validate : string -> string
     formatting, and validates the first 10 digits using Orgnr validation (Luhn
     checksum). Returns the normalized number if valid.
 
-    @raise Invalid_format
-      if the number contains non-digit characters or if the last two digits are
-      not "01"
+    if the number contains non-digit characters or if the last two digits are
+    not "01"
     @raise Orgnr.Invalid_length if the number is not 12 digits
     @raise Orgnr.Invalid_checksum
       if the Luhn checksum of the first 10 digits is invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid VAT number. Returns [true] if valid, [false]

@@ -26,9 +26,10 @@ val calc_check_digit : string -> string
 val validate : string -> string
 (** Check if the number is a valid ESR. This checks the length, formatting and
     check digit.
-    @raise Invalid_length if the number is longer than 27 digits
-    @raise Invalid_format if the number contains non-digit characters
     @raise Invalid_checksum if the check digit is invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid ESR. *)

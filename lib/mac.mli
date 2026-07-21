@@ -10,13 +10,8 @@
     - https://standards.ieee.org/faqs/regauth.html#2 *)
 
 exception Invalid_format
-(** Exception raised when the number has invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the number has invalid length. *)
-
 exception Invalid_component
-(** Exception raised when a component of the number is invalid. *)
 
 val compact : string -> string
 (** Convert the MAC address to the minimal, consistent representation. *)
@@ -41,6 +36,9 @@ val is_locally_administered : string -> bool
 
 val validate : ?validate_manufacturer:bool -> string -> string
 (** Check if the number provided is a valid MAC address. *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : ?validate_manufacturer:bool -> string -> bool
 (** Check if the number provided is a valid MAC address. *)

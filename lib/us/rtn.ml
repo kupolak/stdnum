@@ -32,6 +32,12 @@ let validate number =
 
   cleaned
 
+let validate_result number =
+  try Ok (validate number) with
+  | Invalid_length -> Error Error.Invalid_length
+  | Invalid_format -> Error Error.Invalid_format
+  | Invalid_checksum -> Error Error.Invalid_checksum
+
 let is_valid number =
   try
     let _ = validate number in

@@ -8,16 +8,9 @@
     - https://en.wikipedia.org/wiki/Uniform_civil_number *)
 
 exception Invalid_format
-(** Exception raised when the EGN has invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the EGN has invalid length. *)
-
 exception Invalid_component
-(** Exception raised when the EGN has invalid date component. *)
-
 exception Invalid_checksum
-(** Exception raised when the checksum validation fails. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. This strips the number of
@@ -35,10 +28,10 @@ val validate : string -> string
 (** Check if the number is a valid national identification number. This checks
     the length, formatting, embedded date and check digit.
 
-    @raise Invalid_format if the number contains invalid characters
-    @raise Invalid_length if the length is not 10
-    @raise Invalid_component if the embedded date is invalid
     @raise Invalid_checksum if the checksum fails *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid national identification number. *)

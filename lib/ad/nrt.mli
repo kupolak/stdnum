@@ -19,6 +19,9 @@ val is_alpha : char -> bool
 (* Check if the character is an alphabetic character. *)
 
 val validate : string -> string
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 (* Check if the number is a valid Andorra NRT number. This checks the length, formatting and other constraints. It does not check for control letter. *)
 
 val is_valid : string -> bool

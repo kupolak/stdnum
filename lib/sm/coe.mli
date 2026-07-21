@@ -4,13 +4,12 @@
     Leading zeroes are commonly dropped. *)
 
 exception Invalid_length
+exception Invalid_format
+exception Invalid_component
+
 (** Exception raised when the COE has an invalid length (0 or more than 5
     digits). *)
 
-exception Invalid_format
-(** Exception raised when the COE contains non-digit characters. *)
-
-exception Invalid_component
 (** Exception raised when the COE has less than 3 digits but is not in the list
     of valid registered low numbers. *)
 
@@ -25,11 +24,11 @@ val validate : string -> string
     for numbers with less than 3 digits, verifies they are in the list of valid
     registered numbers. Returns the normalized number if valid.
 
-    @raise Invalid_length if the number has 0 digits or more than 5 digits
-    @raise Invalid_format if the number contains non-digit characters
-    @raise Invalid_component
-      if the number has less than 3 digits and is not in the list of valid
-      registered low numbers *)
+    if the number has less than 3 digits and is not in the list of valid
+    registered low numbers *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid COE. Returns [true] if valid, [false]

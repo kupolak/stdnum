@@ -10,16 +10,9 @@
     - https://fr.wikipedia.org/wiki/Numéro_d%27Immatriculation_Fiscale#France *)
 
 exception Invalid_checksum
-(** Exception raised when the check digits are invalid. *)
-
 exception Invalid_length
-(** Exception raised when the number has an invalid length. *)
-
 exception Invalid_format
-(** Exception raised when the number has an invalid format. *)
-
 exception Invalid_component
-(** Exception raised when the first digit is not 0, 1, 2, or 3. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. This strips the number of
@@ -31,6 +24,9 @@ val calc_check_digits : string -> string
 val validate : string -> string
 (** Check if the number is a valid NIF. Returns the normalized number if valid.
     Raises an exception if invalid. *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid NIF. Returns false if invalid. *)

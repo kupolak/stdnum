@@ -5,10 +5,7 @@
     and is more complex than the Luhn algorithm but catches more errors. *)
 
 exception Invalid_format
-(** Exception raised when the number format is invalid (e.g., empty string). *)
-
 exception Invalid_checksum
-(** Exception raised when the Verhoeff checksum is invalid. *)
 
 val multiplication_table : int array array
 (** The multiplication table used in the Verhoeff algorithm. *)
@@ -24,8 +21,10 @@ val validate : string -> string
 (** Check if the number provided passes the Verhoeff checksum. Returns the
     number if valid.
 
-    @raise Invalid_format if the number is empty
     @raise Invalid_checksum if the checksum is not 0 *)
+
+val validate_result : string -> (string, Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number provided passes the Verhoeff checksum. Returns [true] if

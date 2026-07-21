@@ -7,17 +7,12 @@
     - https://en.wikipedia.org/wiki/International_Standard_Music_Number *)
 
 exception Invalid_format
-(** Exception raised when the ISMN has invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the ISMN has invalid length. *)
-
 exception Invalid_component
+exception Invalid_checksum
+
 (** Exception raised when the ISMN contains an invalid component (e.g. wrong
     prefix). *)
-
-exception Invalid_checksum
-(** Exception raised when the checksum validation fails. *)
 
 val compact : string -> string
 (** Convert the ISMN to the minimal representation. This strips the number of
@@ -28,10 +23,10 @@ val validate : string -> string
     or a 13-digit one). This checks the length and the check bit but does not
     check if the publisher is known.
 
-    @raise Invalid_format if the number contains invalid characters
-    @raise Invalid_length if the length is neither 10 nor 13
-    @raise Invalid_component if the 13-digit ISMN does not start with 9790
     @raise Invalid_checksum if the checksum fails *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val ismn_type : string -> string option
 (** Check the type of ISMN number passed and return [Some "ISMN13"],

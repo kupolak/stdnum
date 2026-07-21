@@ -4,13 +4,8 @@
     using the Luhn checksum algorithm. *)
 
 exception Invalid_checksum
-(** Exception raised when the check digit is invalid. *)
-
 exception Invalid_length
-(** Exception raised when the number has an invalid length. *)
-
 exception Invalid_format
-(** Exception raised when the number has an invalid format. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. *)
@@ -19,9 +14,10 @@ val validate : string -> string
 (** Check if the number is a valid SIREN. Returns the normalized number if
     valid.
 
-    @raise Invalid_checksum if the check digit is invalid
-    @raise Invalid_format if the number contains non-digits
     @raise Invalid_length if the number has an invalid length *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid SIREN. Returns [true] if valid, [false]

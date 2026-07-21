@@ -5,11 +5,12 @@ The Mod 97, 10 algorithm evaluates the whole number as an integer which is
 valid if the number modulo 97 is 1. As such it has two check digits.
 *)
 
-(* Exception raised when the checksum is invalid *)
+exception Invalid_format
 exception Invalid_checksum
 
+(* Exception raised when the checksum is invalid *)
+
 (* Exception raised when the format is invalid *)
-exception Invalid_format
 
 (* Convert a base36 number to base10 *)
 val to_base10 : string -> string
@@ -22,6 +23,9 @@ val calc_check_digits : string -> string
 
 (* Check whether the check digit is valid *)
 val validate : string -> string
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 (* Check whether the number is valid *)
 val is_valid : string -> bool

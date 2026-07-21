@@ -40,9 +40,10 @@ val compact : string -> string
 val validate : ?region:region -> string -> string
 (** Check if the number is a valid tax number. The region can be supplied to
     verify that the number is assigned in that region.
-    @raise Invalid_format if the number format is invalid
-    @raise Invalid_length if the number is not 10, 11, or 13 digits
     @raise Invalid_component if the region is invalid *)
+
+val validate_result : ?region:region -> string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : ?region:region -> string -> bool
 (** Check if the number is a valid tax number. *)
@@ -57,7 +58,6 @@ val to_regional_number : string -> string
 val to_country_number : ?region:region -> string -> string
 (** Convert the number to the nationally unique number (13 digits). The region
     is needed if the number is not only valid for one particular region.
-    @raise Invalid_format if the number format is invalid
     @raise Invalid_component if the region cannot be determined *)
 
 val format : ?region:region -> string -> string

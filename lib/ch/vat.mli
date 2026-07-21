@@ -24,10 +24,10 @@ val compact : string -> string
 val validate : string -> string
 (** Check if the number is a valid VAT number. This checks the length,
     formatting and check digit.
-    @raise Invalid_format if the number contains invalid characters
-    @raise Invalid_length if the number is not 15 or 16 characters
-    @raise Invalid_component if the suffix is not MWST, TVA, IVA, or TPV
     @raise Invalid_checksum if the UID checksum is invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid VAT number. *)

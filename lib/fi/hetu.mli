@@ -7,16 +7,9 @@
     details. *)
 
 exception Invalid_format
-(** Exception raised when the number has invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the number has invalid length. *)
-
 exception Invalid_component
-(** Exception raised when the date or individual number is invalid. *)
-
 exception Invalid_checksum
-(** Exception raised when the checksum validation fails. *)
 
 val compact : string -> string
 (** Convert the HETU to the minimal representation. This strips surrounding
@@ -30,10 +23,11 @@ val validate : ?allow_temporary:bool -> string -> string
     date is given and whether the check digit is correct. Allows temporary
     identifier range for individuals (900-999) if allow_temporary is true.
 
-    @raise Invalid_format if the number contains invalid characters
-    @raise Invalid_length if the length is not 11
-    @raise Invalid_component if the date or individual number is invalid
     @raise Invalid_checksum if the checksum fails *)
+
+val validate_result :
+  ?allow_temporary:bool -> string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : ?allow_temporary:bool -> string -> bool
 (** Check if the number is a valid HETU. *)

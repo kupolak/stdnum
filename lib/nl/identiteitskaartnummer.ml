@@ -42,6 +42,12 @@ let validate number =
     raise (Invalid_component "The letter 'O' is not allowed");
   number
 
+let validate_result number =
+  try Ok (validate number) with
+  | Invalid_format -> Error Error.Invalid_format
+  | Invalid_length -> Error Error.Invalid_length
+  | Invalid_component _ -> Error Tools.Error.Invalid_component
+
 let is_valid number =
   try
     ignore (validate number);

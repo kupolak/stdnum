@@ -74,6 +74,11 @@ let validate number =
     if branch <> "000" && number.[9] <> 'E' then raise Invalid_format;
     number)
 
+let validate_result number =
+  try Ok (validate number) with
+  | Invalid_length -> Error Error.Invalid_length
+  | Invalid_format -> Error Error.Invalid_format
+
 let is_valid number =
   try
     ignore (validate number);

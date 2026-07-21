@@ -12,15 +12,10 @@
     - Two letters (new style) Note: Letters I and O are not valid *)
 
 exception Invalid_checksum
-(** Exception raised when the check digit is invalid. *)
-
 exception Invalid_length
-(** Exception raised when the number has an invalid length. *)
-
 exception Invalid_format
-(** Exception raised when the number has an invalid format. *)
-
 exception Invalid_component
+
 (** Exception raised when the number has an invalid component (e.g., Monaco
     VAT). *)
 
@@ -35,9 +30,10 @@ val validate : string -> string
 (** Check if the number is a valid VAT number. This checks the length,
     formatting and check digit. Returns the normalized number if valid.
 
-    @raise Invalid_checksum if the check digit is invalid
-    @raise Invalid_format if the number has an invalid format
     @raise Invalid_length if the number has an invalid length *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid VAT number. Returns [true] if valid, [false]

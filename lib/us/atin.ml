@@ -5,6 +5,10 @@ let atin_re = Str.regexp "^9\\([0-9][0-9]\\)-93-\\([0-9][0-9][0-9][0-9]\\)$"
 let validate number =
   if Str.string_match atin_re number 0 then number else raise Invalid_format
 
+let validate_result number =
+  try Ok (validate number)
+  with Invalid_format -> Error Tools.Error.Invalid_format
+
 let is_valid number =
   try
     ignore (validate number);

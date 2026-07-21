@@ -32,24 +32,19 @@ val calc_check_digit : string -> string
 
 val validate_base10 : string -> string
 (** Check if a string is a valid BASE10 representation of an AIC.
-    @raise Invalid_length if the number is not 9 digits
-    @raise Invalid_format if the number contains non-digit characters
-    @raise Invalid_component if the first digit is not '0'
     @raise Invalid_checksum if the check digit is invalid *)
 
 val validate_base32 : string -> string
 (** Check if a string is a valid BASE32 representation of an AIC.
-    @raise Invalid_length if the number is not 6 characters
-    @raise Invalid_format if the number contains invalid BASE32 characters
     @raise Invalid_checksum if the check digit is invalid *)
 
 val validate : string -> string
 (** Check if a string is a valid AIC. BASE10 is the canonical form (9 digits),
     while BASE32 is 6 characters. Returns the BASE10 representation.
-    @raise Invalid_length if the number length is invalid
-    @raise Invalid_format if the number format is invalid
-    @raise Invalid_component if the first digit is not '0'
     @raise Invalid_checksum if the check digit is invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the given string is a valid AIC code. *)

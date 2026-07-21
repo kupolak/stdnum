@@ -13,6 +13,9 @@ let validate number =
     raise Invalid_format;
   cleaned
 
+let validate_result number =
+  try Ok (validate number) with Invalid_format -> Error Error.Invalid_format
+
 let is_valid number =
   try
     ignore (validate number);

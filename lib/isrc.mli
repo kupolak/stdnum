@@ -7,13 +7,8 @@
     - https://en.wikipedia.org/wiki/International_Standard_Recording_Code *)
 
 exception Invalid_format
-(** Exception raised when the ISRC has invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the ISRC has invalid length. *)
-
 exception Invalid_component
-(** Exception raised when the ISRC has an invalid country code. *)
 
 val compact : string -> string
 (** Convert the ISRC to the minimal representation. This strips the number of
@@ -26,9 +21,10 @@ val validate : string -> string
     alphabet, and the country code but does not check if the registrant code is
     known. Returns the normalized number if valid.
 
-    @raise Invalid_format if the number contains invalid characters
-    @raise Invalid_length if the number has invalid length (not 12 characters)
     @raise Invalid_component if the country code is invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number provided is a valid ISRC. Returns [true] if valid,

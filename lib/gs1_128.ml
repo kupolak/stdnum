@@ -1067,6 +1067,13 @@ let validate ?separator number =
   ignore number;
   raise (Failure "validate is not implemented yet")
 
+let validate_result ?separator number =
+  try Ok (validate ?separator number) with
+  | Invalid_component -> Error Tools.Error.Invalid_component
+  | Invalid_format -> Error Tools.Error.Invalid_format
+  | Invalid_length -> Error Tools.Error.Invalid_length
+  | Invalid_checksum -> Error Tools.Error.Invalid_checksum
+
 let is_valid ?separator number =
   try
     ignore (validate ?separator number);

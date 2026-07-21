@@ -20,6 +20,12 @@ let validate number =
   (* We skip checking the exact MCC component since we don't have the full IMSI database ported *)
   number
 
+let validate_result number =
+  try Ok (validate number) with
+  | Invalid_format -> Error Error.Invalid_format
+  | Invalid_length -> Error Error.Invalid_length
+  | Invalid_component -> Error Tools.Error.Invalid_component
+
 let is_valid number =
   try
     ignore (validate number);

@@ -41,6 +41,12 @@ let validate number =
   then raise Invalid_component;
   number
 
+let validate_result number =
+  try Ok (validate number) with
+  | Invalid_length -> Error Error.Invalid_length
+  | Invalid_format -> Error Error.Invalid_format
+  | Invalid_component -> Error Tools.Error.Invalid_component
+
 let is_valid number =
   try
     ignore (validate number);

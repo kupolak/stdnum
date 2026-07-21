@@ -5,10 +5,7 @@
 *)
 
 exception Invalid_format
-(** Exception raised when the number format is invalid. *)
-
 exception Invalid_checksum
-(** Exception raised when the checksum is invalid. *)
 
 val checksum : string -> int
 (** Calculate the checksum. A valid number should have a checksum of 1. *)
@@ -20,8 +17,10 @@ val calc_check_digit : string -> string
 val validate : string -> string
 (** Check whether the check digit is valid. Returns the number if valid.
 
-    @raise Invalid_format if the format is invalid
     @raise Invalid_checksum if the checksum is not 1 *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check whether the check digit is valid. Returns [true] if valid, [false]

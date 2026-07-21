@@ -15,6 +15,9 @@ val validate : string -> string
 (** Check if the number is a valid ATIN. This checks the length and formatting
     if it is present. *)
 
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
+
 val is_valid : string -> bool
 (** Check if the number is a valid ATIN. *)
 

@@ -11,17 +11,12 @@
 *)
 
 exception Invalid_component
+exception Invalid_checksum
+exception Invalid_length
+exception Invalid_format
+
 (** Exception raised when the number has an invalid component (e.g., wrong
     country, invalid BBAN structure). *)
-
-exception Invalid_checksum
-(** Exception raised when the check digits are invalid. *)
-
-exception Invalid_length
-(** Exception raised when the number has an invalid length. *)
-
-exception Invalid_format
-(** Exception raised when the number has an invalid format. *)
 
 val compact : string -> string
 (** Convert the IBAN number to the minimal representation. This strips the
@@ -41,11 +36,12 @@ val validate : ?check_country:bool -> string -> string
     if valid. The country-specific check can be disabled with the
     [check_country] argument (default: true).
 
-    @raise Invalid_component
-      if the country code is invalid or BBAN structure is invalid
-    @raise Invalid_checksum if the check digits are invalid
-    @raise Invalid_format if the number has an invalid format
+    if the country code is invalid or BBAN structure is invalid
     @raise Invalid_length if the number has an invalid length *)
+
+val validate_result :
+  ?check_country:bool -> string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : ?check_country:bool -> string -> bool
 (** Check if the number provided is a valid IBAN. Returns [true] if valid,

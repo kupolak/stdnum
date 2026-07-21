@@ -7,13 +7,8 @@
     - https://en.wikipedia.org/wiki/International_Article_Number *)
 
 exception Invalid_format
-(** Exception raised when the EAN has invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the EAN has invalid length. *)
-
 exception Invalid_checksum
-(** Exception raised when the checksum validation fails. *)
 
 val compact : string -> string
 (** Convert the EAN to the minimal representation. This strips the number of any
@@ -32,10 +27,11 @@ val validate : string -> string
     not check whether a known GS1 Prefix and company identifier are referenced.
     Returns the normalized number if valid.
 
-    @raise Invalid_format if the number has invalid format
-    @raise Invalid_length
-      if the number has invalid length (must be 8, 12, 13, or 14 digits)
+    if the number has invalid length (must be 8, 12, 13, or 14 digits)
     @raise Invalid_checksum if the checksum validation fails *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is valid. Returns [true] if valid, [false] otherwise. *)

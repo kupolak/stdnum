@@ -16,13 +16,8 @@
 *)
 
 exception Invalid_format
-(** Exception raised when the number has invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the number has invalid length. *)
-
 exception Invalid_component
-(** Exception raised when the number has an invalid component. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. This strips the number of
@@ -36,10 +31,10 @@ val validate : string -> string
 (** Check if the number provided is a valid PAN. This checks the length and
     formatting.
 
-    @raise Invalid_format if the number contains invalid characters
-    @raise Invalid_length if the length is not 10
-    @raise Invalid_component
-      if the holder type is invalid or serial number is 0000 *)
+    if the holder type is invalid or serial number is 0000 *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number provided is a valid PAN. This checks the length and

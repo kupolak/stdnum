@@ -12,20 +12,16 @@ More information:
 *)
 
 exception Invalid_format
-(** Exception raised when the number has an invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the number has an invalid length. *)
-
 exception Invalid_checksum
-(** Exception raised when the check digits are invalid. *)
 
 val validate : string -> string
 (** Check if the number is a valid T.C. Kimlik number. This checks the length
     and check digits. Returns the normalized number if valid.
-    @raise Invalid_format if the number contains non-digits or starts with 0
-    @raise Invalid_length if the number length is not 11
     @raise Invalid_checksum if the check digits are invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid T.C. Kimlik number. Returns true if valid,

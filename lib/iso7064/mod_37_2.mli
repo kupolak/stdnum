@@ -1,7 +1,6 @@
 (* functions for performing the ISO 7064 Mod 37, 2 algorithm *)
 
 exception Invalid_checksum
-(** Exception raised for an invalid checksum. *)
 
 exception Not_found
 (** Exception raised when a character is not found in the alphabet. *)
@@ -20,6 +19,9 @@ val calc_check_digit : ?alphabet:string -> string -> char
 
 (* Function to validate the checksum of a number *)
 val validate : ?alphabet:string -> string -> string
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 (* Function to check if a number is valid *)
 val is_valid : string -> bool

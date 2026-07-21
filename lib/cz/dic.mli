@@ -12,15 +12,10 @@
     - Special case: 640903926 *)
 
 exception Invalid_length
-(** Exception raised when the number has an invalid length. *)
-
 exception Invalid_format
-(** Exception raised when the number contains non-digit characters. *)
-
 exception Invalid_checksum
-(** Exception raised when the check digit is invalid. *)
-
 exception Invalid_component
+
 (** Exception raised when the number has invalid components (e.g., 8-digit
     number starting with 9). *)
 
@@ -48,10 +43,10 @@ val validate : string -> string
 (** Check if the number is a valid VAT number. This checks the length,
     formatting and check digit. Returns the normalized number if valid.
 
-    @raise Invalid_format if the number contains non-digit characters
-    @raise Invalid_length if the number has an invalid length
-    @raise Invalid_checksum if the check digit is invalid
     @raise Invalid_component if the number has invalid components *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid VAT number. Returns [true] if valid, [false]

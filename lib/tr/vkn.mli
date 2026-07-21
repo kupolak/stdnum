@@ -10,13 +10,8 @@ More information:
 *)
 
 exception Invalid_format
-(** Exception raised when the VKN number has an invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the VKN number has an invalid length. *)
-
 exception Invalid_checksum
-(** Exception raised when the VKN number has an invalid checksum. *)
 
 val compact : string -> string
 (** [compact number] converts the number to the minimal representation. This
@@ -30,6 +25,9 @@ val calc_check_digit : string -> string
 val validate : string -> string
 (** [validate number] checks if the number is a valid Vergi Kimlik Numarası.
     This checks the length and check digits. *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** [is_valid number] checks if the number is a valid Vergi Kimlik Numarası.

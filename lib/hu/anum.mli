@@ -19,5 +19,8 @@ val checksum : string -> int
 val validate : string -> string
 (** [validate number] checks if the number is a valid VAT number. *)
 
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
+
 val is_valid : string -> bool
 (** [is_valid number] checks if the number provided is a valid VAT number. *)

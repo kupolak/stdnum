@@ -93,10 +93,12 @@ let validate ?(allow_temporary = false) number =
 
   number
 
-let is_valid ?(allow_temporary = false) number =
-  try
-    ignore (validate ~allow_temporary number);
-    true
-  with
-  | Invalid_format | Invalid_length | Invalid_component | Invalid_checksum ->
-    false
+let validate_result ?allow_temporary number =
+  try Ok (validate ?allow_temporary number) with
+  | Invalid_format -> Error Error.Invalid_format
+  | Invalid_length -> Error Error.Invalid_length
+  | Invalid_component -> Error Tools.Error.Invalid_component
+  | Invalid_checksum -> Error Error.Invalid_checksum
+
+let is_valid ?allow_temporary number =
+  Result.is_ok (validate_result ?allow_temporary number)

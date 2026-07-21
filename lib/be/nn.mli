@@ -24,6 +24,9 @@ val validate : string -> string
 (** Check if the number is a valid National Number. Returns the compacted number
     if valid, raises an exception otherwise. *)
 
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
+
 val is_valid : string -> bool
 (** Check if the number is a valid National Number. Returns true if valid, false
     otherwise. *)

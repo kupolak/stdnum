@@ -9,13 +9,8 @@
     https://1cinfo.com.ua/Articles/Proverka_koda_po_EDRPOU.aspx *)
 
 exception Invalid_format
-(** Exception raised for an invalid EDRPOU format. *)
-
 exception Invalid_length
-(** Exception raised for an invalid EDRPOU length. *)
-
 exception Invalid_checksum
-(** Exception raised for an invalid EDRPOU checksum. *)
 
 val compact : string -> string
 (** [compact number] converts the EDRPOU number to its minimal representation.
@@ -31,9 +26,10 @@ val validate : string -> string
 (** [validate number] checks if the EDRPOU number is valid.
     @param number The EDRPOU number to validate.
     @return The compacted EDRPOU number if valid.
-    @raise Invalid_format if the format is invalid.
-    @raise Invalid_length if the length is invalid.
     @raise Invalid_checksum if the checksum is invalid. *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** [is_valid number] checks if the EDRPOU number is valid.

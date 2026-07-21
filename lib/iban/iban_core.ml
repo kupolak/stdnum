@@ -246,13 +246,15 @@ let validate ?(check_country = true) number =
 
   number
 
-let is_valid ?(check_country = true) number =
-  try
-    ignore (validate ~check_country number);
-    true
-  with
-  | Invalid_component | Invalid_checksum | Invalid_length | Invalid_format ->
-    false
+let validate_result ?check_country number =
+  try Ok (validate ?check_country number) with
+  | Invalid_component -> Error Tools.Error.Invalid_component
+  | Invalid_checksum -> Error Tools.Error.Invalid_checksum
+  | Invalid_length -> Error Tools.Error.Invalid_length
+  | Invalid_format -> Error Tools.Error.Invalid_format
+
+let is_valid ?check_country number =
+  Result.is_ok (validate_result ?check_country number)
 
 let format ?(separator = " ") number =
   let number = compact number in

@@ -12,13 +12,8 @@
     - https://en.wikipedia.org/wiki/International_Standard_Audiovisual_Number *)
 
 exception Invalid_format
-(** Exception raised when the ISAN has invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the ISAN has invalid length. *)
-
 exception Invalid_checksum
-(** Exception raised when the checksum validation fails. *)
 
 val split : string -> string * string * string * string * string
 (** Split the number into a root, an episode or part, a check digit, a version
@@ -36,6 +31,13 @@ val validate :
     the number they are validated. If [strip_check_digits] is true any existing
     check digits will be removed (after checking). If [add_check_digits] is true
     the check digit will be added if they are not present yet. *)
+
+val validate_result :
+     ?strip_check_digits:bool
+  -> ?add_check_digits:bool
+  -> string
+  -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number provided is a valid ISAN. If check digits are present in

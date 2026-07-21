@@ -71,6 +71,13 @@ let validate number =
   number
 
 (** Check if the number is a valid USCC. *)
+
+let validate_result number =
+  try Ok (validate number) with
+  | Invalid_format -> Error Error.Invalid_format
+  | Invalid_length -> Error Error.Invalid_length
+  | Invalid_checksum -> Error Error.Invalid_checksum
+
 let is_valid number =
   try
     let _ = validate number in

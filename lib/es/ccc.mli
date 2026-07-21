@@ -22,13 +22,8 @@
 *)
 
 exception Invalid_length
-(** Exception raised when the number has an invalid length (not 20 digits). *)
-
 exception Invalid_format
-(** Exception raised when the number contains non-digit characters. *)
-
 exception Invalid_checksum
-(** Exception raised when the check digits are invalid. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. This strips the number of
@@ -47,9 +42,10 @@ val validate : string -> string
 (** Check if the number is a valid CCC. This checks the length, formatting and
     check digits. Returns the normalized number if valid.
 
-    @raise Invalid_format if the number contains non-digit characters
-    @raise Invalid_length if the number is not 20 digits
     @raise Invalid_checksum if the check digits are invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid CCC. Returns [true] if valid, [false]

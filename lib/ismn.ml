@@ -40,6 +40,13 @@ let validate number =
   end
   else raise Invalid_length
 
+let validate_result number =
+  try Ok (validate number) with
+  | Invalid_format -> Error Error.Invalid_format
+  | Invalid_length -> Error Error.Invalid_length
+  | Invalid_component -> Error Tools.Error.Invalid_component
+  | Invalid_checksum -> Error Error.Invalid_checksum
+
 let ismn_type number =
   try
     let number = validate number in
@@ -48,13 +55,7 @@ let ismn_type number =
   | Invalid_format | Invalid_length | Invalid_component | Invalid_checksum ->
     None
 
-let is_valid number =
-  try
-    ignore (validate number);
-    true
-  with
-  | Invalid_format | Invalid_length | Invalid_component | Invalid_checksum ->
-    false
+let is_valid number = Result.is_ok (validate_result number)
 
 let to_ismn13 number =
   let number_trim = String.trim number in

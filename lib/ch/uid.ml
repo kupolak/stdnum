@@ -49,13 +49,14 @@ let validate number =
   if String.make 1 number.[check_pos] <> calculated then raise Invalid_checksum;
   number
 
-let is_valid number =
-  try
-    ignore (validate number);
-    true
-  with
-  | Invalid_format | Invalid_length | Invalid_checksum | Invalid_component ->
-    false
+let validate_result number =
+  try Ok (validate number) with
+  | Invalid_format -> Error Error.Invalid_format
+  | Invalid_length -> Error Error.Invalid_length
+  | Invalid_checksum -> Error Error.Invalid_checksum
+  | Invalid_component -> Error Tools.Error.Invalid_component
+
+let is_valid number = Result.is_ok (validate_result number)
 
 let format number =
   let num = compact number in

@@ -30,10 +30,10 @@ val calc_check_digit : string -> string
 val validate : string -> string
 (** Check if the number is a valid UID. This checks the length, formatting and
     check digit.
-    @raise Invalid_format if the number contains invalid characters
-    @raise Invalid_length if the number is not 12 characters
-    @raise Invalid_component if the number doesn't start with CHE
     @raise Invalid_checksum if the checksum is invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid UID. *)

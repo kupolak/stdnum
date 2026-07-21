@@ -19,6 +19,9 @@ val validate : string -> string
     sub-type and validates using that. Returns the compacted number if valid,
     raises an exception otherwise. *)
 
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
+
 val is_valid : string -> bool
 (** Check if the number is a valid Belgian SSN. Returns true if valid, false
     otherwise. *)

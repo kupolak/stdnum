@@ -11,13 +11,8 @@
     - https://en.wikipedia.org/wiki/VAT_identification_number *)
 
 exception Invalid_format
-(** Exception raised when the number has invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the number has invalid length. *)
-
 exception Invalid_component
-(** Exception raised when the country code component is invalid. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. This strips the number of
@@ -27,9 +22,10 @@ val validate : string -> string
 (** Check if the number is a valid VAT number. This performs the
     country-specific check for the number.
 
-    @raise Invalid_format if the number contains invalid characters
-    @raise Invalid_length if the length is too short
     @raise Invalid_component if the country code is invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid VAT number. *)

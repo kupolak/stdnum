@@ -14,10 +14,12 @@ val compact : string -> string
 (** Convert the number to the minimal representation. *)
 
 val validate : string -> string
-(** Check if the number provided is valid. This checks the length and format.
-    @raise Invalid_format
-      if the number contains invalid characters (O and I are not allowed)
+(** Check if the number provided is valid. This checks the length and format. if
+    the number contains invalid characters (O and I are not allowed)
     @raise Invalid_length if the number is not 6 characters *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number provided is valid. *)

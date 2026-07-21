@@ -18,8 +18,10 @@ val compact : string -> string
 val validate : string -> string
 (** Check if the number is a valid BRIN number. This currently does not check
     whether the number points to a registered school.
-    @raise Invalid_length if the number is not 4 or 6 characters
     @raise Invalid_format if the number format is invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid BRIN number. *)

@@ -11,18 +11,15 @@
       letters (entity type), 4 digits, and a check letter *)
 
 exception Invalid_length
+exception Invalid_format
+exception Invalid_component
+exception Invalid_checksum
+
 (** Exception raised when the UEN has an invalid length (not 9 or 10
     characters). *)
 
-exception Invalid_format
-(** Exception raised when the UEN contains invalid characters or format. *)
-
-exception Invalid_component
 (** Exception raised when the UEN has invalid components (e.g., invalid year,
     invalid entity type). *)
-
-exception Invalid_checksum
-(** Exception raised when the check digit is invalid. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. This converts to uppercase
@@ -35,9 +32,8 @@ val calc_business_check_digit : string -> string
 val validate_business : string -> string
 (** Validate a 9-digit Business (ROB) UEN number.
 
-    @raise Invalid_format
-      if the first 8 characters are not digits or the last character is not
-      alphabetic
+    if the first 8 characters are not digits or the last character is not
+    alphabetic
     @raise Invalid_checksum if the check digit is invalid *)
 
 val calc_local_company_check_digit : string -> string
@@ -47,8 +43,6 @@ val calc_local_company_check_digit : string -> string
 val validate_local_company : string -> string
 (** Validate a 10-digit Local Company (ROC) UEN number.
 
-    @raise Invalid_format if the first 9 characters are not digits
-    @raise Invalid_component if the year (first 4 digits) is in the future
     @raise Invalid_checksum if the check digit is invalid *)
 
 val calc_other_check_digit : string -> string
@@ -58,10 +52,8 @@ val calc_other_check_digit : string -> string
 val validate_other : string -> string
 (** Validate a 10-character other entity UEN number.
 
-    @raise Invalid_component
-      if the first character is not R/S/T, or if the entity type is invalid, or
-      if year validation fails for T entities
-    @raise Invalid_format if the format is invalid
+    if the first character is not R/S/T, or if the entity type is invalid, or if
+    year validation fails for T entities
     @raise Invalid_checksum if the check digit is invalid *)
 
 val validate : string -> string
@@ -69,10 +61,10 @@ val validate : string -> string
     and routes to the appropriate validation function based on the format.
     Returns the normalized number if valid.
 
-    @raise Invalid_length if the number is not 9 or 10 characters
-    @raise Invalid_format if the format is invalid
-    @raise Invalid_component if components are invalid
     @raise Invalid_checksum if the check digit is invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid Singapore UEN number. Returns [true] if

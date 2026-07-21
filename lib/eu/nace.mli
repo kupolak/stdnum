@@ -14,13 +14,8 @@
 *)
 
 exception Invalid_format
-(** Exception raised when the NACE has invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the NACE has invalid length. *)
-
 exception Invalid_component
-(** Exception raised when the NACE component is invalid. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. This strips the number of
@@ -29,8 +24,10 @@ val compact : string -> string
 val validate : string -> string
 (** Check if the number is a valid NACE. This checks the format.
 
-    @raise Invalid_format if the format is invalid
     @raise Invalid_length if the length is greater than 4 *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid NACE. This checks the format. *)

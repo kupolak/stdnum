@@ -150,6 +150,12 @@ let validate ?region number =
   if not is_valid then raise Invalid_format;
   number
 
+let validate_result ?region number =
+  try Ok (validate ?region number) with
+  | Invalid_format -> Error Error.Invalid_format
+  | Invalid_length -> Error Error.Invalid_length
+  | Invalid_component -> Error Tools.Error.Invalid_component
+
 let is_valid ?region number =
   try
     ignore (validate ?region number);

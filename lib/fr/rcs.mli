@@ -14,13 +14,8 @@
 *)
 
 exception Invalid_format
-(** Exception raised when the number has invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the number has invalid length. *)
-
 exception Invalid_checksum
-(** Exception raised when the checksum validation fails. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. *)
@@ -28,9 +23,10 @@ val compact : string -> string
 val validate : string -> string
 (** Validate number is a valid French RCS number.
 
-    @raise Invalid_format if the number contains invalid characters
-    @raise Invalid_length if the length is incorrect
     @raise Invalid_checksum if the checksum fails *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number provided is valid. *)

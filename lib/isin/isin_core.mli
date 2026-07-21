@@ -10,16 +10,9 @@
 *)
 
 exception Invalid_format
-(** Exception raised when the ISIN has invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the ISIN has invalid length. *)
-
 exception Invalid_component
-(** Exception raised when the ISIN has an invalid country code. *)
-
 exception Invalid_checksum
-(** Exception raised when the checksum validation fails. *)
 
 val iso_3166_1_country_codes : string list
 (** List of all valid ISO 3166-1 alpha-2 country codes. *)
@@ -41,10 +34,10 @@ val validate : string -> string
 (** Check if the number provided is valid. This checks the length and check
     digit. Returns the normalized number if valid.
 
-    @raise Invalid_format if the number contains invalid characters
-    @raise Invalid_length if the number has invalid length (not 12 digits)
-    @raise Invalid_component if the country code is invalid
     @raise Invalid_checksum if the checksum validation fails *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number provided is valid. Returns [true] if valid, [false]

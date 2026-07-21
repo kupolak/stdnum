@@ -6,16 +6,9 @@
     for males, >= 500 for females), and a check digit (1 digit). *)
 
 exception Invalid_checksum
-(** Exception raised when the check digit is invalid. *)
-
 exception Invalid_length
-(** Exception raised when the number has an invalid length. *)
-
 exception Invalid_format
-(** Exception raised when the number has an invalid format. *)
-
 exception Invalid_component
-(** Exception raised when a component (date, region) is invalid. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. *)
@@ -40,10 +33,10 @@ val get_region : string -> string
 val validate : string -> string
 (** Check if the number is a valid EMŠO. Returns the normalized number if valid.
 
-    @raise Invalid_checksum if the check digit is invalid
-    @raise Invalid_format if the number contains non-digits
-    @raise Invalid_length if the number has an invalid length
     @raise Invalid_component if the date or region is invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid EMŠO. Returns [true] if valid, [false]

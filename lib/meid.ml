@@ -95,13 +95,14 @@ let validate ?(strip_check_digit = true) number =
   let final_cd = if strip_check_digit then "" else cd in
   num_part ^ final_cd
 
-let is_valid number =
-  try
-    ignore (validate number);
-    true
-  with
-  | Invalid_format | Invalid_length | Invalid_component | Invalid_checksum ->
-    false
+let validate_result number =
+  try Ok (validate number) with
+  | Invalid_format -> Error Error.Invalid_format
+  | Invalid_length -> Error Error.Invalid_length
+  | Invalid_component -> Error Tools.Error.Invalid_component
+  | Invalid_checksum -> Error Error.Invalid_checksum
+
+let is_valid number = Result.is_ok (validate_result number)
 
 let format ?(separator = " ") ?(fmt = "") ?(add_check_digit = false) number =
   let num_part, cd = _parse number in

@@ -8,16 +8,9 @@
 *)
 
 exception Invalid_component
-(** Exception raised for an invalid component in the PESEL. *)
-
 exception Invalid_length
-(** Exception raised for an invalid length in the PESEL. *)
-
 exception Invalid_checksum
-(** Exception raised for an invalid checksum in the PESEL. *)
-
 exception Invalid_format
-(** Exception raised for an invalid format in the PESEL. *)
 
 val compact : string -> string
 (** Compact the PESEL number by removing separators and trimming. *)
@@ -33,6 +26,9 @@ val calc_check_digit : string -> string
 
 val validate : string -> string
 (** Validate the PESEL number, checking length, format, and checksum. *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the PESEL number is valid. *)

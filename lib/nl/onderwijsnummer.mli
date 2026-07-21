@@ -22,11 +22,12 @@ val checksum : string -> int
 val validate : string -> string
 (** Check if the number is a valid onderwijsnummer. This checks the length,
     whether it starts with "10", and whether the check digit gives checksum 5.
-    @raise Invalid_format
-      if the number contains non-digit characters, is zero, or doesn't start
-      with "10"
-    @raise Invalid_length if the number is not 9 digits
+    if the number contains non-digit characters, is zero, or doesn't start with
+    "10"
     @raise Invalid_checksum if the checksum is not 5 *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid onderwijsnummer. *)

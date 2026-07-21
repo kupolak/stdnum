@@ -25,6 +25,9 @@ val validate : string -> string
     Invalid_length, Invalid_checksum, or Invalid_component if the number is not
     valid. *)
 
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
+
 val is_valid : string -> bool
 (** Check if the number is a valid birth number. Returns true if valid, false
     otherwise. *)

@@ -8,16 +8,9 @@
     This number is identical to the Czech counterpart. *)
 
 exception Invalid_format
-(** Exception raised when the number has invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the number has invalid length. *)
-
 exception Invalid_checksum
-(** Exception raised when the checksum validation fails. *)
-
 exception Invalid_component
-(** Exception raised when a component of the number is invalid. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. This strips the number of
@@ -25,6 +18,9 @@ val compact : string -> string
 
 val validate : string -> string
 (** Check if the number is a valid Slovak birth number. *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid Slovak birth number. *)

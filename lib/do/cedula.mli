@@ -16,9 +16,10 @@ val compact : string -> string
 
 val validate : string -> string
 (** Validate the cedula number and return the compacted version.
-    @raise Invalid_format if the number contains invalid characters
-    @raise Invalid_length if the number is not 11 digits
     @raise Invalid_checksum if the Luhn checksum is invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the cedula number is valid. *)

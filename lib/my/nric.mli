@@ -9,13 +9,8 @@
     the last digit: odd numbers for males and even numbers for females. *)
 
 exception Invalid_format
-(** Exception raised when the number has invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the number has invalid length. *)
-
 exception Invalid_component
-(** Exception raised when a component of the number is invalid. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. This strips the number of
@@ -33,9 +28,10 @@ val validate : string -> string
 (** Check if the number is a valid NRIC number. This checks the length,
     formatting and birth date and place.
 
-    @raise Invalid_format if the number contains invalid characters
-    @raise Invalid_length if the length is not 12
     @raise Invalid_component if the date or place is invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid NRIC number. *)

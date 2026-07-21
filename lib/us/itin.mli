@@ -12,6 +12,9 @@ exception Invalid_format
 val validate : string -> string
 (** Check if the number is a valid ITIN. *)
 
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
+
 val is_valid : string -> bool
 (** Check if the number is a valid ITIN. *)
 

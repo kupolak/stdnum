@@ -30,14 +30,13 @@ let validate number =
   | Iso7064.Mod_37_36.Invalid_checksum -> raise Invalid_checksum
   | Iso7064.Mod_37_36.Invalid_format -> raise Invalid_format
 
-let is_valid number =
-  try
-    ignore (validate number);
-    true
-  with
-  | Invalid_length | Invalid_checksum | Invalid_format -> false
-  | Iso7064.Mod_37_36.Invalid_checksum | Iso7064.Mod_37_36.Invalid_format ->
-      false
+let validate_result number =
+  try Ok (validate number) with
+  | Invalid_length -> Error Error.Invalid_length
+  | Invalid_checksum -> Error Error.Invalid_checksum
+  | Invalid_format -> Error Error.Invalid_format
+
+let is_valid number = Result.is_ok (validate_result number)
 
 let format ?(separator = "-") number =
   let number = compact number in

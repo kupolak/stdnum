@@ -64,6 +64,12 @@ let validate ?(validate_manufacturer = false) number =
   let _ = validate_manufacturer in
   number
 
+let validate_result number =
+  try Ok (validate number) with
+  | Invalid_format -> Error Error.Invalid_format
+  | Invalid_length -> Error Error.Invalid_length
+  | Invalid_component -> Error Tools.Error.Invalid_component
+
 let is_valid ?validate_manufacturer number =
   try
     ignore (validate ?validate_manufacturer number);

@@ -21,10 +21,10 @@ val compact : string -> string
 
 val validate : string -> string
 (** Check if the number is a valid Swiss social security number.
-    @raise Invalid_format if the number contains invalid characters
-    @raise Invalid_length if the number is not 13 digits
-    @raise Invalid_component if the number doesn't start with 756
     @raise Invalid_checksum if the checksum is invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid Swiss social security number. *)

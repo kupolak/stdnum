@@ -66,6 +66,13 @@ let validate ?(convert = false) number =
   else raise Invalid_length;
   if convert then to_isbn13 compact_num else compact_num
 
+let validate_result number =
+  try Ok (validate number) with
+  | Invalid_format -> Error Error.Invalid_format
+  | Invalid_length -> Error Error.Invalid_length
+  | Invalid_checksum -> Error Error.Invalid_checksum
+  | Invalid_component -> Error Tools.Error.Invalid_component
+
 let isbn_type number =
   try
     let valid_num = validate ~convert:false number in

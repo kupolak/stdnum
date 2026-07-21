@@ -30,6 +30,12 @@ let validate number =
   if luhn_checksum number <> 0 then raise Invalid_checksum;
   number
 
+let validate_result number =
+  try Ok (validate number) with
+  | Invalid_length -> Error Error.Invalid_length
+  | Invalid_format -> Error Error.Invalid_format
+  | Invalid_checksum -> Error Error.Invalid_checksum
+
 let is_valid number =
   try
     ignore (validate number);

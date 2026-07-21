@@ -10,10 +10,7 @@
     contains the country-specific identifier. *)
 
 exception Invalid_format
-(** Exception raised when the identifier has invalid format. *)
-
 exception Invalid_checksum
-(** Exception raised when the checksum validation fails. *)
 
 val compact : string -> string
 (** Convert the AT-02 number to the minimal representation. This strips the
@@ -22,8 +19,10 @@ val compact : string -> string
 val validate : string -> string
 (** Check if the number provided is a valid AT-02.
 
-    @raise Invalid_format if the number contains invalid characters
     @raise Invalid_checksum if the checksum fails *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number provided is a valid AT-02. *)

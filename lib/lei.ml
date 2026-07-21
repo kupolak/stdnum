@@ -25,6 +25,11 @@ let validate number =
   | Iso7064.Mod_97_10.Invalid_format -> raise Invalid_format
   | Iso7064.Mod_97_10.Invalid_checksum -> raise Invalid_checksum
 
+let validate_result number =
+  try Ok (validate number) with
+  | Invalid_format -> Error Error.Invalid_format
+  | Invalid_checksum -> Error Error.Invalid_checksum
+
 let is_valid number =
   try
     ignore (validate number);

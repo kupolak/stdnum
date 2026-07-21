@@ -99,11 +99,13 @@ let validate ?(strip_check_digits = false) ?(add_check_digits = false) number =
   in
   root ^ episode ^ check1 ^ version ^ check2
 
-let is_valid number =
-  try
-    ignore (validate number);
-    true
-  with Invalid_format | Invalid_length | Invalid_checksum -> false
+let validate_result ?strip_check_digits ?add_check_digits number =
+  try Ok (validate ?strip_check_digits ?add_check_digits number) with
+  | Invalid_format -> Error Tools.Error.Invalid_format
+  | Invalid_length -> Error Tools.Error.Invalid_length
+  | Invalid_checksum -> Error Tools.Error.Invalid_checksum
+
+let is_valid number = Result.is_ok (validate_result number)
 
 let format ?(separator = "-") ?(strip_check_digits = false)
     ?(add_check_digits = true) number =

@@ -15,25 +15,18 @@ More information:
 *)
 
 exception Invalid_length
-(** Exception raised when the bank account number has an invalid length. *)
-
 exception Invalid_format
-(** Exception raised when the bank account number has an invalid format. *)
-
 exception Invalid_checksum
-(** Exception raised when the bank account number has an invalid checksum. *)
-
 exception Invalid_bank
-(** Exception raised when the bank code is invalid. *)
 
 val validate : string -> string
 (** Check if the number is a valid Czech bank account number. Returns the
-    normalized number if valid.
-    @raise Invalid_length if the number length is invalid
-    @raise Invalid_format
-      if the number contains non-digit characters or invalid format
-    @raise Invalid_checksum if either prefix or root check digit is invalid
+    normalized number if valid. if the number contains non-digit characters or
+    invalid format
     @raise Invalid_bank if the bank code is invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid Czech bank account number. Returns true if

@@ -27,16 +27,9 @@ More information:
 *)
 
 exception Invalid_length
-(** Exception raised when the NIT has an invalid length. *)
-
 exception Invalid_format
-(** Exception raised when the NIT has an invalid format. *)
-
 exception Invalid_component
-(** Exception raised when the NIT does not start with 0, 1, or 9. *)
-
 exception Invalid_checksum
-(** Exception raised when the check digit is invalid. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. This strips the number of
@@ -50,10 +43,10 @@ val calc_check_digit : string -> string
 val validate : string -> string
 (** Check if the number is a valid El Salvador NIT number. This checks the
     length, formatting and check digit. Returns the normalized number if valid.
-    @raise Invalid_length if the number length is not 14
-    @raise Invalid_format if the number contains non-digit characters
-    @raise Invalid_component if the number does not start with 0, 1, or 9
     @raise Invalid_checksum if the check digit is invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid El Salvador NIT number. Returns true if

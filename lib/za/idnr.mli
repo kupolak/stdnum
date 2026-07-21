@@ -12,16 +12,9 @@ More information:
 *)
 
 exception Invalid_format
-(** Exception raised for an invalid format in the ID number. *)
-
 exception Invalid_length
-(** Exception raised for an invalid length in the ID number. *)
-
 exception Invalid_checksum
-(** Exception raised for an invalid checksum in the ID number. *)
-
 exception Invalid_component
-(** Exception raised for an invalid component in the ID number. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. This strips the number of
@@ -30,6 +23,9 @@ val compact : string -> string
 val validate : string -> string
 (** Check if the number is a valid South African ID number. This checks the
     length, formatting and check digit. *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid South African ID number. *)

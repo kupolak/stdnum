@@ -9,16 +9,9 @@
     - https://en.wikipedia.org/wiki/National_identification_number#Lithuania *)
 
 exception Invalid_format
-(** Exception raised when the number has invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the number has invalid length. *)
-
 exception Invalid_component
-(** Exception raised when the embedded date is invalid. *)
-
 exception Invalid_checksum
-(** Exception raised when the checksum validation fails. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. This strips the number of
@@ -28,10 +21,11 @@ val validate : ?validate_birth_date:bool -> string -> string
 (** Check if the number provided is valid. This checks the length, formatting,
     embedded date and check digit.
 
-    @raise Invalid_format if the number contains invalid characters
-    @raise Invalid_length if the length is not 11
-    @raise Invalid_component if the date component is invalid
     @raise Invalid_checksum if the checksum fails *)
+
+val validate_result :
+  ?validate_birth_date:bool -> string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : ?validate_birth_date:bool -> string -> bool
 (** Check if the number provided is valid. This checks the length, formatting,

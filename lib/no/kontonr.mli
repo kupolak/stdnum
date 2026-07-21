@@ -17,6 +17,9 @@ val validate : string -> string
     Invalid_format, Invalid_length, or Invalid_checksum if the number is not
     valid. *)
 
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
+
 val is_valid : string -> bool
 (** Check if the number provided is a valid bank account number. *)
 

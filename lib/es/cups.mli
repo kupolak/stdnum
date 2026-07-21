@@ -19,17 +19,12 @@
     - https://es.wikipedia.org/wiki/Código_Unificado_de_Punto_de_Suministro *)
 
 exception Invalid_length
+exception Invalid_format
+exception Invalid_checksum
+exception Invalid_component
+
 (** Exception raised when the number has an invalid length (not 20 or 22
     characters). *)
-
-exception Invalid_format
-(** Exception raised when the number has an invalid format. *)
-
-exception Invalid_checksum
-(** Exception raised when the check digits are invalid. *)
-
-exception Invalid_component
-(** Exception raised when the country code is not 'ES'. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. This strips the number of
@@ -53,10 +48,10 @@ val validate : string -> string
 (** Check if the number is a valid CUPS. This checks length, formatting and
     check digits. Returns the normalized number if valid.
 
-    @raise Invalid_format if the number has an invalid format
-    @raise Invalid_length if the number is not 20 or 22 characters
-    @raise Invalid_checksum if the check digits are invalid
     @raise Invalid_component if the country code is not 'ES' *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid CUPS. Returns [true] if valid, [false]

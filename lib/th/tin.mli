@@ -20,6 +20,9 @@ val validate : string -> string
 (** Check if the number is a valid TIN. This searches for the proper sub-type
     and validates using that. *)
 
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
+
 val is_valid : string -> bool
 (** Check whether the number is valid. *)
 

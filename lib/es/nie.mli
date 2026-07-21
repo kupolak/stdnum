@@ -21,6 +21,9 @@ val validate : string -> string
     formatting and check digit. Returns the compacted number if valid, raises an
     exception otherwise. *)
 
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
+
 val is_valid : string -> bool
 (** Check if the number provided is a valid NIE. Returns true if valid, false
     otherwise. *)

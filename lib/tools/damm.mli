@@ -5,10 +5,7 @@
     anti-symmetric quasigroup of order 10 and uses a substitution table. *)
 
 exception Invalid_format
-(** Exception raised when the number format is invalid (e.g., empty string). *)
-
 exception Invalid_checksum
-(** Exception raised when the Damm checksum is invalid. *)
 
 val default_table : int array array
 (** The default Damm operation table from Wikipedia. *)
@@ -25,8 +22,10 @@ val validate : ?table:int array array -> string -> string
     if valid.
 
     @param table Optional custom operation table (defaults to Wikipedia table)
-    @raise Invalid_format if the number is empty
     @raise Invalid_checksum if the checksum is not 0 *)
+
+val validate_result : string -> (string, Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : ?table:int array array -> string -> bool
 (** Check if the number provided passes the Damm algorithm. Returns [true] if

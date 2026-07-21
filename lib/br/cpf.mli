@@ -14,13 +14,8 @@
     ]} *)
 
 exception Invalid_format
-(** Exception raised when the number format is invalid. *)
-
 exception Invalid_length
-(** Exception raised when the number length is invalid. *)
-
 exception Invalid_checksum
-(** Exception raised when the check digits are incorrect. *)
 
 val compact : string -> string
 (** [compact number] converts the number to the minimal representation by
@@ -32,9 +27,10 @@ val validate : string -> string
     length and whether the check digit is correct. Returns the validated number
     in compact form.
 
-    @raise Invalid_format if the number contains non-digit characters or is zero
-    @raise Invalid_length if the number length is not 11 digits
     @raise Invalid_checksum if the check digits are incorrect *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** [is_valid number] checks if the number is a valid CPF. Returns [true] if

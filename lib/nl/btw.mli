@@ -26,9 +26,10 @@ val compact : string -> string
 val validate : string -> string
 (** Check if the number is a valid btw number. This checks the length,
     formatting and check digit (either BSN or mod 97-10).
-    @raise Invalid_format if the number format is invalid
-    @raise Invalid_length if the number is not 12 characters
     @raise Invalid_checksum if neither BSN nor mod 97-10 checksum is valid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid btw number. *)

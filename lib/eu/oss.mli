@@ -19,13 +19,8 @@
     - https://vat-one-stop-shop.ec.europa.eu/one-stop-shop/register-oss_en *)
 
 exception Invalid_format
-(** Exception raised when the number has invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the number has invalid length. *)
-
 exception Invalid_component
-(** Exception raised when the prefix or country code component is invalid. *)
 
 val compact : string -> string
 (** Compact European VAT Number *)
@@ -33,9 +28,10 @@ val compact : string -> string
 val validate : string -> string
 (** Validate European VAT Number.
 
-    @raise Invalid_format if the number contains invalid characters
-    @raise Invalid_length if the length is incorrect
     @raise Invalid_component if the country code or prefix is invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid VAT number. This performs the

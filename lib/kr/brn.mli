@@ -10,13 +10,8 @@
 *)
 
 exception Invalid_format
-(** Exception raised when the number has invalid format. *)
-
 exception Invalid_length
-(** Exception raised when the number has invalid length. *)
-
 exception Invalid_component
-(** Exception raised when a component of the number is invalid. *)
 
 val compact : string -> string
 (** Convert the number to the minimal representation.
@@ -29,10 +24,10 @@ val validate : string -> string
 
     This checks the length and formatting.
 
-    @raise Invalid_format if the number contains invalid characters
-    @raise Invalid_length if the length is not 10
-    @raise Invalid_component
-      if the tax office number, type of business, or serial value is invalid *)
+    if the tax office number, type of business, or serial value is invalid *)
+
+val validate_result : string -> (string, Tools.Error.t) result
+(** Same as {!validate} but returns a [result] instead of raising exceptions. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid South Korea BRN number. *)
