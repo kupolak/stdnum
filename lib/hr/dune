@@ -1,0 +1,5 @@
+(library
+ (name hr)
+ (public_name stdnum.hr)
+ (modules oib)
+ (libraries tools iso7064))
