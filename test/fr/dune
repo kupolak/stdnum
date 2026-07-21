@@ -27,3 +27,8 @@
  (name test_accise)
  (libraries alcotest stdnum stdnum.fr)
  (modules test_accise))
+
+(test
+ (name test_rcs)
+ (libraries alcotest stdnum stdnum.fr)
+ (modules test_rcs))
