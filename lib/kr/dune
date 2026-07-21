@@ -1,5 +1,5 @@
 (library
  (name kr)
  (public_name stdnum.kr)
- (modules brn)
- (libraries tools))
+ (modules brn rrn)
+ (libraries tools unix))
