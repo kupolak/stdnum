@@ -1,0 +1,4 @@
+(test
+ (name test_curp)
+ (libraries alcotest stdnum stdnum.mx)
+ (modules test_curp))

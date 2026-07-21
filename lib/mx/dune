@@ -1,0 +1,5 @@
+(library
+ (name mx)
+ (public_name stdnum.mx)
+ (modules curp)
+ (libraries tools str))
