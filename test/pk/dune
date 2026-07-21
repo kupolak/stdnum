@@ -1,0 +1,4 @@
+(test
+ (name test_cnic)
+ (libraries alcotest stdnum pk)
+ (modules test_cnic))
