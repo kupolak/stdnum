@@ -1,0 +1,5 @@
+(library
+ (name py)
+ (public_name stdnum.py)
+ (modules ruc)
+ (libraries tools))
