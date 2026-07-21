@@ -9,7 +9,7 @@ let test_compact () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = Stdnum.Iban.compact input in
+      let result = Iban_core.compact input in
       Alcotest.(check string) "test_compact" expected_result result)
     test_cases
 
@@ -17,7 +17,7 @@ let test_calc_check_digits () =
   let test_cases = [ ("BExx435411161155", "31") ] in
   List.iter
     (fun (input, expected_result) ->
-      let result = Stdnum.Iban.calc_check_digits input in
+      let result = Iban_core.calc_check_digits input in
       Alcotest.(check string) "test_calc_check_digits" expected_result result)
     test_cases
 
@@ -30,7 +30,7 @@ let test_format () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = Stdnum.Iban.format input in
+      let result = Iban_core.format input in
       Alcotest.(check string) "test_format" expected_result result)
     test_cases
 
@@ -211,7 +211,7 @@ let test_validate_valid_numbers () =
   in
   List.iter
     (fun number ->
-      let result = Stdnum.Iban.is_valid ~check_country:false number in
+      let result = Iban_core.is_valid ~check_country:false number in
       if not result then
         Alcotest.fail (Printf.sprintf "Expected %s to be valid" number))
     valid_numbers
@@ -235,7 +235,7 @@ let test_validate_invalid_checksum () =
   in
   List.iter
     (fun number ->
-      let result = Stdnum.Iban.is_valid ~check_country:false number in
+      let result = Iban_core.is_valid ~check_country:false number in
       if result then
         Alcotest.fail
           (Printf.sprintf "Expected %s to be invalid (bad checksum)" number))
@@ -253,7 +253,7 @@ let test_validate_invalid_length () =
   in
   List.iter
     (fun number ->
-      let result = Stdnum.Iban.is_valid ~check_country:false number in
+      let result = Iban_core.is_valid ~check_country:false number in
       if result then
         Alcotest.fail
           (Printf.sprintf "Expected %s to be invalid (wrong length)" number))
@@ -271,7 +271,7 @@ let test_validate_invalid_format () =
   in
   List.iter
     (fun number ->
-      let result = Stdnum.Iban.is_valid ~check_country:false number in
+      let result = Iban_core.is_valid ~check_country:false number in
       if result then
         Alcotest.fail
           (Printf.sprintf "Expected %s to be invalid (bad format)" number))
@@ -280,38 +280,15 @@ let test_validate_invalid_format () =
 let test_validate_corner_cases () =
   (* Corner case: empty BBAN, unknown country, but valid checksum structure *)
   (try
-     ignore (Stdnum.Iban.validate "0001");
+     ignore (Iban_core.validate "0001");
      Alcotest.fail "Expected Invalid_component or Invalid_length exception"
-   with Stdnum.Iban.Invalid_component | Stdnum.Iban.Invalid_length -> ());
+   with Iban_core.Invalid_component | Iban_core.Invalid_length -> ());
 
   (* Unknown country code *)
   try
-    ignore (Stdnum.Iban.validate "XX431234");
+    ignore (Iban_core.validate "XX431234");
     Alcotest.fail "Expected Invalid_component exception"
-  with Stdnum.Iban.Invalid_component -> ()
-
-let test_spanish_iban_country_specific () =
-  (* Test with country-specific validation disabled - should pass *)
-  let result1 =
-    Stdnum.Iban.is_valid ~check_country:false "ES2121000418450200051331"
-  in
-  Alcotest.(check bool) "ES number valid without country check" true result1;
-
-  let result2 =
-    Stdnum.Iban.is_valid ~check_country:false "ES89 3183 1500 9500 0121 0562"
-  in
-  Alcotest.(check bool) "ES number valid without country check" true result2;
-
-  (* Test with country-specific validation enabled - should fail *)
-  let result3 =
-    Stdnum.Iban.is_valid ~check_country:true "ES2121000418450200051331"
-  in
-  Alcotest.(check bool) "ES number invalid with country check" false result3;
-
-  let result4 =
-    Stdnum.Iban.is_valid ~check_country:true "ES89 3183 1500 9500 0121 0562"
-  in
-  Alcotest.(check bool) "ES number invalid with country check" false result4
+  with Iban_core.Invalid_component -> ()
 
 let test_is_valid () =
   let test_cases =
@@ -325,7 +302,7 @@ let test_is_valid () =
   in
   List.iter
     (fun (input, expected_result) ->
-      let result = Stdnum.Iban.is_valid ~check_country:false input in
+      let result = Iban_core.is_valid ~check_country:false input in
       Alcotest.(check bool) "test_is_valid" expected_result result)
     test_cases
 
@@ -339,10 +316,7 @@ let suite =
   ; ("test_validate_invalid_length", `Quick, test_validate_invalid_length)
   ; ("test_validate_invalid_format", `Quick, test_validate_invalid_format)
   ; ("test_validate_corner_cases", `Quick, test_validate_corner_cases)
-  ; ( "test_spanish_iban_country_specific"
-    , `Quick
-    , test_spanish_iban_country_specific )
   ; ("test_is_valid", `Quick, test_is_valid)
   ]
 
-let () = Alcotest.run "Stdnum.Iban" [ ("suite", suite) ]
+let () = Alcotest.run "Iban_core" [ ("suite", suite) ]

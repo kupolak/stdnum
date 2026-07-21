@@ -1,15 +1,12 @@
-(**
-   ЄДРПОУ, EDRPOU (Identifier for enterprises and organizations in Ukraine).
+(** ЄДРПОУ, EDRPOU (Identifier for enterprises and organizations in Ukraine).
 
-   The ЄДРПОУ (Єдиного державного реєстру підприємств та організацій України,
-   Unified State Register of Enterprises and Organizations of Ukraine) is a
-   unique identification number of legal entities in Ukraine. The number
-   consists of 8 digits, the last being a check digit.
+    The ЄДРПОУ (Єдиного державного реєстру підприємств та організацій України,
+    Unified State Register of Enterprises and Organizations of Ukraine) is a
+    unique identification number of legal entities in Ukraine. The number
+    consists of 8 digits, the last being a check digit.
 
-   More information:
-   * https://uk.wikipedia.org/wiki/Код_ЄДРПОУ
-   * https://1cinfo.com.ua/Articles/Proverka_koda_po_EDRPOU.aspx
-*)
+    More information: * https://uk.wikipedia.org/wiki/Код_ЄДРПОУ *
+    https://1cinfo.com.ua/Articles/Proverka_koda_po_EDRPOU.aspx *)
 
 exception Invalid_format
 (** Exception raised for an invalid EDRPOU format. *)
@@ -34,9 +31,9 @@ val validate : string -> string
 (** [validate number] checks if the EDRPOU number is valid.
     @param number The EDRPOU number to validate.
     @return The compacted EDRPOU number if valid.
-    @raises Invalid_format if the format is invalid.
-    @raises Invalid_length if the length is invalid.
-    @raises Invalid_checksum if the checksum is invalid. *)
+    @raise Invalid_format if the format is invalid.
+    @raise Invalid_length if the length is invalid.
+    @raise Invalid_checksum if the checksum is invalid. *)
 
 val is_valid : string -> bool
 (** [is_valid number] checks if the EDRPOU number is valid.
@@ -44,6 +41,7 @@ val is_valid : string -> bool
     @return true if the EDRPOU number is valid, false otherwise. *)
 
 val format : string -> string
-(** [format number] reformats the EDRPOU number to the standard presentation format.
+(** [format number] reformats the EDRPOU number to the standard presentation
+    format.
     @param number The EDRPOU number.
     @return The formatted EDRPOU number. *)

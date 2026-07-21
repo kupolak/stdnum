@@ -17,18 +17,19 @@ exception Invalid_component
 (** Exception raised when the NI has an invalid date of birth. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips
-    surrounding whitespace and separation dash. *)
+(** Convert the number to the minimal representation. This strips surrounding
+    whitespace and separation dash. *)
 
 val get_birth_date : string -> int * int * int
-(** Split the date parts from the number and return the date of birth (year, month, day). *)
+(** Split the date parts from the number and return the date of birth (year,
+    month, day). *)
 
 val get_gender : string -> string
 (** Get the gender (M/F) from the person's NI. *)
 
 val validate : string -> string
-(** Check if the number is a valid NI. This checks the length, formatting
-    and date component.
+(** Check if the number is a valid NI. This checks the length, formatting and
+    date component.
 
     @raise Invalid_format if the number contains invalid characters
     @raise Invalid_length if the length is not 11

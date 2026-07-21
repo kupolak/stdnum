@@ -20,11 +20,7 @@ let test_validate_invalid_component () =
 
 let test_is_valid () =
   let test_cases =
-    [
-      ("12345678", true)
-    ; ("12345679", false)
-    ; ("32345674", false)
-    ]
+    [ ("12345678", true); ("12345679", false); ("32345674", false) ]
   in
   List.iter
     (fun (input, expected_result) ->

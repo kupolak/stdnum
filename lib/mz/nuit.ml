@@ -1,11 +1,11 @@
 (** NUIT (Número Único de Identificação Tributaria, Mozambique tax number).
 
-    This number consists of 9 digits, sometimes separated in three groups of three
-    digits using whitespace to make it easier to read.
+    This number consists of 9 digits, sometimes separated in three groups of
+    three digits using whitespace to make it easier to read.
 
     The first digit indicates the type of entity. The next seven digits are a
-    sequential number. The last digit is the check digit, which is used to verify
-    the number was correctly typed.
+    sequential number. The last digit is the check digit, which is used to
+    verify the number was correctly typed.
 
     More information:
     - https://www.mobilize.org.mz/nuit-numero-unico-de-identificacao-tributaria/
@@ -17,8 +17,7 @@ exception Invalid_format
 exception Invalid_length
 exception Invalid_checksum
 
-let compact number =
-  Utils.clean number "[ -.]" |> String.trim
+let compact number = Utils.clean number "[ -.]" |> String.trim
 
 let calc_check_digit number =
   let weights = [| 8; 9; 4; 5; 6; 7; 8; 9 |] in
@@ -45,4 +44,5 @@ let is_valid number =
 
 let format number =
   let number = compact number in
-  String.sub number 0 3 ^ " " ^ String.sub number 3 3 ^ " " ^ String.sub number 6 3
+  String.sub number 0 3 ^ " " ^ String.sub number 3 3 ^ " "
+  ^ String.sub number 6 3

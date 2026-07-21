@@ -1,8 +1,8 @@
 (** Norwegian IBAN (International Bank Account Number).
 
     The IBAN is used to identify bank accounts across national borders. The
-    Norwegian IBAN is built up of the IBAN prefix (NO) and check digits, followed
-    by the 11 digit Konto nr. (bank account number).
+    Norwegian IBAN is built up of the IBAN prefix (NO) and check digits,
+    followed by the 11 digit Konto nr. (bank account number).
 
     More information:
     - https://en.wikipedia.org/wiki/International_Bank_Account_Number *)

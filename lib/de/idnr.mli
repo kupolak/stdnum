@@ -14,12 +14,12 @@ exception Invalid_length
 exception Invalid_checksum
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val validate : string -> string
-(** Check if the number provided is a valid tax identification number.
-    This checks the length, formatting and check digit.
+(** Check if the number provided is a valid tax identification number. This
+    checks the length, formatting and check digit.
     @raise Invalid_format if the number format is invalid
     @raise Invalid_length if the number is not 11 digits
     @raise Invalid_checksum if the checksum is invalid *)

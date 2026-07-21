@@ -1,11 +1,11 @@
 (** NUIT (Número Único de Identificação Tributaria, Mozambique tax number).
 
-    This number consists of 9 digits, sometimes separated in three groups of three
-    digits using whitespace to make it easier to read.
+    This number consists of 9 digits, sometimes separated in three groups of
+    three digits using whitespace to make it easier to read.
 
     The first digit indicates the type of entity. The next seven digits are a
-    sequential number. The last digit is the check digit, which is used to verify
-    the number was correctly typed.
+    sequential number. The last digit is the check digit, which is used to
+    verify the number was correctly typed.
 
     More information:
     - https://www.mobilize.org.mz/nuit-numero-unico-de-identificacao-tributaria/

@@ -2,7 +2,8 @@
 
     The personal identification number is used to identify persons and legal
     entities in Croatia. It has 11 digits (sometimes prefixed by HR), contains
-    no personal information and uses the ISO 7064 Mod 11, 10 checksum algorithm. *)
+    no personal information and uses the ISO 7064 Mod 11, 10 checksum algorithm.
+*)
 
 open Tools
 
@@ -11,7 +12,9 @@ exception Invalid_length
 exception Invalid_checksum
 
 let compact number =
-  let number = Utils.clean number "[ -]" |> String.trim |> String.uppercase_ascii in
+  let number =
+    Utils.clean number "[ -]" |> String.trim |> String.uppercase_ascii
+  in
   if String.starts_with ~prefix:"HR" number then
     String.sub number 2 (String.length number - 2)
   else number

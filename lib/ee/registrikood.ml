@@ -20,25 +20,28 @@ exception Invalid_length
 exception Invalid_component
 exception Invalid_checksum
 
-let compact number =
-  Utils.clean number " " |> String.trim
+let compact number = Utils.clean number " " |> String.trim
 
 let validate number =
   let number = compact number in
   if not (Utils.is_digits number) then raise Invalid_format;
   if String.length number <> 8 then raise Invalid_length;
-  
+
   let first_char = number.[0] in
-  if first_char <> '1' && first_char <> '7' && first_char <> '8' && first_char <> '9' then
-    raise Invalid_component;
-    
+  if
+    first_char <> '1' && first_char <> '7' && first_char <> '8'
+    && first_char <> '9'
+  then raise Invalid_component;
+
   let check_digit = Ik.calc_check_digit number in
   if String.sub number 7 1 <> check_digit then raise Invalid_checksum;
-  
+
   number
 
 let is_valid number =
   try
     ignore (validate number);
     true
-  with Invalid_format | Invalid_length | Invalid_component | Invalid_checksum -> false
+  with
+  | Invalid_format | Invalid_length | Invalid_component | Invalid_checksum ->
+    false

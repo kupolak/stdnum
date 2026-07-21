@@ -1,11 +1,12 @@
-(** Spanish CUPS (Código Unificado de Punto de Suministro, Spanish meter point number).
+(** Spanish CUPS (Código Unificado de Punto de Suministro, Spanish meter point
+    number).
 
     CUPS codes are used in Spain as unique identifier for energy supply points.
     They are used both for electricity and pipelined gas.
 
     The format is set by the Energy Ministry, and individual codes are issued by
-    each local distribution company. The number consist or 20 or 22 digits and is
-    built up as follows:
+    each local distribution company. The number consist or 20 or 22 digits and
+    is built up as follows:
 
     - LL: (letters) country (always 'ES' since it is a national code)
     - DDDD: (numbers) distribution company code (numeric)
@@ -15,11 +16,11 @@
     - T: (letter) kind of border point
 
     More information:
-    - https://es.wikipedia.org/wiki/Código_Unificado_de_Punto_de_Suministro
-*)
+    - https://es.wikipedia.org/wiki/Código_Unificado_de_Punto_de_Suministro *)
 
 exception Invalid_length
-(** Exception raised when the number has an invalid length (not 20 or 22 characters). *)
+(** Exception raised when the number has an invalid length (not 20 or 22
+    characters). *)
 
 exception Invalid_format
 (** Exception raised when the number has an invalid format. *)
@@ -31,15 +32,17 @@ exception Invalid_component
 (** Exception raised when the country code is not 'ES'. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace.
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace.
 
-    Example: [compact "ES 1234-123456789012-JY"] returns ["ES1234123456789012JY"] *)
+    Example: [compact "ES 1234-123456789012-JY"] returns
+    ["ES1234123456789012JY"] *)
 
 val format : string -> string
 (** Reformat the number to the standard presentation format.
 
-    Example: [format "ES1234123456789012JY1F"] returns ["ES 1234 1234 5678 9012 JY 1F"] *)
+    Example: [format "ES1234123456789012JY1F"] returns
+    ["ES 1234 1234 5678 9012 JY 1F"] *)
 
 val calc_check_digits : string -> string
 (** Calculate the check digits for the number.
@@ -47,8 +50,8 @@ val calc_check_digits : string -> string
     Example: [calc_check_digits "ES1234123456789012"] returns ["JY"] *)
 
 val validate : string -> string
-(** Check if the number is a valid CUPS. This checks length,
-    formatting and check digits. Returns the normalized number if valid.
+(** Check if the number is a valid CUPS. This checks length, formatting and
+    check digits. Returns the normalized number if valid.
 
     @raise Invalid_format if the number has an invalid format
     @raise Invalid_length if the number is not 20 or 22 characters
@@ -56,5 +59,5 @@ val validate : string -> string
     @raise Invalid_component if the country code is not 'ES' *)
 
 val is_valid : string -> bool
-(** Check if the number is a valid CUPS.
-    Returns [true] if valid, [false] otherwise. *)
+(** Check if the number is a valid CUPS. Returns [true] if valid, [false]
+    otherwise. *)

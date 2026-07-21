@@ -1,14 +1,14 @@
 (** NCF (Números de Comprobante Fiscal, Dominican Republic receipt number).
 
-    The NCF is used to number invoices and other documents for the purpose of tax
-    filing. The e-CF (Comprobante Fiscal Electrónico) is used together with a
-    digital certificate for the same purpose. The number is either 19, 11 or 13
-    (e-CF) digits long.
+    The NCF is used to number invoices and other documents for the purpose of
+    tax filing. The e-CF (Comprobante Fiscal Electrónico) is used together with
+    a digital certificate for the same purpose. The number is either 19, 11 or
+    13 (e-CF) digits long.
 
-    The 19 digit number starts with a letter (A or P) to indicate that the number
-    was assigned by the taxpayer or the DGII, followed a 2-digit business unit
-    number, a 3-digit location number, a 3-digit mechanism identifier, a 2-digit
-    document type and a 8-digit serial number.
+    The 19 digit number starts with a letter (A or P) to indicate that the
+    number was assigned by the taxpayer or the DGII, followed a 2-digit business
+    unit number, a 3-digit location number, a 3-digit mechanism identifier, a
+    2-digit document type and a 8-digit serial number.
 
     The 11 digit number always starts with a B followed a 2-digit document type
     and a 7-digit serial number.

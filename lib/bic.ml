@@ -1,8 +1,7 @@
 (** BIC (ISO 9362 Business identifier codes).
 
-    An ISO 9362 identifier (also: BIC, BEI, or SWIFT code) uniquely
-    identifies an institution. They are commonly used to route financial
-    transactions.
+    An ISO 9362 identifier (also: BIC, BEI, or SWIFT code) uniquely identifies
+    an institution. They are commonly used to route financial transactions.
 
     The code consists of a 4 letter institution code, a 2 letter country code,
     and a 2 character location code, optionally followed by a three character

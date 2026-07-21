@@ -25,8 +25,12 @@ let test_validate_invalid_component () =
   with At.Postleitzahl.Invalid_component -> ()
 
 let test_is_valid () =
-  Alcotest.(check bool) "test_is_valid_true" true (At.Postleitzahl.is_valid "5090");
-  Alcotest.(check bool) "test_is_valid_false" false (At.Postleitzahl.is_valid "4231")
+  Alcotest.(check bool)
+    "test_is_valid_true" true
+    (At.Postleitzahl.is_valid "5090");
+  Alcotest.(check bool)
+    "test_is_valid_false" false
+    (At.Postleitzahl.is_valid "4231")
 
 let suite =
   [

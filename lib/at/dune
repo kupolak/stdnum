@@ -2,4 +2,4 @@
  (name at)
  (public_name stdnum.at)
  (modules uid vnr businessid tin postleitzahl)
- (libraries tools stdnum))
+ (libraries tools))

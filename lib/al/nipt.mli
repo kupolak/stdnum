@@ -24,9 +24,9 @@ val compact : string -> string
 (** [compact number] removes spaces and converts [number] to uppercase. *)
 
 val validate : string -> string
-(** [validate number] checks if [number] is a valid NIPT number.
-    It raises [Invalid_length] or [Invalid_format] if the number is not valid. *)
+(** [validate number] checks if [number] is a valid NIPT number. It raises
+    [Invalid_length] or [Invalid_format] if the number is not valid. *)
 
 val is_valid : string -> bool
-(** [is_valid number] checks if [number] is a valid NIPT number.
-    It returns [true] if the number is valid, [false] otherwise. *)
+(** [is_valid number] checks if [number] is a valid NIPT number. It returns
+    [true] if the number is valid, [false] otherwise. *)

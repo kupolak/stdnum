@@ -14,8 +14,7 @@ exception Invalid_format
 exception Invalid_length
 exception Invalid_checksum
 
-let compact number =
-  Utils.clean number "[ -]" |> String.trim
+let compact number = Utils.clean number "[ -]" |> String.trim
 
 let checksum number =
   let sum = ref 0 in
@@ -41,4 +40,5 @@ let is_valid number =
 
 let format ?(separator = " ") number =
   let number = compact number in
-  String.sub number 0 3 ^ separator ^ String.sub number 3 3 ^ separator ^ String.sub number 6 4
+  String.sub number 0 3 ^ separator ^ String.sub number 3 3 ^ separator
+  ^ String.sub number 6 4

@@ -14,7 +14,8 @@
 
     More information:
     - https://en.wikipedia.org/wiki/Voter_ID_(India)
-    - https://www.kotaksecurities.com/ksweb/voter-id/serial-number-in-elctoral-roll *)
+    - https://www.kotaksecurities.com/ksweb/voter-id/serial-number-in-elctoral-roll
+*)
 
 open Tools
 

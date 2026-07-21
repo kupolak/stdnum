@@ -1,14 +1,14 @@
 (** NIF, sometimes N.I.F. (Numéro d'Identification Fiscale, Algeria tax number).
 
-    The NIF was adopted by the Algerian tax authorities on 2006, replacing the NIS
-    number.
+    The NIF was adopted by the Algerian tax authorities on 2006, replacing the
+    NIS number.
 
     The NIF applies to physical persons, legal persons, legal entities,
     administrative entities, local branches for foreign companies, associations,
     professional organisations, etc.
 
-    The NIF consists of 15 digits, but sometimes it can be 20 digits long in order
-    to represent branches or secondary establishments.
+    The NIF consists of 15 digits, but sometimes it can be 20 digits long in
+    order to represent branches or secondary establishments.
 
     More information:
     - http://www.jecreemonentreprise.dz/index.php?option=com_content&view=article&id=612&Itemid=463&lang=fr
@@ -24,8 +24,8 @@ exception Invalid_length
 (** Exception raised when the NIF has invalid length. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val validate : string -> string
 (** Check if the number is a valid Algeria NIF number. This checks the length

@@ -6,7 +6,12 @@
   ad
   al
   ar
+  at
+  au
+  az
   be
+  bg
+  br
   by
   ca
   ch
@@ -14,17 +19,58 @@
   cn
   co
   cr
+  cu
+  cy
   cz
   de
+  dk
   do
+  dz
+  ec
+  ee
+  eg
   es
+  eu
+  fi
+  fo
   fr
+  gb
+  gh
+  gn
+  gr
+  gt
+  hr
   hu
+  iban_core
+  id
+  ie
+  il
+  in_
+  is_
+  isin_core
   iso7064
   it
   jp
+  ke
+  kr
+  li
+  lt
+  lu
+  lv
+  ma
+  mc
+  md
+  me
+  mk
+  mt
+  mu
+  mx
+  my
+  mz
   nl
   no
+  nz
+  pe
   pk
   pl
   pt
@@ -35,6 +81,7 @@
   se
   sg
   si
+  sk
   sm
   sn
   sv

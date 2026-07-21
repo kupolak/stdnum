@@ -140,9 +140,10 @@ let validate number =
   let len = String.length number in
   if len <> 9 && len <> 10 then raise Invalid_length;
   if len = 9 then validate_business number
-  else if (* Length is 10 *)
-          number.[0] >= '0' && number.[0] <= '9' then
-    validate_local_company number
+  else if
+    (* Length is 10 *)
+    number.[0] >= '0' && number.[0] <= '9'
+  then validate_local_company number
   else validate_other number
 
 let is_valid number =

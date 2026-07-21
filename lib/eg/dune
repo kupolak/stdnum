@@ -2,4 +2,4 @@
  (name eg)
  (public_name stdnum.eg)
  (modules tn)
- (libraries tools stdnum str))
+ (libraries tools str))

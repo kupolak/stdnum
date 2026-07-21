@@ -2,4 +2,4 @@
  (name cy)
  (public_name stdnum.cy)
  (modules vat)
- (libraries tools stdnum))
+ (libraries tools))

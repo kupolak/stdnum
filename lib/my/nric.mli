@@ -18,13 +18,13 @@ exception Invalid_component
 (** Exception raised when a component of the number is invalid. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val get_birth_date : string -> int * int * int
-(** Split the date parts from the number and return the birth date.
-    Note that in some cases it may return the registration date instead of
-    the birth date and it may be a century off. *)
+(** Split the date parts from the number and return the birth date. Note that in
+    some cases it may return the registration date instead of the birth date and
+    it may be a century off. *)
 
 val get_birth_place : string -> string
 (** Use the number to look up the place of birth of the person. *)

@@ -14,11 +14,7 @@ let test_validate_invalid_checksum () =
 
 let test_is_valid () =
   let test_cases =
-    [
-      ("EE 100 931 558", true)
-    ; ("100594102", true)
-    ; ("100594103", false)
-    ]
+    [ ("EE 100 931 558", true); ("100594102", true); ("100594103", false) ]
   in
   List.iter
     (fun (input, expected_result) ->

@@ -27,20 +27,25 @@ exception Invalid_bank
 (** Exception raised when the bank code is invalid. *)
 
 val validate : string -> string
-(** Check if the number is a valid Czech bank account number. Returns the normalized number if valid.
+(** Check if the number is a valid Czech bank account number. Returns the
+    normalized number if valid.
     @raise Invalid_length if the number length is invalid
-    @raise Invalid_format if the number contains non-digit characters or invalid format
+    @raise Invalid_format
+      if the number contains non-digit characters or invalid format
     @raise Invalid_checksum if either prefix or root check digit is invalid
     @raise Invalid_bank if the bank code is invalid *)
 
 val is_valid : string -> bool
-(** Check if the number is a valid Czech bank account number. Returns true if valid, false otherwise. *)
+(** Check if the number is a valid Czech bank account number. Returns true if
+    valid, false otherwise. *)
 
 val format : string -> string
-(** Reformat the number to the standard presentation format with proper padding. *)
+(** Reformat the number to the standard presentation format with proper padding.
+*)
 
 val compact : string -> string
-(** [compact number] removes spaces and normalizes the number with proper padding. *)
+(** [compact number] removes spaces and normalizes the number with proper
+    padding. *)
 
 val calc_checksum : string -> int
 (** [calc_checksum number] calculates the checksum for the given number sequence

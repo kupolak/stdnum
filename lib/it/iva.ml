@@ -1,7 +1,7 @@
 (** IVA (Imposta sul Valore Aggiunto, Italian VAT number).
 
-    The IVA is an 11-digit number used to identify businesses in Italy.
-    It consists of 10 digits followed by a check digit.
+    The IVA is an 11-digit number used to identify businesses in Italy. It
+    consists of 10 digits followed by a check digit.
 
     This is a minimal implementation for use by codicefiscale module. *)
 

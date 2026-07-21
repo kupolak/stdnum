@@ -1,0 +1,5 @@
+(library
+ (name mc)
+ (public_name stdnum.mc)
+ (modules tva)
+ (libraries tools fr))

@@ -12,7 +12,9 @@ let test_validate () =
     test_cases
 
 let test_validate_keep_cd () =
-  let result = Stdnum.Meid.validate ~strip_check_digit:false "29360 87365 0070 3710 0" in
+  let result =
+    Stdnum.Meid.validate ~strip_check_digit:false "29360 87365 0070 3710 0"
+  in
   Alcotest.(check string) "test_validate_keep_cd" "AF0123450ABCDEC" result
 
 let test_validate_invalid_checksum () =

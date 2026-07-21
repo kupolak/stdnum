@@ -10,7 +10,8 @@
     structure.
 
     More information:
-    - https://en.wikipedia.org/wiki/Statistical_Classification_of_Economic_Activities_in_the_European_Community *)
+    - https://en.wikipedia.org/wiki/Statistical_Classification_of_Economic_Activities_in_the_European_Community
+*)
 
 open Tools
 
@@ -18,8 +19,7 @@ exception Invalid_format
 exception Invalid_length
 exception Invalid_component
 
-let compact number =
-  Utils.clean number "[.]" |> String.trim
+let compact number = Utils.clean number "[.]" |> String.trim
 
 let validate number =
   let number = compact number in
@@ -27,7 +27,8 @@ let validate number =
   if len > 4 || len = 0 then raise Invalid_length;
   if len = 1 then begin
     if not (Utils.is_alpha number) then raise Invalid_format
-  end else begin
+  end
+  else begin
     if not (Utils.is_digits number) then raise Invalid_format
   end;
   (* We omit numdb registry lookup for the OCaml port *)
@@ -45,5 +46,4 @@ let format number =
     let part1 = String.sub number 0 2 in
     let part2 = String.sub number 2 (String.length number - 2) in
     if part2 = "" then part1 else part1 ^ "." ^ part2
-  else
-    number
+  else number

@@ -1,7 +1,7 @@
 (** MAC address (Media Access Control address).
 
-    A media access control address (MAC address, sometimes Ethernet address) of a
-    device is meant as a unique identifier within a network at the data link
+    A media access control address (MAC address, sometimes Ethernet address) of
+    a device is meant as a unique identifier within a network at the data link
     layer.
 
     More information:
@@ -22,17 +22,16 @@ val compact : string -> string
 (** Convert the MAC address to the minimal, consistent representation. *)
 
 val is_unicast : string -> bool
-(** Check whether the number is a unicast address.
-    Unicast addresses are received by one node in a network (LAN). *)
+(** Check whether the number is a unicast address. Unicast addresses are
+    received by one node in a network (LAN). *)
 
 val is_multicast : string -> bool
-(** Check whether the number is a multicast address.
-    Multicast addresses are meant to be received by (potentially) multiple
-    nodes in a network (LAN). *)
+(** Check whether the number is a multicast address. Multicast addresses are
+    meant to be received by (potentially) multiple nodes in a network (LAN). *)
 
 val is_broadcast : string -> bool
-(** Check whether the number is the broadcast address.
-    Broadcast addresses are meant to be received by all nodes in a network. *)
+(** Check whether the number is the broadcast address. Broadcast addresses are
+    meant to be received by all nodes in a network. *)
 
 val is_universally_administered : string -> bool
 (** Check if the address is supposed to be assigned by the manufacturer. *)

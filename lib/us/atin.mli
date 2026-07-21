@@ -12,8 +12,8 @@ val atin_re : Str.regexp
 (** Regular expression for matching ATINs *)
 
 val validate : string -> string
-(** Check if the number is a valid ATIN.
-    This checks the length and formatting if it is present. *)
+(** Check if the number is a valid ATIN. This checks the length and formatting
+    if it is present. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid ATIN. *)

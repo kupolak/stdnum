@@ -19,12 +19,7 @@ let test_validate_invalid_checksum () =
   with Kr.Rrn.Invalid_checksum -> ()
 
 let test_is_valid () =
-  let test_cases =
-    [
-      ("971013-9019902", true)
-    ; ("971013-9019903", false)
-    ]
-  in
+  let test_cases = [ ("971013-9019902", true); ("971013-9019903", false) ] in
   List.iter
     (fun (input, expected_result) ->
       let result = Kr.Rrn.is_valid input in

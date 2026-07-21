@@ -1,14 +1,14 @@
 (** NIF, sometimes N.I.F. (Numéro d'Identification Fiscale, Algeria tax number).
 
-    The NIF was adopted by the Algerian tax authorities on 2006, replacing the NIS
-    number.
+    The NIF was adopted by the Algerian tax authorities on 2006, replacing the
+    NIS number.
 
     The NIF applies to physical persons, legal persons, legal entities,
     administrative entities, local branches for foreign companies, associations,
     professional organisations, etc.
 
-    The NIF consists of 15 digits, but sometimes it can be 20 digits long in order
-    to represent branches or secondary establishments.
+    The NIF consists of 15 digits, but sometimes it can be 20 digits long in
+    order to represent branches or secondary establishments.
 
     More information:
     - http://www.jecreemonentreprise.dz/index.php?option=com_content&view=article&id=612&Itemid=463&lang=fr
@@ -22,8 +22,7 @@ open Tools
 exception Invalid_format
 exception Invalid_length
 
-let compact number =
-  Utils.clean number " "
+let compact number = Utils.clean number " "
 
 let validate number =
   let number = compact number in

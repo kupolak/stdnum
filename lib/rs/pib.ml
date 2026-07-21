@@ -9,8 +9,7 @@ exception Invalid_format
 exception Invalid_length
 exception Invalid_checksum
 
-let compact number =
-  Utils.clean number "[ -.]" |> String.trim
+let compact number = Utils.clean number "[ -.]" |> String.trim
 
 let validate number =
   let number = compact number in

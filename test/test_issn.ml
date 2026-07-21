@@ -12,7 +12,8 @@ let test_validate () =
     (fun (input, expected_result) ->
       try
         let result = Stdnum.Issn.validate input in
-        Alcotest.(check string) ("test_validate_" ^ input) expected_result result
+        Alcotest.(check string)
+          ("test_validate_" ^ input) expected_result result
       with e ->
         Alcotest.fail
           (Printf.sprintf "validate failed for %s: %s" input

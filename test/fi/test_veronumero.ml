@@ -20,11 +20,7 @@ let test_validate_invalid_format () =
 
 let test_is_valid () =
   let test_cases =
-    [
-      ("123456789123", true)
-    ; ("123456789", false)
-    ; ("12345678912A", false)
-    ]
+    [ ("123456789123", true); ("123456789", false); ("12345678912A", false) ]
   in
   List.iter
     (fun (input, expected_result) ->

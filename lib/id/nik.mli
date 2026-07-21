@@ -5,10 +5,10 @@
     Indonesian citizens.
 
     The number consists of 16 digits in the format PPRRSSDDMMYYXXXX where PPRRSS
-    (province, city/district, sub-district) indicates the place of residence when
-    the number was issued. It is followed by a DDMMYY date of birth (for female
-    40 is added to the day). The last 4 digits are used to make the number
-    unique.
+    (province, city/district, sub-district) indicates the place of residence
+    when the number was issued. It is followed by a DDMMYY date of birth (for
+    female 40 is added to the day). The last 4 digits are used to make the
+    number unique.
 
     More information:
     - https://id.wikipedia.org/wiki/Nomor_Induk_Kependudukan *)

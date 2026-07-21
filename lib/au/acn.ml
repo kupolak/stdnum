@@ -12,8 +12,7 @@ exception Invalid_format
 exception Invalid_length
 exception Invalid_checksum
 
-let compact number =
-  Utils.clean number "[ ]" |> String.trim
+let compact number = Utils.clean number "[ ]" |> String.trim
 
 let calc_check_digit number =
   let sum = ref 0 in
@@ -29,10 +28,10 @@ let validate number =
   let number = compact number in
   if not (Utils.is_digits number) then raise Invalid_format;
   if String.length number <> 9 then raise Invalid_length;
-  
+
   if calc_check_digit number <> String.sub number 8 1 then
     raise Invalid_checksum;
-    
+
   number
 
 let is_valid number =
@@ -43,9 +42,8 @@ let is_valid number =
 
 let format number =
   let number = compact number in
-  String.sub number 0 3 ^ " " ^
-  String.sub number 3 3 ^ " " ^
-  String.sub number 6 3
+  String.sub number 0 3 ^ " " ^ String.sub number 3 3 ^ " "
+  ^ String.sub number 6 3
 
 let to_abn number =
   let number = compact number in

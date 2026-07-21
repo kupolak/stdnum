@@ -27,7 +27,8 @@ val validate : string -> string
     @raise Invalid_checksum if either check digit is invalid *)
 
 val is_valid : string -> bool
-(** Check if the number is a valid CBU. Returns true if valid, false otherwise. *)
+(** Check if the number is a valid CBU. Returns true if valid, false otherwise.
+*)
 
 val format : string -> string
 (** Reformat the number to the standard presentation format with spaces. *)
@@ -36,5 +37,5 @@ val compact : string -> string
 (** [compact number] removes spaces and dashes from the number. *)
 
 val calc_check_digit : string -> string
-(** [calc_check_digit number] calculates the check digit for the given number sequence
-    using the CBU algorithm. *)
+(** [calc_check_digit number] calculates the check digit for the given number
+    sequence using the CBU algorithm. *)

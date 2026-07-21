@@ -13,8 +13,7 @@ exception Invalid_format
 exception Invalid_length
 exception Invalid_component
 
-let compact number =
-  Utils.clean number "[ ]" |> String.trim
+let compact number = Utils.clean number "[ ]" |> String.trim
 
 let is_valid_date year month day =
   if month < 1 || month > 12 then false
@@ -25,7 +24,9 @@ let is_valid_date year month day =
       | 1 | 3 | 5 | 7 | 8 | 10 | 12 -> 31
       | 4 | 6 | 9 | 11 -> 30
       | 2 ->
-          let is_leap = (year mod 4 = 0 && year mod 100 <> 0) || (year mod 400 = 0) in
+          let is_leap =
+            (year mod 4 = 0 && year mod 100 <> 0) || year mod 400 = 0
+          in
           if is_leap then 29 else 28
       | _ -> 0
     in
@@ -37,13 +38,13 @@ let get_birth_date number =
   let month = int_of_string (String.sub number 2 2) in
   let day = int_of_string (String.sub number 4 2) in
   let c_val = number.[6] in
-  
+
   let year_full =
     if c_val = '9' then year + 1800
     else if c_val >= '0' && c_val <= '5' then year + 1900
     else year + 2000
   in
-  
+
   if not (is_valid_date year_full month day) then raise Invalid_component;
   (year_full, month, day)
 
@@ -56,9 +57,9 @@ let validate number =
   let number = compact number in
   if String.length number <> 11 then raise Invalid_length;
   if not (Utils.is_digits number) then raise Invalid_format;
-  
+
   ignore (get_birth_date number);
-  
+
   number
 
 let is_valid number =

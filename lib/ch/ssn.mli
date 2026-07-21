@@ -3,12 +3,13 @@
     The Swiss Sozialversicherungsnummer (also known as "Neue AHV Nummer") is
     used to identify individuals for taxation and pension purposes.
 
-    The number is validated using EAN-13, though dashes are substituted for dots.
-    The number must start with '756' (Swiss country code).
+    The number is validated using EAN-13, though dashes are substituted for
+    dots. The number must start with '756' (Swiss country code).
 
     More information:
     - https://en.wikipedia.org/wiki/National_identification_number#Switzerland
-    - https://de.wikipedia.org/wiki/Sozialversicherungsnummer#Versichertennummer *)
+    - https://de.wikipedia.org/wiki/Sozialversicherungsnummer#Versichertennummer
+*)
 
 exception Invalid_format
 exception Invalid_length
@@ -29,4 +30,5 @@ val is_valid : string -> bool
 (** Check if the number is a valid Swiss social security number. *)
 
 val format : string -> string
-(** Reformat the number to the standard presentation format (756.XXXX.XXXX.XX). *)
+(** Reformat the number to the standard presentation format (756.XXXX.XXXX.XX).
+*)

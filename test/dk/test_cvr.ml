@@ -24,11 +24,7 @@ let test_validate_invalid_format () =
 
 let test_is_valid () =
   let test_cases =
-    [
-      ("DK 13585628", true)
-    ; ("DK 13585627", false)
-    ; ("13585628", true)
-    ]
+    [ ("DK 13585628", true); ("DK 13585627", false); ("13585628", true) ]
   in
   List.iter
     (fun (input, expected_result) ->

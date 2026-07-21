@@ -1,8 +1,8 @@
 (** TVA (taxe sur la valeur ajoutée, Luxembourgian VAT number).
 
-    The n° TVA (Numéro d'identification à la taxe sur la valeur ajoutée) is
-    used for tax purposes in Luxembourg. The number consists of 8 digits of
-    which the last two are check digits. *)
+    The n° TVA (Numéro d'identification à la taxe sur la valeur ajoutée) is used
+    for tax purposes in Luxembourg. The number consists of 8 digits of which the
+    last two are check digits. *)
 
 open Tools
 
@@ -11,7 +11,9 @@ exception Invalid_length
 exception Invalid_checksum
 
 let compact number =
-  let number = Utils.clean number "[ :.-]" |> String.trim |> String.uppercase_ascii in
+  let number =
+    Utils.clean number "[ :.-]" |> String.trim |> String.uppercase_ascii
+  in
   if String.starts_with ~prefix:"LU" number then
     String.sub number 2 (String.length number - 2)
   else number

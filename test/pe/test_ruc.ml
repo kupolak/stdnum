@@ -17,12 +17,7 @@ let test_to_dni () =
   Alcotest.(check string) "test_to_dni" "05414828" result
 
 let test_is_valid () =
-  let test_cases =
-    [
-      ("20512333797", true)
-    ; ("20512333798", false)
-    ]
-  in
+  let test_cases = [ ("20512333797", true); ("20512333798", false) ] in
   List.iter
     (fun (input, expected_result) ->
       let result = Pe.Ruc.is_valid input in

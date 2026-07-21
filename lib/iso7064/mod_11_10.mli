@@ -14,8 +14,8 @@ val checksum : string -> int
 (** Calculate the checksum. A valid number should have a checksum of 1. *)
 
 val calc_check_digit : string -> string
-(** Calculate the extra digit that should be appended to the number to make it
-    a valid number. *)
+(** Calculate the extra digit that should be appended to the number to make it a
+    valid number. *)
 
 val validate : string -> string
 (** Check whether the check digit is valid. Returns the number if valid.

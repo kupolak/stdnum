@@ -22,8 +22,7 @@ let calc_check_digit number =
 
 let validate number =
   let is_valid =
-    try checksum number = 1
-    with Invalid_format -> raise Invalid_format
+    try checksum number = 1 with Invalid_format -> raise Invalid_format
   in
   if not is_valid then raise Invalid_checksum;
   number

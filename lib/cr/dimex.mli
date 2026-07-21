@@ -1,8 +1,8 @@
 (** CR (Cédula de Residencia, Costa Rica foreigners ID number).
 
     The Cédula de Residencia (CR), also know as DIMEX or Documento de
-    Identificación Migratorio para Extranjeros, is an identifier of foreigners in
-    Costa Rica.
+    Identificación Migratorio para Extranjeros, is an identifier of foreigners
+    in Costa Rica.
 
     This number consists of 11 or 12 digits in the form 1NNN-CC...C-EE...E where
     NNN represents the code of the country the foreigner comes from as specified
@@ -13,7 +13,8 @@
 
     More information:
     - https://www.hacienda.go.cr/consultapagos/ayuda_cedulas.htm
-    - https://www.procomer.com/downloads/quiero/guia_solicitud_vuce.pdf (page 12)
+    - https://www.procomer.com/downloads/quiero/guia_solicitud_vuce.pdf (page
+      12)
     - https://www.hacienda.go.cr/ATV/frmConsultaSituTributaria.aspx *)
 
 exception Invalid_format
@@ -23,11 +24,12 @@ exception Invalid_length
 (** Exception raised when the CR has invalid length. *)
 
 exception Invalid_component
-(** Exception raised when the CR has an invalid component (e.g. doesn't start with 1). *)
+(** Exception raised when the CR has an invalid component (e.g. doesn't start
+    with 1). *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val validate : string -> string
 (** Check if the number is a valid Costa Rica CR number.

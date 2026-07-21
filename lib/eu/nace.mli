@@ -10,7 +10,8 @@
     structure.
 
     More information:
-    - https://en.wikipedia.org/wiki/Statistical_Classification_of_Economic_Activities_in_the_European_Community *)
+    - https://en.wikipedia.org/wiki/Statistical_Classification_of_Economic_Activities_in_the_European_Community
+*)
 
 exception Invalid_format
 (** Exception raised when the NACE has invalid format. *)
@@ -22,8 +23,8 @@ exception Invalid_component
 (** Exception raised when the NACE component is invalid. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val validate : string -> string
 (** Check if the number is a valid NACE. This checks the format.

@@ -18,17 +18,47 @@ exception Invalid_component
 exception Invalid_checksum
 
 let member_states =
-  [ "AT"; "BE"; "BG"; "CY"; "CZ"; "DE"; "DK"; "EE"; "ES"; "FI"; "FR"; "GR"; "HR";
-    "HU"; "IE"; "IT"; "LT"; "LU"; "LV"; "MT"; "NL"; "PL"; "PT"; "RO"; "SE"; "SI";
-    "SK"; "XI" ]
+  [
+    "AT"
+  ; "BE"
+  ; "BG"
+  ; "CY"
+  ; "CZ"
+  ; "DE"
+  ; "DK"
+  ; "EE"
+  ; "ES"
+  ; "FI"
+  ; "FR"
+  ; "GR"
+  ; "HR"
+  ; "HU"
+  ; "IE"
+  ; "IT"
+  ; "LT"
+  ; "LU"
+  ; "LV"
+  ; "MT"
+  ; "NL"
+  ; "PL"
+  ; "PT"
+  ; "RO"
+  ; "SE"
+  ; "SI"
+  ; "SK"
+  ; "XI"
+  ]
 
 let compact number =
-  let cleaned = Utils.clean number " " |> String.trim |> String.uppercase_ascii in
+  let cleaned =
+    Utils.clean number " " |> String.trim |> String.uppercase_ascii
+  in
   let len = String.length cleaned in
   if len >= 2 && len < 13 then
-    String.sub cleaned 0 2 ^ String.make (13 - len) '0' ^ String.sub cleaned 2 (len - 2)
-  else
-    cleaned
+    String.sub cleaned 0 2
+    ^ String.make (13 - len) '0'
+    ^ String.sub cleaned 2 (len - 2)
+  else cleaned
 
 let validate number =
   let number = compact number in
@@ -43,4 +73,6 @@ let is_valid number =
   try
     ignore (validate number);
     true
-  with Invalid_format | Invalid_length | Invalid_component | Invalid_checksum -> false
+  with
+  | Invalid_format | Invalid_length | Invalid_component | Invalid_checksum ->
+    false

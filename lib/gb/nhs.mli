@@ -18,12 +18,12 @@ exception Invalid_checksum
 (** Exception raised when the checksum validation fails. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val checksum : string -> int
-(** Calculate the checksum. The checksum is only used for the 9 digits
-    of the number and the result can either be 0 or 42. *)
+(** Calculate the checksum. The checksum is only used for the 9 digits of the
+    number and the result can either be 0 or 42. *)
 
 val validate : string -> string
 (** Check if the number is valid. This checks the length and check digit.

@@ -13,12 +13,7 @@ let test_validate_invalid_checksum () =
   with Mt.Vat.Invalid_checksum -> ()
 
 let test_is_valid () =
-  let test_cases =
-    [
-      ("MT 1167-9112", true)
-    ; ("1167-9113", false)
-    ]
-  in
+  let test_cases = [ ("MT 1167-9112", true); ("1167-9113", false) ] in
   List.iter
     (fun (input, expected_result) ->
       let result = Mt.Vat.is_valid input in

@@ -13,12 +13,7 @@ let test_validate_invalid_checksum () =
   with Hr.Oib.Invalid_checksum -> ()
 
 let test_is_valid () =
-  let test_cases =
-    [
-      ("HR 33392005961", true)
-    ; ("33392005962", false)
-    ]
-  in
+  let test_cases = [ ("HR 33392005961", true); ("33392005962", false) ] in
   List.iter
     (fun (input, expected_result) ->
       let result = Hr.Oib.is_valid input in

@@ -14,7 +14,8 @@
 
     More information:
     - https://en.wikipedia.org/wiki/Voter_ID_(India)
-    - https://www.kotaksecurities.com/ksweb/voter-id/serial-number-in-elctoral-roll *)
+    - https://www.kotaksecurities.com/ksweb/voter-id/serial-number-in-elctoral-roll
+*)
 
 exception Invalid_format
 (** Exception raised when the number has invalid format. *)
@@ -26,17 +27,17 @@ exception Invalid_checksum
 (** Exception raised when the checksum validation fails. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val validate : string -> string
-(** Check if the number provided is a valid EPIC number. This checks the
-    length, formatting and checksum.
+(** Check if the number provided is a valid EPIC number. This checks the length,
+    formatting and checksum.
 
     @raise Invalid_format if the number contains invalid characters
     @raise Invalid_length if the length is not 10
     @raise Invalid_checksum if the checksum fails *)
 
 val is_valid : string -> bool
-(** Check if the number provided is a valid EPIC number. This checks the
-    length, formatting and checksum. *)
+(** Check if the number provided is a valid EPIC number. This checks the length,
+    formatting and checksum. *)

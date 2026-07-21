@@ -52,9 +52,12 @@ let test_to_pan () =
 
 let test_info () =
   let info = In_.Gstin.info "27AAPFU0939F1ZV" in
-  Alcotest.(check (option string)) "test_info state" (Some "Maharashtra") info.state;
+  Alcotest.(check (option string))
+    "test_info state" (Some "Maharashtra") info.state;
   Alcotest.(check string) "test_info pan" "AAPFU0939F" info.pan;
-  Alcotest.(check string) "test_info holder_type" "Firm/Limited Liability Partnership" info.holder_type;
+  Alcotest.(check string)
+    "test_info holder_type" "Firm/Limited Liability Partnership"
+    info.holder_type;
   Alcotest.(check string) "test_info initial" "U" info.initial;
   Alcotest.(check int) "test_info registration_count" 1 info.registration_count
 

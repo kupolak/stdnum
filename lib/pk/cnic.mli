@@ -22,8 +22,8 @@ exception Invalid_component
 (** Exception raised when a component of the number is invalid. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val get_gender : string -> string option
 (** Get the person's birth gender (["M"] or ["F"]). *)
@@ -32,8 +32,8 @@ val get_province : string -> string option
 (** Get the person's province. *)
 
 val validate : string -> string
-(** Check if the number is a valid CNIC. This checks the length, formatting
-    and some digits. *)
+(** Check if the number is a valid CNIC. This checks the length, formatting and
+    some digits. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid CNIC. *)

@@ -28,15 +28,15 @@ exception Invalid_component
 (** Exception raised when a component of the number is invalid. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips
-    surrounding whitespace and separation dash. *)
+(** Convert the number to the minimal representation. This strips surrounding
+    whitespace and separation dash. *)
 
 val calc_check_digit : string -> string
 (** Calculate the check digit for the number. *)
 
 val get_date : string -> int * int * int
-(** Convert the part of the number that represents a date into a
-    date tuple (year, month, day). Note that the century may be incorrect. *)
+(** Convert the part of the number that represents a date into a date tuple
+    (year, month, day). Note that the century may be incorrect. *)
 
 val validate : string -> string
 (** Check if the number is a valid ID number.

@@ -1,7 +1,7 @@
 (** EAN (International Article Number).
 
-    Module for handling EAN (International Article Number) codes. This
-    module handles numbers in EAN-13, EAN-8, UPC (12-digit) and GTIN (EAN-14) format.
+    Module for handling EAN (International Article Number) codes. This module
+    handles numbers in EAN-13, EAN-8, UPC (12-digit) and GTIN (EAN-14) format.
 
     More information:
     - https://en.wikipedia.org/wiki/International_Article_Number *)

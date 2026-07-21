@@ -19,16 +19,18 @@ exception Invalid_checksum
 (** Exception raised when the VKN number has an invalid checksum. *)
 
 val compact : string -> string
-(** [compact number] converts the number to the minimal representation. 
-    This strips the number of any valid separators and removes surrounding whitespace. *)
+(** [compact number] converts the number to the minimal representation. This
+    strips the number of any valid separators and removes surrounding
+    whitespace. *)
 
 val calc_check_digit : string -> string
-(** [calc_check_digit number] calculates the check digit for the specified number. *)
+(** [calc_check_digit number] calculates the check digit for the specified
+    number. *)
 
 val validate : string -> string
-(** [validate number] checks if the number is a valid Vergi Kimlik Numarası. 
+(** [validate number] checks if the number is a valid Vergi Kimlik Numarası.
     This checks the length and check digits. *)
 
 val is_valid : string -> bool
-(** [is_valid number] checks if the number is a valid Vergi Kimlik Numarası. 
+(** [is_valid number] checks if the number is a valid Vergi Kimlik Numarası.
     This checks the length and check digits. *)

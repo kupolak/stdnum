@@ -9,11 +9,12 @@ exception Invalid_length
 exception Invalid_checksum
 
 let compact number =
-  let cleaned = Utils.clean number "[ -]" |> String.trim |> String.uppercase_ascii in
+  let cleaned =
+    Utils.clean number "[ -]" |> String.trim |> String.uppercase_ascii
+  in
   if String.starts_with ~prefix:"FI" cleaned then
     String.sub cleaned 2 (String.length cleaned - 2)
-  else
-    cleaned
+  else cleaned
 
 let checksum number =
   let weights = [| 7; 9; 10; 5; 8; 4; 2; 1 |] in

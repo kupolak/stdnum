@@ -1,9 +1,9 @@
 (** RUC (Registro Único de Contribuyentes, Peruvian company tax number).
 
-    The RUC (Registro Único de Contribuyentes) is the tax number of Peru assigned
-    to legal and natural persons. The number consists of 11 digits, the first two
-    indicate the kind of number, for personal numbers it is followed by the DNI
-    and a check digit.
+    The RUC (Registro Único de Contribuyentes) is the tax number of Peru
+    assigned to legal and natural persons. The number consists of 11 digits, the
+    first two indicate the kind of number, for personal numbers it is followed
+    by the DNI and a check digit.
 
     More information:
     - https://www.sunat.gob.pe/legislacion/ruc/

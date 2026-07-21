@@ -24,8 +24,7 @@ let index_of c =
   | Some i -> i
   | None -> raise Invalid_format
 
-let compact number =
-  Utils.clean number " " |> String.trim
+let compact number = Utils.clean number " " |> String.trim
 
 let calc_check_digit number =
   let number = compact number in
@@ -43,7 +42,8 @@ let validate number =
   if String.length number <> 16 then raise Invalid_length;
   String.iter (fun c -> ignore (index_of c)) number;
   if number.[15] = '-' then raise Invalid_format;
-  if String.sub number 15 1 <> calc_check_digit number then raise Invalid_checksum;
+  if String.sub number 15 1 <> calc_check_digit number then
+    raise Invalid_checksum;
   number
 
 let is_valid number =

@@ -7,7 +7,8 @@
     More information:
     - https://www.ird.govt.nz/
     - https://www.ird.govt.nz/-/media/Project/IR/PDF/2020RWTNRWTSpecificationDocumentv10.pdf
-    - https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/tax-identification-numbers/New%20Zealand-TIN.pdf *)
+    - https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/tax-identification-numbers/New%20Zealand-TIN.pdf
+*)
 
 exception Invalid_format
 (** Exception raised when the number has invalid format. *)
@@ -25,7 +26,8 @@ val compact : string -> string
 (** Convert the number to the minimal representation. *)
 
 val calc_check_digit : string -> string
-(** Calculate the check digit. The number passed should not have the check digit included. *)
+(** Calculate the check digit. The number passed should not have the check digit
+    included. *)
 
 val validate : string -> string
 (** Check if the number is a valid IRD number.

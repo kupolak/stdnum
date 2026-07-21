@@ -3,8 +3,8 @@
     The PVN is a 11-digit number that can either be a reference to a legal
     entity (in which case the first digit > 3) or a natural person (in which
     case it should be the same as the personal code (personas kods)). Personal
-    codes start "32". Older personal codes start with 6 digits to denote the birth
-    date in the form ddmmyy.
+    codes start "32". Older personal codes start with 6 digits to denote the
+    birth date in the form ddmmyy.
 
     More information:
     - https://en.wikipedia.org/wiki/National_identification_number#Latvia *)
@@ -17,7 +17,9 @@ exception Invalid_component
 exception Invalid_checksum
 
 let compact number =
-  let number = Utils.clean number "[ -]" |> String.trim |> String.uppercase_ascii in
+  let number =
+    Utils.clean number "[ -]" |> String.trim |> String.uppercase_ascii
+  in
   if String.starts_with ~prefix:"LV" number then
     String.sub number 2 (String.length number - 2)
   else number
@@ -36,7 +38,7 @@ let calc_check_digit_pers number =
   for i = 0 to 9 do
     check := !check + (weights.(i) * (int_of_char number.[i] - int_of_char '0'))
   done;
-  string_of_int ((!check mod 11) mod 10)
+  string_of_int (!check mod 11 mod 10)
 
 let is_valid_date year month day =
   if year < 1 || month < 1 || month > 12 || day < 1 || day > 31 then false
@@ -45,7 +47,9 @@ let is_valid_date year month day =
       match month with
       | 4 | 6 | 9 | 11 -> 30
       | 2 ->
-          let is_leap = (year mod 4 = 0 && year mod 100 <> 0) || (year mod 400 = 0) in
+          let is_leap =
+            (year mod 4 = 0 && year mod 100 <> 0) || year mod 400 = 0
+          in
           if is_leap then 29 else 28
       | _ -> 31
     in
@@ -56,7 +60,7 @@ let get_birth_date number =
   let day = int_of_string (String.sub number 0 2) in
   let month = int_of_string (String.sub number 2 2) in
   let year = int_of_string (String.sub number 4 2) in
-  let year = year + 1800 + (int_of_char number.[6] - int_of_char '0') * 100 in
+  let year = year + 1800 + ((int_of_char number.[6] - int_of_char '0') * 100) in
   if not (is_valid_date year month day) then raise Invalid_component;
   (year, month, day)
 
@@ -64,20 +68,24 @@ let validate number =
   let number = compact number in
   if not (Utils.is_digits number) then raise Invalid_format;
   if String.length number <> 11 then raise Invalid_length;
-  if number.[0] > '3' then (
-    if checksum number <> 3 then raise Invalid_checksum
-  ) else if String.starts_with ~prefix:"32" number then (
-    if calc_check_digit_pers (String.sub number 0 10) <> String.make 1 number.[10] then
-      raise Invalid_checksum
-  ) else (
+  if number.[0] > '3' then (if checksum number <> 3 then raise Invalid_checksum)
+  else if String.starts_with ~prefix:"32" number then (
+    if
+      calc_check_digit_pers (String.sub number 0 10)
+      <> String.make 1 number.[10]
+    then raise Invalid_checksum)
+  else (
     ignore (get_birth_date number);
-    if calc_check_digit_pers (String.sub number 0 10) <> String.make 1 number.[10] then
-      raise Invalid_checksum
-  );
+    if
+      calc_check_digit_pers (String.sub number 0 10)
+      <> String.make 1 number.[10]
+    then raise Invalid_checksum);
   number
 
 let is_valid number =
   try
     ignore (validate number);
     true
-  with Invalid_format | Invalid_length | Invalid_component | Invalid_checksum -> false
+  with
+  | Invalid_format | Invalid_length | Invalid_component | Invalid_checksum ->
+    false

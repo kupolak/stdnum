@@ -14,13 +14,25 @@ let test_validate_invalid_format () =
 
 let test_get_birth_date () =
   let result1 = Cu.Ni.get_birth_date "91021027775" in
-  Alcotest.(check (pair int (pair int int))) "test_get_birth_date_1" (1991, (2, 10)) (let y, m, d = result1 in y, (m, d));
-  
+  Alcotest.(check (pair int (pair int int)))
+    "test_get_birth_date_1"
+    (1991, (2, 10))
+    (let y, m, d = result1 in
+     (y, (m, d)));
+
   let result2 = Cu.Ni.get_birth_date "72062506561" in
-  Alcotest.(check (pair int (pair int int))) "test_get_birth_date_2" (1972, (6, 25)) (let y, m, d = result2 in y, (m, d));
-  
+  Alcotest.(check (pair int (pair int int)))
+    "test_get_birth_date_2"
+    (1972, (6, 25))
+    (let y, m, d = result2 in
+     (y, (m, d)));
+
   let result3 = Cu.Ni.get_birth_date "85020291531" in
-  Alcotest.(check (pair int (pair int int))) "test_get_birth_date_3" (1885, (2, 2)) (let y, m, d = result3 in y, (m, d))
+  Alcotest.(check (pair int (pair int int)))
+    "test_get_birth_date_3"
+    (1885, (2, 2))
+    (let y, m, d = result3 in
+     (y, (m, d)))
 
 let test_get_birth_date_invalid () =
   try
@@ -31,7 +43,7 @@ let test_get_birth_date_invalid () =
 let test_get_gender () =
   let result1 = Cu.Ni.get_gender "91021027775" in
   Alcotest.(check string) "test_get_gender_1" "F" result1;
-  
+
   let result2 = Cu.Ni.get_gender "72062506561" in
   Alcotest.(check string) "test_get_gender_2" "M" result2
 

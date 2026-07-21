@@ -5,7 +5,8 @@
 
     More information:
     - https://pt.wikipedia.org/wiki/Cartão_de_cidadão
-    - https://www.autenticacao.gov.pt/documents/20126/115760/Validação+de+Número+de+Documento+do+Cartão+de+Cidadão.pdf *)
+    - https://www.autenticacao.gov.pt/documents/20126/115760/Validação+de+Número+de+Documento+do+Cartão+de+Cidadão.pdf
+*)
 
 exception Invalid_format
 (** Exception raised when the number has invalid format. *)
@@ -17,8 +18,8 @@ exception Invalid_checksum
 (** Exception raised when the checksum validation fails. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val calc_check_digit : string -> string
 (** Calculate the check digit for the number. *)

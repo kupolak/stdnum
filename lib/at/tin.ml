@@ -13,8 +13,7 @@ exception Invalid_format
 exception Invalid_length
 exception Invalid_checksum
 
-let compact number =
-  Utils.clean number "[ -./,]" |> String.trim
+let compact number = Utils.clean number "[ -./,]" |> String.trim
 
 let calc_check_digit number =
   let lookup = "0246813579" in
@@ -24,8 +23,7 @@ let calc_check_digit number =
     if i mod 2 = 1 then
       let val_from_lookup = int_of_char lookup.[digit] - int_of_char '0' in
       sum := !sum + val_from_lookup
-    else
-      sum := !sum + digit
+    else sum := !sum + digit
   done;
   let check = (10 - (!sum mod 10)) mod 10 in
   string_of_int check
@@ -46,4 +44,5 @@ let is_valid number =
 
 let format number =
   let number = compact number in
-  String.sub number 0 2 ^ "-" ^ String.sub number 2 3 ^ "/" ^ String.sub number 5 4
+  String.sub number 0 2 ^ "-" ^ String.sub number 2 3 ^ "/"
+  ^ String.sub number 5 4

@@ -8,7 +8,9 @@ exception Invalid_format
 exception Invalid_length
 
 let compact number =
-  let number = Utils.clean number " " |> String.uppercase_ascii |> String.trim in
+  let number =
+    Utils.clean number " " |> String.uppercase_ascii |> String.trim
+  in
   if String.starts_with ~prefix:"IS" number then
     String.sub number 2 (String.length number - 2)
   else number

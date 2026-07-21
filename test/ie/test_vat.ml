@@ -48,7 +48,9 @@ let suite =
   ; ("test_validate", `Quick, test_validate)
   ; ("test_validate_invalid_checksum", `Quick, test_validate_invalid_checksum)
   ; ("test_validate_old_style", `Quick, test_validate_old_style)
-  ; ("test_validate_incorrect_old_style", `Quick, test_validate_incorrect_old_style)
+  ; ( "test_validate_incorrect_old_style"
+    , `Quick
+    , test_validate_incorrect_old_style )
   ; ("test_is_valid", `Quick, test_is_valid)
   ; ("test_convert", `Quick, test_convert)
   ]

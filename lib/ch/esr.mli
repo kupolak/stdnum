@@ -20,12 +20,12 @@ val compact : string -> string
 (** Remove surrounding whitespace, separators, and leading zeros. *)
 
 val calc_check_digit : string -> string
-(** Calculate the check digit for number. The number passed should
-    not have the check digit included. *)
+(** Calculate the check digit for number. The number passed should not have the
+    check digit included. *)
 
 val validate : string -> string
-(** Check if the number is a valid ESR. This checks the length, formatting
-    and check digit.
+(** Check if the number is a valid ESR. This checks the length, formatting and
+    check digit.
     @raise Invalid_length if the number is longer than 27 digits
     @raise Invalid_format if the number contains non-digit characters
     @raise Invalid_checksum if the check digit is invalid *)
@@ -34,4 +34,5 @@ val is_valid : string -> bool
 (** Check if the number is a valid ESR. *)
 
 val format : string -> string
-(** Reformat the number to the standard presentation format (XX XXXXX XXXXX XXXXX XXXXX XXXXX). *)
+(** Reformat the number to the standard presentation format (XX XXXXX XXXXX
+    XXXXX XXXXX XXXXX). *)

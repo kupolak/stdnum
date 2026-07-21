@@ -12,12 +12,13 @@
     The first two check digits are calculated based on the person's or company's
     full name. The last check digit is calculated over all the preceding digits
     in the number. However, it seems a lot of numbers (estimated at around 1.5%
-    of all numbers) are in use with invalid check digits so this test is disabled
-    by default.
+    of all numbers) are in use with invalid check digits so this test is
+    disabled by default.
 
     More information:
     - https://www.infomex.org.mx/jspsi/documentos/2005/seguimiento/06101/0610100162005_065.doc
-    - https://es.wikipedia.org/wiki/Registro_Federal_de_Contribuyentes_(M%C3%A9xico) *)
+    - https://es.wikipedia.org/wiki/Registro_Federal_de_Contribuyentes_(M%C3%A9xico)
+*)
 
 exception Invalid_format
 (** Exception raised when the number has invalid format. *)
@@ -32,12 +33,12 @@ exception Invalid_component
 (** Exception raised when a component of the number is invalid. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips
-    surrounding whitespace and separation dash. *)
+(** Convert the number to the minimal representation. This strips surrounding
+    whitespace and separation dash. *)
 
 val calc_check_digit : string -> string
-(** Calculate the check digit. The number passed should not have the
-    check digit included. *)
+(** Calculate the check digit. The number passed should not have the check digit
+    included. *)
 
 val validate : ?validate_check_digits:bool -> string -> string
 (** Check if the number is a valid RFC.
@@ -45,7 +46,8 @@ val validate : ?validate_check_digits:bool -> string -> string
     @raise Invalid_format if the number contains invalid characters
     @raise Invalid_length if the length is not 12 or 13
     @raise Invalid_checksum if the checksum fails
-    @raise Invalid_component if the date, blacklist or check digits structure is invalid *)
+    @raise Invalid_component
+      if the date, blacklist or check digits structure is invalid *)
 
 val is_valid : ?validate_check_digits:bool -> string -> bool
 (** Check if the number provided is a valid RFC. *)

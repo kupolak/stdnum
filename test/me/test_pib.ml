@@ -13,12 +13,7 @@ let test_validate_invalid_checksum () =
   with Me.Pib.Invalid_checksum -> ()
 
 let test_is_valid () =
-  let test_cases =
-    [
-      ("02655284", true)
-    ; ("02655283", false)
-    ]
-  in
+  let test_cases = [ ("02655284", true); ("02655283", false) ] in
   List.iter
     (fun (input, expected_result) ->
       let result = Me.Pib.is_valid input in

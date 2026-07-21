@@ -1,9 +1,9 @@
 (** AMKA (Αριθμός Μητρώου Κοινωνικής Ασφάλισης, Greek social security number).
 
-    The Αριθμός Μητρώου Κοινωνικής Ασφάλισης (AMKA or Arithmos Mitroou Koinonikis
-    Asfalisis) is the personal identifier that is used for social security
-    purposes in Greece. The number consists of 11 digits and includes the
-    person's date of birth and gender.
+    The Αριθμός Μητρώου Κοινωνικής Ασφάλισης (AMKA or Arithmos Mitroou
+    Koinonikis Asfalisis) is the personal identifier that is used for social
+    security purposes in Greece. The number consists of 11 digits and includes
+    the person's date of birth and gender.
 
     More information:
     - https://www.amka.gr/tieinai_en.html *)
@@ -23,7 +23,7 @@ let get_birth_date number =
   let day = int_of_string (String.sub number 0 2) in
   let month = int_of_string (String.sub number 2 2) in
   let year2 = int_of_string (String.sub number 4 2) in
-  
+
   let is_valid_date y m d =
     if m < 1 || m > 12 then false
     else if d < 1 || d > 31 then false
@@ -32,22 +32,19 @@ let get_birth_date number =
         match m with
         | 4 | 6 | 9 | 11 -> 30
         | 2 ->
-            let is_leap = (y mod 4 = 0 && y mod 100 <> 0) || (y mod 400 = 0) in
+            let is_leap = (y mod 4 = 0 && y mod 100 <> 0) || y mod 400 = 0 in
             if is_leap then 29 else 28
         | _ -> 31
       in
       d <= days_in_month
   in
-  
+
   let year = year2 + 1900 in
-  if is_valid_date year month day then
-    (year, month, day)
+  if is_valid_date year month day then (year, month, day)
   else
     let year = year + 100 in
-    if is_valid_date year month day then
-      (year, month, day)
-    else
-      raise Invalid_component
+    if is_valid_date year month day then (year, month, day)
+    else raise Invalid_component
 
 let get_gender number =
   let number = compact number in
@@ -67,4 +64,6 @@ let is_valid number =
   try
     ignore (validate number);
     true
-  with Invalid_format | Invalid_length | Invalid_checksum | Invalid_component -> false
+  with
+  | Invalid_format | Invalid_length | Invalid_checksum | Invalid_component ->
+    false

@@ -6,7 +6,8 @@
     serially assigned value (4 digits) and a single check digit.
 
     More information:
-    - https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/tax-identification-numbers/Korea-TIN.pdf *)
+    - https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/tax-identification-numbers/Korea-TIN.pdf
+*)
 
 exception Invalid_format
 (** Exception raised when the number has invalid format. *)
@@ -30,7 +31,8 @@ val validate : string -> string
 
     @raise Invalid_format if the number contains invalid characters
     @raise Invalid_length if the length is not 10
-    @raise Invalid_component if the tax office number, type of business, or serial value is invalid *)
+    @raise Invalid_component
+      if the tax office number, type of business, or serial value is invalid *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid South Korea BRN number. *)

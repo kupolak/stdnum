@@ -36,11 +36,7 @@ let test_validate_invalid_format_starts_with_zero () =
 
 let test_is_valid () =
   let test_cases =
-    [
-      ("1237 010180", true)
-    ; ("2237 010180", false)
-    ; ("0237 010180", false)
-    ]
+    [ ("1237 010180", true); ("2237 010180", false); ("0237 010180", false) ]
   in
   List.iter
     (fun (input, expected_result) ->
@@ -56,7 +52,9 @@ let suite =
   ; ("test_validate_invalid_checksum", `Quick, test_validate_invalid_checksum)
   ; ("test_validate_invalid_length", `Quick, test_validate_invalid_length)
   ; ("test_validate_invalid_format", `Quick, test_validate_invalid_format)
-  ; ("test_validate_invalid_format_starts_with_zero", `Quick, test_validate_invalid_format_starts_with_zero)
+  ; ( "test_validate_invalid_format_starts_with_zero"
+    , `Quick
+    , test_validate_invalid_format_starts_with_zero )
   ; ("test_is_valid", `Quick, test_is_valid)
   ]
 

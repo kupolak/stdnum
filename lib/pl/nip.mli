@@ -28,9 +28,9 @@ val validate : string -> string
 (** [validate number] checks if the NIP number is valid.
     @param number The NIP number to validate.
     @return The compacted NIP number if valid.
-    @raises Invalid_format if the format is invalid.
-    @raises Invalid_length if the length is invalid.
-    @raises Invalid_checksum if the checksum is invalid. *)
+    @raise Invalid_format if the format is invalid.
+    @raise Invalid_length if the length is invalid.
+    @raise Invalid_checksum if the checksum is invalid. *)
 
 val is_valid : string -> bool
 (** [is_valid number] checks if the NIP number is valid.
@@ -38,6 +38,7 @@ val is_valid : string -> bool
     @return true if the NIP number is valid, false otherwise. *)
 
 val format : string -> string
-(** [format number] reformats the NIP number to the standard presentation format.
+(** [format number] reformats the NIP number to the standard presentation
+    format.
     @param number The NIP number.
     @return The formatted NIP number. *)

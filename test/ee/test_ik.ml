@@ -14,8 +14,11 @@ let test_validate_invalid_checksum () =
 
 let test_get_birth_date () =
   let result = Ee.Ik.get_birth_date "36805280109" in
-  Alcotest.(check (pair int (pair int int))) "test_get_birth_date" (1968, (5, 28)) 
-    (let y, m, d = result in y, (m, d))
+  Alcotest.(check (pair int (pair int int)))
+    "test_get_birth_date"
+    (1968, (5, 28))
+    (let y, m, d = result in
+     (y, (m, d)))
 
 let test_get_gender () =
   let result1 = Ee.Ik.get_gender "36805280109" in
@@ -24,12 +27,7 @@ let test_get_gender () =
   Alcotest.(check string) "test_get_gender_2" "F" result2
 
 let test_is_valid () =
-  let test_cases =
-    [
-      ("36805280109", true)
-    ; ("36805280108", false)
-    ]
-  in
+  let test_cases = [ ("36805280109", true); ("36805280108", false) ] in
   List.iter
     (fun (input, expected_result) ->
       let result = Ee.Ik.is_valid input in

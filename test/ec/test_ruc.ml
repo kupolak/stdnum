@@ -21,9 +21,7 @@ let test_validate_invalid_length () =
 let test_is_valid () =
   let test_cases =
     [
-      ("1792060346-001", true)
-    ; ("1763154690001", false)
-    ; ("179206034601", false)
+      ("1792060346-001", true); ("1763154690001", false); ("179206034601", false)
     ]
   in
   List.iter

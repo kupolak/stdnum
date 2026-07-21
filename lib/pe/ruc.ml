@@ -1,9 +1,9 @@
 (** RUC (Registro Único de Contribuyentes, Peruvian company tax number).
 
-    The RUC (Registro Único de Contribuyentes) is the tax number of Peru assigned
-    to legal and natural persons. The number consists of 11 digits, the first two
-    indicate the kind of number, for personal numbers it is followed by the DNI
-    and a check digit.
+    The RUC (Registro Único de Contribuyentes) is the tax number of Peru
+    assigned to legal and natural persons. The number consists of 11 digits, the
+    first two indicate the kind of number, for personal numbers it is followed
+    by the DNI and a check digit.
 
     More information:
     - https://www.sunat.gob.pe/legislacion/ruc/
@@ -16,8 +16,7 @@ exception Invalid_length
 exception Invalid_checksum
 exception Invalid_component
 
-let compact number =
-  Utils.clean number " " |> String.trim
+let compact number = Utils.clean number " " |> String.trim
 
 let calc_check_digit number =
   let weights = [| 5; 4; 3; 2; 7; 6; 5; 4; 3; 2 |] in
@@ -42,10 +41,11 @@ let is_valid number =
   try
     ignore (validate number);
     true
-  with Invalid_format | Invalid_length | Invalid_checksum | Invalid_component -> false
+  with
+  | Invalid_format | Invalid_length | Invalid_checksum | Invalid_component ->
+    false
 
 let to_dni number =
   let number = validate number in
-  if not (String.starts_with ~prefix:"10" number) then
-    raise Invalid_component;
+  if not (String.starts_with ~prefix:"10" number) then raise Invalid_component;
   String.sub number 2 8

@@ -5,7 +5,8 @@
     pseudorandom manner. The last digit is the check digit.
 
     More information:
-    - https://dgi.gov.gn/wp-content/uploads/2022/09/N%C2%B0-12-Cahier-de-Charges-NIF-p.pdf *)
+    - https://dgi.gov.gn/wp-content/uploads/2022/09/N%C2%B0-12-Cahier-de-Charges-NIF-p.pdf
+*)
 
 exception Invalid_format
 (** Exception raised when the number has invalid format. *)
@@ -17,13 +18,12 @@ exception Invalid_checksum
 (** Exception raised when the checksum validation fails. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation.
-    This strips the number of any valid separators and removes surrounding
-    whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val validate : string -> string
-(** Check if the number is a valid Guinea NIFp number.
-    This checks the length, formatting and check digit.
+(** Check if the number is a valid Guinea NIFp number. This checks the length,
+    formatting and check digit.
 
     @raise Invalid_format if the number contains invalid characters
     @raise Invalid_length if the length is not 9

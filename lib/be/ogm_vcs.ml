@@ -3,7 +3,8 @@
     The OGM-VCS is used in bank transfer as structured communication.
 
     More information:
-    - https://febelfin.be/en/publications/2023/febelfin-banking-standards-for-online-banking *)
+    - https://febelfin.be/en/publications/2023/febelfin-banking-standards-for-online-banking
+*)
 
 open Tools
 
@@ -11,8 +12,7 @@ exception Invalid_format
 exception Invalid_length
 exception Invalid_checksum
 
-let compact number =
-  Utils.clean number "[ +/]" |> String.trim
+let compact number = Utils.clean number "[ +/]" |> String.trim
 
 let calc_check_digits number =
   let number = compact number in
@@ -24,15 +24,17 @@ let calc_check_digits number =
 let validate number =
   let number = compact number in
   if not (Utils.is_digits number) then raise Invalid_format;
-  
-  let is_all_zeros = String.length number > 0 && String.for_all (fun c -> c = '0') number in
+
+  let is_all_zeros =
+    String.length number > 0 && String.for_all (fun c -> c = '0') number
+  in
   if is_all_zeros then raise Invalid_format;
-  
+
   if String.length number <> 12 then raise Invalid_length;
-  
+
   if calc_check_digits number <> String.sub number 10 2 then
     raise Invalid_checksum;
-    
+
   number
 
 let is_valid number =
@@ -47,6 +49,5 @@ let format number =
     let len = String.length number in
     if len < 12 then String.make (12 - len) '0' ^ number else number
   in
-  String.sub padded 0 3 ^ "/" ^
-  String.sub padded 3 4 ^ "/" ^
-  String.sub padded 7 5
+  String.sub padded 0 3 ^ "/" ^ String.sub padded 3 4 ^ "/"
+  ^ String.sub padded 7 5

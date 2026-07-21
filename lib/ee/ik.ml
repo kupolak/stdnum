@@ -14,8 +14,7 @@ exception Invalid_length
 exception Invalid_component
 exception Invalid_checksum
 
-let compact number =
-  Utils.clean number " " |> String.trim
+let compact number = Utils.clean number " " |> String.trim
 
 let is_valid_date year month day =
   if month < 1 || month > 12 then false
@@ -26,7 +25,9 @@ let is_valid_date year month day =
       | 1 | 3 | 5 | 7 | 8 | 10 | 12 -> 31
       | 4 | 6 | 9 | 11 -> 30
       | 2 ->
-          let is_leap = (year mod 4 = 0 && year mod 100 <> 0) || (year mod 400 = 0) in
+          let is_leap =
+            (year mod 4 = 0 && year mod 100 <> 0) || year mod 400 = 0
+          in
           if is_leap then 29 else 28
       | _ -> 0
     in
@@ -46,7 +47,7 @@ let get_birth_date number =
   let month = int_of_string (String.sub number 3 2) in
   let day = int_of_string (String.sub number 5 2) in
   let year = century + year_part in
-  
+
   if not (is_valid_date year month day) then raise Invalid_component;
   (year, month, day)
 
@@ -75,7 +76,8 @@ let calc_check_digit number =
         sum2 := !sum2 + (weight * digit)
       done;
       !sum2 mod 11
-    end else check1
+    end
+    else check1
   in
   string_of_int (check mod 10)
 
@@ -83,16 +85,18 @@ let validate number =
   let number = compact number in
   if not (Utils.is_digits number) then raise Invalid_format;
   if String.length number <> 11 then raise Invalid_length;
-  
+
   ignore (get_birth_date number);
-  
+
   let check_digit = calc_check_digit number in
   if String.sub number 10 1 <> check_digit then raise Invalid_checksum;
-  
+
   number
 
 let is_valid number =
   try
     ignore (validate number);
     true
-  with Invalid_format | Invalid_length | Invalid_component | Invalid_checksum -> false
+  with
+  | Invalid_format | Invalid_length | Invalid_component | Invalid_checksum ->
+    false

@@ -5,7 +5,8 @@
 
     More information:
     - https://www.taks.fo/fo/borgari/bolkar/at-stovna-virki/
-    - https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/tax-identification-numbers/Faroe-islands-TIN.pdf *)
+    - https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/tax-identification-numbers/Faroe-islands-TIN.pdf
+*)
 
 open Tools
 
@@ -13,7 +14,9 @@ exception Invalid_format
 exception Invalid_length
 
 let compact number =
-  let number = Utils.clean number "[- .]" |> String.trim |> String.uppercase_ascii in
+  let number =
+    Utils.clean number "[- .]" |> String.trim |> String.uppercase_ascii
+  in
   if String.starts_with ~prefix:"FO" number then
     String.sub number 2 (String.length number - 2)
   else number

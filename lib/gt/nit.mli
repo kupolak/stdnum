@@ -8,7 +8,8 @@
     usually omitted. Digits and check digit are usually separated with a hyphen.
 
     More information:
-    - https://portal.sat.gob.gt/portal/descarga/6524/factura-electronica-fel/25542/fel-reglas-y-validaciones.pdf (page 58)
+    - https://portal.sat.gob.gt/portal/descarga/6524/factura-electronica-fel/25542/fel-reglas-y-validaciones.pdf
+      (page 58)
     - https://portal.sat.gob.gt/portal/consulta-cui-nit/ *)
 
 exception Invalid_format
@@ -21,12 +22,12 @@ exception Invalid_checksum
 (** Exception raised when the checksum validation fails. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val validate : string -> string
-(** Check if the number is a valid Guatemala NIT number.
-    This checks the length, formatting and check digit.
+(** Check if the number is a valid Guatemala NIT number. This checks the length,
+    formatting and check digit.
 
     @raise Invalid_format if the number contains invalid characters
     @raise Invalid_length if the length is incorrect

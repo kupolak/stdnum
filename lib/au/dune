@@ -2,4 +2,4 @@
  (name au)
  (public_name stdnum.au)
  (modules abn acn tfn)
- (libraries tools stdnum))
+ (libraries tools))

@@ -13,12 +13,7 @@ let test_validate_invalid_checksum () =
   with Gh.Tin.Invalid_checksum -> ()
 
 let test_is_valid () =
-  let test_cases =
-    [
-      ("C0000803561", true)
-    ; ("C0000803562", false)
-    ]
-  in
+  let test_cases = [ ("C0000803561", true); ("C0000803562", false) ] in
   List.iter
     (fun (input, expected_result) ->
       let result = Gh.Tin.is_valid input in

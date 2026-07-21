@@ -16,7 +16,7 @@ let test_validate_invalid_component () =
 
 let test_guess_country () =
   let result = Eu.Vat.guess_country "NL00449544B01" in
-  Alcotest.(check (list string)) "test_guess_country" ["nl"] result
+  Alcotest.(check (list string)) "test_guess_country" [ "nl" ] result
 
 let test_is_valid () =
   let test_cases =

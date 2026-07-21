@@ -1,7 +1,7 @@
 (** VÖEN (Vergi ödəyicisinin eyniləşdirmə nömrəsi, Azerbaijan tax number).
 
-    The Vergi ödəyicisinin eyniləşdirmə nömrəsi is issued by the Azerbaijan state
-    tax authorities to individuals and legal entities.
+    The Vergi ödəyicisinin eyniləşdirmə nömrəsi is issued by the Azerbaijan
+    state tax authorities to individuals and legal entities.
 
     This number consists of 10 digits. The first two digits are the code for the
     territorial administrative unit. The following six digits are a serial
@@ -21,9 +21,7 @@ exception Invalid_checksum
 
 let compact number =
   let cleaned = Utils.clean number "[ ]" in
-  if String.length cleaned = 9 then
-    "0" ^ cleaned
-  else cleaned
+  if String.length cleaned = 9 then "0" ^ cleaned else cleaned
 
 let calc_check_digit number =
   let weights = [| 4; 1; 8; 6; 2; 7; 5; 3 |] in
@@ -38,17 +36,19 @@ let validate number =
   let number = compact number in
   if String.length number <> 10 then raise Invalid_length;
   if not (Utils.is_digits number) then raise Invalid_format;
-  
+
   let last_digit = number.[9] in
   if last_digit <> '1' && last_digit <> '2' then raise Invalid_component;
-  
+
   if calc_check_digit number <> String.sub number 8 1 then
     raise Invalid_checksum;
-    
+
   number
 
 let is_valid number =
   try
     ignore (validate number);
     true
-  with Invalid_format | Invalid_length | Invalid_component | Invalid_checksum -> false
+  with
+  | Invalid_format | Invalid_length | Invalid_component | Invalid_checksum ->
+    false

@@ -1,9 +1,9 @@
 (** CUSIP number (financial security identification number).
 
-    CUSIP (Committee on Uniform Securities Identification Procedures) numbers are
-    used to identify financial securities. CUSIP numbers are a nine-character
-    alphanumeric code where the first six characters identify the issuer,
-    followed by two digits that identify the issue, and a check digit.
+    CUSIP (Committee on Uniform Securities Identification Procedures) numbers
+    are used to identify financial securities. CUSIP numbers are a
+    nine-character alphanumeric code where the first six characters identify the
+    issuer, followed by two digits that identify the issue, and a check digit.
 
     More information:
     - https://en.wikipedia.org/wiki/CUSIP

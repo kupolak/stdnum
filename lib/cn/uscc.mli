@@ -11,7 +11,8 @@
 
     More information:
     - https://zh.wikipedia.org/wiki/统一社会信用代码
-    - https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/tax-identification-numbers/China-TIN.pdf *)
+    - https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/tax-identification-numbers/China-TIN.pdf
+*)
 
 exception Invalid_format
 (** Exception raised when the number format is invalid. *)
@@ -31,17 +32,18 @@ val calc_check_digit : string -> string
     without the check digit. *)
 
 val validate : string -> string
-(** [validate number] checks if the number is a valid USCC number.
-    Returns the validated number in compact form.
+(** [validate number] checks if the number is a valid USCC number. Returns the
+    validated number in compact form.
 
     @raise Invalid_length if the number length is not 18
-    @raise Invalid_format if the first 8 characters are not digits or if
-                          characters 9-18 contain invalid characters (I, O, Z, S, V)
+    @raise Invalid_format
+      if the first 8 characters are not digits or if characters 9-18 contain
+      invalid characters (I, O, Z, S, V)
     @raise Invalid_checksum if the check digit is invalid *)
 
 val is_valid : string -> bool
-(** [is_valid number] checks if the number is a valid USCC number.
-    Returns [true] if valid, [false] otherwise. *)
+(** [is_valid number] checks if the number is a valid USCC number. Returns
+    [true] if valid, [false] otherwise. *)
 
 val format : string -> string
 (** [format number] reformats the number to the standard presentation format. *)

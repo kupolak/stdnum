@@ -16,11 +16,7 @@ let test_validate_invalid_length () =
 
 let test_is_valid () =
   let test_cases =
-    [
-      ("400339910", true)
-    ; ("400 005 834", true)
-    ; ("12345", false)
-    ]
+    [ ("400339910", true); ("400 005 834", true); ("12345", false) ]
   in
   List.iter
     (fun (input, expected_result) ->

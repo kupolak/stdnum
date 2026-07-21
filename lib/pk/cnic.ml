@@ -18,8 +18,7 @@ exception Invalid_format
 exception Invalid_length
 exception Invalid_component
 
-let compact number =
-  Utils.clean number "-" |> String.trim
+let compact number = Utils.clean number "-" |> String.trim
 
 let get_gender number =
   let number = compact number in
@@ -61,5 +60,6 @@ let is_valid number =
 let format number =
   let number = compact number in
   if String.length number = 13 then
-    String.sub number 0 5 ^ "-" ^ String.sub number 5 7 ^ "-" ^ String.sub number 12 1
+    String.sub number 0 5 ^ "-" ^ String.sub number 5 7 ^ "-"
+    ^ String.sub number 12 1
   else number

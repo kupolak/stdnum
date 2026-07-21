@@ -7,7 +7,8 @@
     More information:
     - https://www.ird.govt.nz/
     - https://www.ird.govt.nz/-/media/Project/IR/PDF/2020RWTNRWTSpecificationDocumentv10.pdf
-    - https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/tax-identification-numbers/New%20Zealand-TIN.pdf *)
+    - https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/tax-identification-numbers/New%20Zealand-TIN.pdf
+*)
 
 open Tools
 
@@ -17,7 +18,9 @@ exception Invalid_checksum
 exception Invalid_component
 
 let compact number =
-  let number = Utils.clean number "[ -]" |> String.trim |> String.uppercase_ascii in
+  let number =
+    Utils.clean number "[ -]" |> String.trim |> String.uppercase_ascii
+  in
   if String.starts_with ~prefix:"NZ" number then
     String.sub number 2 (String.length number - 2)
   else number
@@ -29,14 +32,17 @@ let calc_check_digit number =
   let padded = if len < 8 then String.make (8 - len) '0' ^ number else number in
   let s1 = ref 0 in
   for i = 0 to 7 do
-    s1 := !s1 + (primary_weights.(i) * (int_of_char padded.[i] - int_of_char '0'))
+    s1 :=
+      !s1 + (primary_weights.(i) * (int_of_char padded.[i] - int_of_char '0'))
   done;
   let s = (11 - (!s1 mod 11)) mod 11 in
   if s <> 10 then string_of_int s
   else
     let s2 = ref 0 in
     for i = 0 to 7 do
-      s2 := !s2 + (secondary_weights.(i) * (int_of_char padded.[i] - int_of_char '0'))
+      s2 :=
+        !s2
+        + (secondary_weights.(i) * (int_of_char padded.[i] - int_of_char '0'))
     done;
     let s = (11 - (!s2 mod 11)) mod 11 in
     string_of_int s
@@ -57,9 +63,15 @@ let is_valid number =
   try
     ignore (validate number);
     true
-  with Invalid_format | Invalid_length | Invalid_checksum | Invalid_component -> false
+  with
+  | Invalid_format | Invalid_length | Invalid_checksum | Invalid_component ->
+    false
 
 let format number =
   let number = compact number in
   let len = String.length number in
-  String.sub number 0 (len - 6) ^ "-" ^ String.sub number (len - 6) 3 ^ "-" ^ String.sub number (len - 3) 3
+  String.sub number 0 (len - 6)
+  ^ "-"
+  ^ String.sub number (len - 6) 3
+  ^ "-"
+  ^ String.sub number (len - 3) 3

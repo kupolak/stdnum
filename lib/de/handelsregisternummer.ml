@@ -3,11 +3,12 @@
     The number consists of the court where the company has registered, the type
     of register and the registration number.
 
-    The type of the register is either HRA or HRB where the letter "B" stands for
-    HR section B, where limited liability companies and corporations are entered
-    (GmbH's and AG's). There is also a section HRA for business partnerships
-    (OHG's, KG's etc.). In other words: businesses in section HRB are limited
-    liability companies, while businesses in HRA have personally liable partners.
+    The type of the register is either HRA or HRB where the letter "B" stands
+    for HR section B, where limited liability companies and corporations are
+    entered (GmbH's and AG's). There is also a section HRA for business
+    partnerships (OHG's, KG's etc.). In other words: businesses in section HRB
+    are limited liability companies, while businesses in HRA have personally
+    liable partners.
 
     More information:
     - https://www.handelsregister.de/

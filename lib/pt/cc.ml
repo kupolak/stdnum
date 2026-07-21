@@ -5,7 +5,8 @@
 
     More information:
     - https://pt.wikipedia.org/wiki/Cartão_de_cidadão
-    - https://www.autenticacao.gov.pt/documents/20126/115760/Validação+de+Número+de+Documento+do+Cartão+de+Cidadão.pdf *)
+    - https://www.autenticacao.gov.pt/documents/20126/115760/Validação+de+Número+de+Documento+do+Cartão+de+Cidadão.pdf
+*)
 
 open Tools
 
@@ -31,11 +32,13 @@ let is_cc_re number =
     let char2 = number.[len - 3] in
     let rec check_digits i =
       if i = len - 3 then true
-      else match number.[i] with
-           | '0' .. '9' -> check_digits (i + 1)
-           | _ -> false
+      else
+        match number.[i] with '0' .. '9' -> check_digits (i + 1) | _ -> false
     in
-    (match check_digit with '0' .. '9' -> true | _ -> false) && char_value char1 >= 0 && char_value char2 >= 0 && check_digits 0
+    (match check_digit with '0' .. '9' -> true | _ -> false)
+    && char_value char1 >= 0
+    && char_value char2 >= 0
+    && check_digits 0
 
 let calc_check_digit number =
   let cutoff x = if x > 9 then x - 9 else x in
@@ -44,10 +47,7 @@ let calc_check_digit number =
   for i = 0 to len - 1 do
     let n = number.[len - 1 - i] in
     let v = char_value n in
-    if i mod 2 = 0 then
-      s := !s + cutoff (v * 2)
-    else
-      s := !s + v
+    if i mod 2 = 0 then s := !s + cutoff (v * 2) else s := !s + v
   done;
   let rem = (10 - !s) mod 10 in
   let rem = if rem < 0 then rem + 10 else rem in
@@ -71,5 +71,9 @@ let format number =
   let number = compact number in
   let len = String.length number in
   if len >= 4 then
-    String.sub number 0 (len - 4) ^ " " ^ String.sub number (len - 4) 1 ^ " " ^ String.sub number (len - 3) 3
+    String.sub number 0 (len - 4)
+    ^ " "
+    ^ String.sub number (len - 4) 1
+    ^ " "
+    ^ String.sub number (len - 3) 3
   else number

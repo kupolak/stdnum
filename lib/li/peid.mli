@@ -5,7 +5,8 @@
 
     More information:
     - https://www.oera.li/
-    - https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/tax-identification-numbers/LIECHTENSTEIN%20TIN.pdf *)
+    - https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/tax-identification-numbers/LIECHTENSTEIN%20TIN.pdf
+*)
 
 exception Invalid_format
 (** Exception raised when the number has invalid format. *)
@@ -14,8 +15,8 @@ exception Invalid_length
 (** Exception raised when the number has invalid length. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val validate : string -> string
 (** Check if the given fiscal code is valid.

@@ -28,8 +28,11 @@ let test_validate_future_date () =
 
 let test_get_birth_date () =
   let result = Dk.Cpr.get_birth_date "2110620629" in
-  Alcotest.(check (pair int (pair int int))) "test_get_birth_date" (1962, (10, 21)) 
-    (let y, m, d = result in y, (m, d))
+  Alcotest.(check (pair int (pair int int)))
+    "test_get_birth_date"
+    (1962, (10, 21))
+    (let y, m, d = result in
+     (y, (m, d)))
 
 let test_format () =
   let result = Dk.Cpr.format "2110625629" in

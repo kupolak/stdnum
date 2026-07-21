@@ -15,13 +15,7 @@ let test_validate_invalid_length () =
   with Eu.Nace.Invalid_length -> ()
 
 let test_is_valid () =
-  let test_cases =
-    [
-      ("A", true)
-    ; ("62.01", true)
-    ; ("62059", false)
-    ]
-  in
+  let test_cases = [ ("A", true); ("62.01", true); ("62059", false) ] in
   List.iter
     (fun (input, expected_result) ->
       let result = Eu.Nace.is_valid input in

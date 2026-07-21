@@ -1,9 +1,9 @@
 (** CUI (Cédula Única de Identidad, Peruvian identity number).
 
-    The Cédula Única de Identidad (CUI) is the unique identifier for persons that
-    appears on the Documento Nacional de Identidad (DNI), the national identity
-    document of Peru. The number consists of 8 digits and an optional extra check
-    digit.
+    The Cédula Única de Identidad (CUI) is the unique identifier for persons
+    that appears on the Documento Nacional de Identidad (DNI), the national
+    identity document of Peru. The number consists of 8 digits and an optional
+    extra check digit.
 
     More information:
     - https://www.gob.pe/235-documento-nacional-de-identidad-dni

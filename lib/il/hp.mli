@@ -1,8 +1,7 @@
 (** Company Number (מספר חברה, or short ח.פ. Israeli company number).
 
-    It consists of nine digits and includes a check digit. For companies
-    the first digit is a 5. The first two digits identify the type of
-    company.
+    It consists of nine digits and includes a check digit. For companies the
+    first digit is a 5. The first two digits identify the type of company.
 
     More information:
     - https://he.wikipedia.org/wiki/תאגיד#מספר_רישום_התאגיד
@@ -22,8 +21,8 @@ exception Invalid_component
 (** Exception raised when the number has an invalid component. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val validate : string -> string
 (** Check if the number provided is a valid ID. This checks the length,

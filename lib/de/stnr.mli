@@ -1,8 +1,8 @@
 (** St.-Nr. (Steuernummer, German tax number).
 
     The Steuernummer (St.-Nr.) is a tax number assigned by regional tax offices
-    to taxable individuals and organisations. The number is being replaced by the
-    Steuerliche Identifikationsnummer (IdNr).
+    to taxable individuals and organisations. The number is being replaced by
+    the Steuerliche Identifikationsnummer (IdNr).
 
     The number has 10 or 11 digits for the regional form (per Bundesland) and 13
     digits for the number that is unique within Germany. The number consists of
@@ -55,8 +55,8 @@ val to_regional_number : string -> string
     @raise Invalid_format if conversion fails *)
 
 val to_country_number : ?region:region -> string -> string
-(** Convert the number to the nationally unique number (13 digits).
-    The region is needed if the number is not only valid for one particular region.
+(** Convert the number to the nationally unique number (13 digits). The region
+    is needed if the number is not only valid for one particular region.
     @raise Invalid_format if the number format is invalid
     @raise Invalid_component if the region cannot be determined *)
 

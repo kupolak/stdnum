@@ -1,4 +1,5 @@
-(** ОГРН, OGRN, PSRN, ОГРНИП, OGRNIP (Russian Primary State Registration Number).
+(** ОГРН, OGRN, PSRN, ОГРНИП, OGRNIP (Russian Primary State Registration
+    Number).
 
     The ОГРН (Основной государственный регистрационный номер, Primary State
     Registration Number) is a Russian identifier for legal entities. The number
@@ -10,7 +11,8 @@
 
     More information:
     - https://ru.wikipedia.org/wiki/Основной_государственный_регистрационный_номер
-    - https://ru.wikipedia.org/wiki/Основной_государственный_регистрационный_номер_индивидуального_предпринимателя *)
+    - https://ru.wikipedia.org/wiki/Основной_государственный_регистрационный_номер_индивидуального_предпринимателя
+*)
 
 open Tools
 
@@ -19,8 +21,7 @@ exception Invalid_length
 exception Invalid_checksum
 exception Invalid_component
 
-let compact number =
-  Utils.clean number " "
+let compact number = Utils.clean number " "
 
 let calc_check_digit number =
   let base = String.sub number 0 (String.length number - 1) in
@@ -29,14 +30,12 @@ let calc_check_digit number =
       if i = String.length s then acc
       else
         let digit = int_of_char s.[i] - int_of_char '0' in
-        loop ((acc * 10 + digit) mod n) (i + 1)
+        loop (((acc * 10) + digit) mod n) (i + 1)
     in
     loop 0 0
   in
-  if String.length number = 13 then
-    string_of_int (mod_n base 11 mod 10)
-  else
-    string_of_int (mod_n base 13)
+  if String.length number = 13 then string_of_int (mod_n base 11 mod 10)
+  else string_of_int (mod_n base 13)
 
 let validate number =
   let number = compact number in
@@ -44,10 +43,11 @@ let validate number =
   let len = String.length number in
   if len = 13 then begin
     if number.[0] = '0' then raise Invalid_component
-  end else if len = 15 then begin
+  end
+  else if len = 15 then begin
     if number.[0] <> '3' && number.[0] <> '4' then raise Invalid_component
-  end else
-    raise Invalid_length;
+  end
+  else raise Invalid_length;
   let check = String.sub number (len - 1) 1 in
   let calc_check = calc_check_digit number in
   if check <> calc_check then raise Invalid_checksum;
@@ -57,4 +57,6 @@ let is_valid number =
   try
     ignore (validate number);
     true
-  with Invalid_format | Invalid_length | Invalid_checksum | Invalid_component -> false
+  with
+  | Invalid_format | Invalid_length | Invalid_checksum | Invalid_component ->
+    false

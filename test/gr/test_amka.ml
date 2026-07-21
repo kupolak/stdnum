@@ -23,12 +23,7 @@ let test_validate_invalid_checksum () =
   with Gr.Amka.Invalid_checksum -> ()
 
 let test_is_valid () =
-  let test_cases =
-    [
-      ("01013099997", true)
-    ; ("01013099999", false)
-    ]
-  in
+  let test_cases = [ ("01013099997", true); ("01013099999", false) ] in
   List.iter
     (fun (input, expected_result) ->
       let result = Gr.Amka.is_valid input in

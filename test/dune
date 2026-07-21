@@ -132,3 +132,13 @@
  (name test_verhoeff)
  (libraries alcotest stdnum)
  (modules test_verhoeff))
+
+(test
+ (name test_vatin)
+ (libraries alcotest stdnum)
+ (modules test_vatin))
+
+(test
+ (name test_gs1_128)
+ (libraries alcotest stdnum)
+ (modules test_gs1_128))

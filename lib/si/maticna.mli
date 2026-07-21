@@ -1,4 +1,5 @@
-(** Slovenian Matična številka poslovnega registra (Corporate Registration Number).
+(** Slovenian Matična številka poslovnega registra (Corporate Registration
+    Number).
 
     The Corporate registration number represents a unique identification of each
     unit of the business register. The number consists of 7 or 10 digits and
@@ -7,13 +8,13 @@
     Structure:
     - First 6 digits: unique number for each unit/company
     - 7th digit: check digit
-    - Last 3 digits (optional): business unit number (starting at 001)
-      When a company has more than 1000 units, a letter replaces the first digit.
-      Unit 000 always represents the main registered address.
-*)
+    - Last 3 digits (optional): business unit number (starting at 001) When a
+      company has more than 1000 units, a letter replaces the first digit. Unit
+      000 always represents the main registered address. *)
 
 exception Invalid_length
-(** Exception raised when the number has an invalid length (not 7 or 10 digits). *)
+(** Exception raised when the number has an invalid length (not 7 or 10 digits).
+*)
 
 exception Invalid_format
 (** Exception raised when the number contains invalid characters or format. *)
@@ -29,9 +30,9 @@ val compact : string -> string
     Example: [compact "9331310000"] returns ["9331310"] *)
 
 val calc_check_digit : string -> string
-(** Calculate the check digit for the first 6 digits using weights [7,6,5,4,3,2].
-    Returns "invalid" if the calculated remainder is 0, otherwise returns the
-    check digit as a string. *)
+(** Calculate the check digit for the first 6 digits using weights
+    [7,6,5,4,3,2]. Returns "invalid" if the calculated remainder is 0, otherwise
+    returns the check digit as a string. *)
 
 val validate : string -> string
 (** Check if the number is a valid Corporate Registration number. This checks
@@ -45,5 +46,5 @@ val validate : string -> string
            remainder is 0 *)
 
 val is_valid : string -> bool
-(** Check if the number is a valid Corporate Registration number.
-    Returns [true] if valid, [false] otherwise. *)
+(** Check if the number is a valid Corporate Registration number. Returns [true]
+    if valid, [false] otherwise. *)

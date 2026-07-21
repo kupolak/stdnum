@@ -30,11 +30,7 @@ let test_validate_invalid_format () =
 
 let test_is_valid () =
   let test_cases =
-    [
-      ("004 085 616", true)
-    ; ("010 499 966", true)
-    ; ("999 999 999", false)
-    ]
+    [ ("004 085 616", true); ("010 499 966", true); ("999 999 999", false) ]
   in
   List.iter
     (fun (input, expected_result) ->

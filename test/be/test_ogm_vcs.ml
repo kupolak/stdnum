@@ -27,7 +27,7 @@ let test_validate_invalid_format () =
     ignore (Be.Ogm_vcs.validate "010/8068/1718A");
     Alcotest.fail "Expected Invalid_format exception"
   with Be.Ogm_vcs.Invalid_format -> ()
-  
+
 let test_validate_zeros () =
   try
     ignore (Be.Ogm_vcs.validate "000000000000");

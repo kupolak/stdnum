@@ -13,12 +13,7 @@ let test_validate_invalid_checksum () =
   with Fi.Ytunnus.Invalid_checksum -> ()
 
 let test_is_valid () =
-  let test_cases =
-    [
-      ("2077474-0", true)
-    ; ("2077474-1", false)
-    ]
-  in
+  let test_cases = [ ("2077474-0", true); ("2077474-1", false) ] in
   List.iter
     (fun (input, expected_result) ->
       let result = Fi.Ytunnus.is_valid input in

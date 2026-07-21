@@ -1,8 +1,8 @@
 (** Wertpapierkennnummer (German securities identification code).
 
     The WKN, WPKN, WPK (Wertpapierkennnummer) is a German code to identify
-    securities. It is a 6-digit alphanumeric number without a check digit that no
-    longer has any structure. It is expected to be replaced by the ISIN.
+    securities. It is a 6-digit alphanumeric number without a check digit that
+    no longer has any structure. It is expected to be replaced by the ISIN.
 
     More information:
     - https://en.wikipedia.org/wiki/Wertpapierkennnummer *)
@@ -15,7 +15,8 @@ val compact : string -> string
 
 val validate : string -> string
 (** Check if the number provided is valid. This checks the length and format.
-    @raise Invalid_format if the number contains invalid characters (O and I are not allowed)
+    @raise Invalid_format
+      if the number contains invalid characters (O and I are not allowed)
     @raise Invalid_length if the number is not 6 characters *)
 
 val is_valid : string -> bool

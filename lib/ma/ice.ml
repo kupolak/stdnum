@@ -1,21 +1,22 @@
-(** ICE (Identifiant Commun de l’Entreprise, التعريف الموحد للمقاولة, Morocco tax number).
+(** ICE (Identifiant Commun de l’Entreprise, التعريف الموحد للمقاولة, Morocco
+    tax number).
 
     The ICE is a number that identifies the company and its branches in a unique
     and uniform way by all Moroccan administrations. It comes in addition to the
-    other legal identifiers, notably the "identifiant fiscal" (IF), the "numéro de
-    registre de commerce" (RC) and the CNSS number. The ICE does not replace these
-    identifiers, which remain mandatory.
+    other legal identifiers, notably the "identifiant fiscal" (IF), the "numéro
+    de registre de commerce" (RC) and the CNSS number. The ICE does not replace
+    these identifiers, which remain mandatory.
 
     The ICE is intended to ease communication among Moroccan administration
-    branches, therefore simplifying procedures, increasing reliability and speed,
-    and therefore reducing costs.
+    branches, therefore simplifying procedures, increasing reliability and
+    speed, and therefore reducing costs.
 
     The ICE applies to legal entities and their branches, as well as to natural
     persons.
 
-    The ICE consists of 15 characters, where the first 9 represent the enterprise,
-    the following 4 represent its establishments, and the last 2 are control
-    characters.
+    The ICE consists of 15 characters, where the first 9 represent the
+    enterprise, the following 4 represent its establishments, and the last 2 are
+    control characters.
 
     More information:
     - https://www.ice.gov.ma/
@@ -28,8 +29,7 @@ exception Invalid_format
 exception Invalid_length
 exception Invalid_checksum
 
-let compact number =
-  Utils.clean number " "
+let compact number = Utils.clean number " "
 
 let validate number =
   let number = compact number in

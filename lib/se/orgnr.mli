@@ -4,8 +4,7 @@
     companies and consists of 10 digits. These are the first 10 digits in the
     Swedish VAT number (without 'SE' prefix and '01' suffix).
 
-    The number uses the Luhn checksum algorithm for validation.
-*)
+    The number uses the Luhn checksum algorithm for validation. *)
 
 exception Invalid_length
 (** Exception raised when the number has an invalid length (not 10 digits). *)
@@ -35,8 +34,8 @@ val validate : string -> string
     @raise Invalid_checksum if the Luhn checksum is invalid *)
 
 val is_valid : string -> bool
-(** Check if the number is a valid organisation number.
-    Returns [true] if valid, [false] otherwise. *)
+(** Check if the number is a valid organisation number. Returns [true] if valid,
+    [false] otherwise. *)
 
 val format : string -> string
 (** Reformat the number to the standard presentation format (XXXXXX-XXXX).

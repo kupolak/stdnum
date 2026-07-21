@@ -2,8 +2,7 @@
 
     The Verhoeff algorithm is a checksum algorithm that catches most common
     (typing) errors in numbers. It uses multiplication and permutation tables
-    and is more complex than the Luhn algorithm but catches more errors.
-*)
+    and is more complex than the Luhn algorithm but catches more errors. *)
 
 exception Invalid_format
 (** Exception raised when the number format is invalid (e.g., empty string). *)
@@ -29,9 +28,9 @@ val validate : string -> string
     @raise Invalid_checksum if the checksum is not 0 *)
 
 val is_valid : string -> bool
-(** Check if the number provided passes the Verhoeff checksum.
-    Returns [true] if valid, [false] otherwise. *)
+(** Check if the number provided passes the Verhoeff checksum. Returns [true] if
+    valid, [false] otherwise. *)
 
 val calc_check_digit : string -> string
-(** Calculate the extra digit that should be appended to the number to make it
-    a valid number. *)
+(** Calculate the extra digit that should be appended to the number to make it a
+    valid number. *)

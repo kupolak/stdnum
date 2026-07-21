@@ -11,8 +11,8 @@ exception Invalid_checksum
 exception Invalid_component
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val format : string -> string
 (** Reformat the number to the standard IBAN presentation format. *)
@@ -26,4 +26,5 @@ val is_valid : string -> bool
     false otherwise. *)
 
 val to_bic : string -> string option
-(** Return the BIC for the bank that this number refers to, or None if unknown. *)
+(** Return the BIC for the bank that this number refers to, or None if unknown.
+*)

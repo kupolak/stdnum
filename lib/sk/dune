@@ -1,5 +1,5 @@
 (library
  (name sk)
  (public_name stdnum.sk)
- (libraries tools stdnum)
+ (libraries tools stdnum.cz)
  (modules dph rc))

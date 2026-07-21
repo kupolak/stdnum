@@ -24,16 +24,16 @@ exception Invalid_component
 (** Exception raised when a component of the address is invalid. *)
 
 val compact : string -> string
-(** Convert the address to the minimal representation. This strips the
-    address of any valid separators and removes surrounding whitespace.
-    Bech32 addresses are converted to lowercase.
+(** Convert the address to the minimal representation. This strips the address
+    of any valid separators and removes surrounding whitespace. Bech32 addresses
+    are converted to lowercase.
 
-    Example: [compact "BC1QARDV855YJNGSPVXUTTQ897AQCA3LXJU2Y69JCE"]
-    returns ["bc1qardv855yjngspvxuttq897aqca3lxju2y69jce"] *)
+    Example: [compact "BC1QARDV855YJNGSPVXUTTQ897AQCA3LXJU2Y69JCE"] returns
+    ["bc1qardv855yjngspvxuttq897aqca3lxju2y69jce"] *)
 
 val validate : string -> string
-(** Check if the address is valid. This checks the length and checksum.
-    Returns the normalized address if valid.
+(** Check if the address is valid. This checks the length and checksum. Returns
+    the normalized address if valid.
 
     @raise Invalid_format if the address contains invalid characters
     @raise Invalid_length if the address has invalid length
@@ -41,5 +41,5 @@ val validate : string -> string
     @raise Invalid_component if a component is invalid *)
 
 val is_valid : string -> bool
-(** Check if the address is valid.
-    Returns [true] if valid, [false] otherwise. *)
+(** Check if the address is valid. Returns [true] if valid, [false] otherwise.
+*)

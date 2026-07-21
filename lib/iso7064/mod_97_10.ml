@@ -36,8 +36,7 @@ let calc_check_digits number =
 
 let validate number =
   let valid =
-    try checksum number = 1
-    with Failure _ -> raise Invalid_format
+    try checksum number = 1 with Failure _ -> raise Invalid_format
   in
   if not valid then raise Invalid_checksum;
   number

@@ -20,11 +20,7 @@ let test_validate_invalid_component () =
 
 let test_is_valid () =
   let test_cases =
-    [
-      ("991-03730-19", true)
-    ; ("1-03730-19", false)
-    ; ("201-03730-19", false)
-    ]
+    [ ("991-03730-19", true); ("1-03730-19", false); ("201-03730-19", false) ]
   in
   List.iter
     (fun (input, expected_result) ->

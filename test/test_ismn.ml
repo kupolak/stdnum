@@ -18,7 +18,8 @@ let test_validate () =
     (fun (input, expected_result) ->
       try
         let result = Stdnum.Ismn.validate input in
-        Alcotest.(check string) ("test_validate_" ^ input) expected_result result
+        Alcotest.(check string)
+          ("test_validate_" ^ input) expected_result result
       with e ->
         Alcotest.fail
           (Printf.sprintf "validate failed for %s: %s" input
@@ -50,8 +51,7 @@ let test_ismn_type () =
 let test_format () =
   let test_cases =
     [
-      ("9790060115615", "979-0-060-11561-5")
-    ; ("M230671187", "979-0-2306-7118-7")
+      ("9790060115615", "979-0-060-11561-5"); ("M230671187", "979-0-2306-7118-7")
     ]
   in
   List.iter

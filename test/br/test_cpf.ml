@@ -59,11 +59,13 @@ let test_is_valid_true () =
 
 let test_is_valid_false () =
   let result = Br.Cpf.is_valid "231.002.999-00" in
-  Alcotest.(check bool) "is_valid returns false for invalid checksum" false result
+  Alcotest.(check bool)
+    "is_valid returns false for invalid checksum" false result
 
 let test_is_valid_true_alternative () =
   let result = Br.Cpf.is_valid "231.002.999-81" in
-  Alcotest.(check bool) "is_valid returns true for another valid CPF" true result
+  Alcotest.(check bool)
+    "is_valid returns true for another valid CPF" true result
 
 let test_is_valid_false_format () =
   let result = Br.Cpf.is_valid "390.533.447=0" in
@@ -73,18 +75,16 @@ let () =
   let open Alcotest in
   run "Br.Cpf"
     [
-      ( "compact",
-        [
-          test_case "Compact various formats" `Quick test_compact
-        ] )
-    ; ( "validate",
-        [
+      ("compact", [ test_case "Compact various formats" `Quick test_compact ])
+    ; ( "validate"
+      , [
           test_case "Validate valid CPF" `Quick test_validate_valid
         ; test_case "Validate valid unformatted CPF" `Quick
             test_validate_valid_unformatted
         ; test_case "Validate invalid checksum" `Quick
             test_validate_invalid_checksum
-        ; test_case "Validate invalid format" `Quick test_validate_invalid_format
+        ; test_case "Validate invalid format" `Quick
+            test_validate_invalid_format
         ; test_case "Validate invalid format (letters)" `Quick
             test_validate_invalid_format_letters
         ; test_case "Validate invalid length (short)" `Quick
@@ -92,14 +92,14 @@ let () =
         ; test_case "Validate invalid length (long)" `Quick
             test_validate_invalid_length_long
         ] )
-    ; ( "format",
-        [
+    ; ( "format"
+      , [
           test_case "Format CPF" `Quick test_format
         ; test_case "Format already formatted CPF" `Quick
             test_format_already_formatted
         ] )
-    ; ( "is_valid",
-        [
+    ; ( "is_valid"
+      , [
           test_case "is_valid returns true for valid CPF" `Quick
             test_is_valid_true
         ; test_case "is_valid returns true for another valid CPF" `Quick

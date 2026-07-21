@@ -10,8 +10,8 @@ exception Invalid_format
 exception Invalid_checksum
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val format : string -> string
 (** Reformat the number to the standard presentation format. *)
@@ -21,5 +21,5 @@ val validate : string -> string
     Returns the compacted number if valid, raises an exception otherwise. *)
 
 val is_valid : string -> bool
-(** Check if the number is a valid CN. Returns true if valid,
-    false otherwise. *)
+(** Check if the number is a valid CN. Returns true if valid, false otherwise.
+*)

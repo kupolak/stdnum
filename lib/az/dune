@@ -2,4 +2,4 @@
  (name az)
  (public_name stdnum.az)
  (modules voen)
- (libraries tools stdnum))
+ (libraries tools))

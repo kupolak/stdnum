@@ -13,12 +13,7 @@ let test_validate_invalid_checksum () =
   with Lt.Asmens.Invalid_checksum -> ()
 
 let test_is_valid () =
-  let test_cases =
-    [
-      ("33309240064", true)
-    ; ("33309240164", false)
-    ]
-  in
+  let test_cases = [ ("33309240064", true); ("33309240164", false) ] in
   List.iter
     (fun (input, expected_result) ->
       let result = Lt.Asmens.is_valid input in

@@ -4,9 +4,9 @@
     Organizations (ISO 15511) used to uniquely identify libraries, archives,
     museums, and similar organisations.
 
-    The identifier can be up to 15 characters that may use digits,
-    letters (case insensitive) hyphens, colons and slashes. The non-alphanumeric
-    characters are part of the identifier and are not just for readability.
+    The identifier can be up to 15 characters that may use digits, letters (case
+    insensitive) hyphens, colons and slashes. The non-alphanumeric characters
+    are part of the identifier and are not just for readability.
 
     More information:
     - https://biblstandard.dk/isil/

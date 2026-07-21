@@ -31,16 +31,17 @@ exception Invalid_component
 exception Invalid_checksum
 
 val compact : string -> string
-(** [compact number] converts the number to the minimal representation.
-    This strips the number of any valid separators and removes surrounding
+(** [compact number] converts the number to the minimal representation. This
+    strips the number of any valid separators and removes surrounding
     whitespace. *)
 
 val calc_check_digit : string -> string
-(** [calc_check_digit number] calculates the check digit for the first 9 digits. *)
+(** [calc_check_digit number] calculates the check digit for the first 9 digits.
+*)
 
 val validate : string -> string
-(** [validate number] checks if the number is a valid Vietnam MST number.
-    This checks the length, formatting and check digit. *)
+(** [validate number] checks if the number is a valid Vietnam MST number. This
+    checks the length, formatting and check digit. *)
 
 val is_valid : string -> bool
 (** [is_valid number] checks if the number is a valid Vietnam MST number. *)

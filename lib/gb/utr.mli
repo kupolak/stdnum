@@ -4,7 +4,8 @@
     taxpayers who have to submit a tax return.
 
     More information:
-    - https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/tax-identification-numbers/UK-TIN.pdf *)
+    - https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/tax-identification-numbers/UK-TIN.pdf
+*)
 
 exception Invalid_format
 (** Exception raised when the UTR has invalid format. *)
@@ -16,12 +17,12 @@ exception Invalid_checksum
 (** Exception raised when the checksum validation fails. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val calc_check_digit : string -> string
-(** Calculate the check digit for the number. The passed number should not
-    have the check digit (the first one) included. *)
+(** Calculate the check digit for the number. The passed number should not have
+    the check digit (the first one) included. *)
 
 val validate : string -> string
 (** Check if the number is a valid UTR.

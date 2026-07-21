@@ -13,12 +13,7 @@ let test_validate_invalid_checksum () =
   with Lu.Tva.Invalid_checksum -> ()
 
 let test_is_valid () =
-  let test_cases =
-    [
-      ("LU 150 274 42", true)
-    ; ("150 274 43", false)
-    ]
-  in
+  let test_cases = [ ("LU 150 274 42", true); ("150 274 43", false) ] in
   List.iter
     (fun (input, expected_result) ->
       let result = Lu.Tva.is_valid input in

@@ -1,8 +1,8 @@
 (** Wertpapierkennnummer (German securities identification code).
 
     The WKN, WPKN, WPK (Wertpapierkennnummer) is a German code to identify
-    securities. It is a 6-digit alphanumeric number without a check digit that no
-    longer has any structure. It is expected to be replaced by the ISIN.
+    securities. It is a 6-digit alphanumeric number without a check digit that
+    no longer has any structure. It is expected to be replaced by the ISIN.
 
     More information:
     - https://en.wikipedia.org/wiki/Wertpapierkennnummer *)

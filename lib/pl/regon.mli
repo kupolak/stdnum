@@ -22,7 +22,8 @@ val calc_check_digit : string -> string
 (** [calc_check_digit number] calculates the check digit for a REGON number. *)
 
 val validate : string -> string
-(** [validate number] checks if the REGON number is valid (length, format, checksum). *)
+(** [validate number] checks if the REGON number is valid (length, format,
+    checksum). *)
 
 val is_valid : string -> bool
 (** [is_valid number] checks if the REGON number is a valid REGON number. *)

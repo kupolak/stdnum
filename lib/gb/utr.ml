@@ -4,7 +4,8 @@
     taxpayers who have to submit a tax return.
 
     More information:
-    - https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/tax-identification-numbers/UK-TIN.pdf *)
+    - https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/tax-identification-numbers/UK-TIN.pdf
+*)
 
 open Tools
 
@@ -13,7 +14,9 @@ exception Invalid_length
 exception Invalid_checksum
 
 let compact number =
-  let number = Utils.clean number "[ ]" |> String.trim |> String.uppercase_ascii in
+  let number =
+    Utils.clean number "[ ]" |> String.trim |> String.uppercase_ascii
+  in
   let rec strip_k s =
     if String.length s > 0 && s.[0] = 'K' then
       strip_k (String.sub s 1 (String.length s - 1))

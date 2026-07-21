@@ -1,8 +1,7 @@
 (** Company Number (מספר חברה, or short ח.פ. Israeli company number).
 
-    It consists of nine digits and includes a check digit. For companies
-    the first digit is a 5. The first two digits identify the type of
-    company.
+    It consists of nine digits and includes a check digit. For companies the
+    first digit is a 5. The first two digits identify the type of company.
 
     More information:
     - https://he.wikipedia.org/wiki/תאגיד#מספר_רישום_התאגיד
@@ -16,8 +15,7 @@ exception Invalid_length
 exception Invalid_checksum
 exception Invalid_component
 
-let compact number =
-  Utils.clean number "[ -]" |> String.trim
+let compact number = Utils.clean number "[ -]" |> String.trim
 
 let validate number =
   let number = compact number in
@@ -31,6 +29,8 @@ let is_valid number =
   try
     ignore (validate number);
     true
-  with Invalid_format | Invalid_length | Invalid_checksum | Invalid_component -> false
+  with
+  | Invalid_format | Invalid_length | Invalid_checksum | Invalid_component ->
+    false
 
 let format number = compact number

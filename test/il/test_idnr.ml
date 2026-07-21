@@ -20,11 +20,7 @@ let test_validate_invalid_length () =
 
 let test_is_valid () =
   let test_cases =
-    [
-      ("3933742-3", true)
-    ; ("3933742-2", false)
-    ; ("490154203237518", false)
-    ]
+    [ ("3933742-3", true); ("3933742-2", false); ("490154203237518", false) ]
   in
   List.iter
     (fun (input, expected_result) ->

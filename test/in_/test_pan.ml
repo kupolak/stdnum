@@ -51,7 +51,7 @@ let test_mask () =
   Alcotest.(check string) "test_mask" "AAPPVXXXXK" result
 
 let test_info () =
-  let (holder_type, _) = In_.Pan.info "AAPPV8261K" in
+  let holder_type, _ = In_.Pan.info "AAPPV8261K" in
   Alcotest.(check string) "test_info" "Individual" holder_type
 
 let suite =
@@ -60,7 +60,9 @@ let suite =
   ; ("test_validate", `Quick, test_validate)
   ; ("test_validate_invalid_length", `Quick, test_validate_invalid_length)
   ; ("test_validate_invalid_format", `Quick, test_validate_invalid_format)
-  ; ("test_validate_invalid_holder_type", `Quick, test_validate_invalid_holder_type)
+  ; ( "test_validate_invalid_holder_type"
+    , `Quick
+    , test_validate_invalid_holder_type )
   ; ("test_validate_invalid_serial", `Quick, test_validate_invalid_serial)
   ; ("test_is_valid", `Quick, test_is_valid)
   ; ("test_mask", `Quick, test_mask)

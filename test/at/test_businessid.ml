@@ -25,10 +25,7 @@ let test_validate_invalid_format_all_letters () =
 let test_is_valid () =
   let test_cases =
     [
-      ("FN 122119m", true)
-    ; ("122119m", true)
-    ; ("m123123", false)
-    ; ("abc", false)
+      ("FN 122119m", true); ("122119m", true); ("m123123", false); ("abc", false)
     ]
   in
   List.iter
@@ -42,8 +39,12 @@ let suite =
     ("test_compact", `Quick, test_compact)
   ; ("test_validate", `Quick, test_validate)
   ; ("test_validate_no_prefix", `Quick, test_validate_no_prefix)
-  ; ("test_validate_invalid_format_starts_with_letter", `Quick, test_validate_invalid_format_starts_with_letter)
-  ; ("test_validate_invalid_format_all_letters", `Quick, test_validate_invalid_format_all_letters)
+  ; ( "test_validate_invalid_format_starts_with_letter"
+    , `Quick
+    , test_validate_invalid_format_starts_with_letter )
+  ; ( "test_validate_invalid_format_all_letters"
+    , `Quick
+    , test_validate_invalid_format_all_letters )
   ; ("test_is_valid", `Quick, test_is_valid)
   ]
 

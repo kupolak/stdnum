@@ -2,4 +2,4 @@
  (name gb)
  (public_name stdnum.gb)
  (modules sedol utr upn nhs vat)
- (libraries tools stdnum))
+ (libraries tools stdnum.isin_core))

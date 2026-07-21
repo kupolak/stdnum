@@ -12,7 +12,8 @@
 
     More information:
     - https://en.wikipedia.org/wiki/Permanent_account_number
-    - https://incometaxindia.gov.in/tutorials/1.permanent%20account%20number%20(pan).pdf *)
+    - https://incometaxindia.gov.in/tutorials/1.permanent%20account%20number%20(pan).pdf
+*)
 
 open Tools
 
@@ -22,19 +23,20 @@ exception Invalid_component
 
 let pan_re = Str.regexp "^[A-Z][A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][A-Z]$"
 
-let pan_holder_types = [
-  ("A", "Association of Persons (AOP)");
-  ("B", "Body of Individuals (BOI)");
-  ("C", "Company");
-  ("F", "Firm/Limited Liability Partnership");
-  ("G", "Government Agency");
-  ("H", "Hindu Undivided Family (HUF)");
-  ("L", "Local Authority");
-  ("J", "Artificial Juridical Person");
-  ("P", "Individual");
-  ("T", "Trust");
-  ("K", "Krish (Trust Krish)")
-]
+let pan_holder_types =
+  [
+    ("A", "Association of Persons (AOP)")
+  ; ("B", "Body of Individuals (BOI)")
+  ; ("C", "Company")
+  ; ("F", "Firm/Limited Liability Partnership")
+  ; ("G", "Government Agency")
+  ; ("H", "Hindu Undivided Family (HUF)")
+  ; ("L", "Local Authority")
+  ; ("J", "Artificial Juridical Person")
+  ; ("P", "Individual")
+  ; ("T", "Trust")
+  ; ("K", "Krish (Trust Krish)")
+  ]
 
 let compact number =
   Utils.clean number "[ -]" |> String.trim |> String.uppercase_ascii

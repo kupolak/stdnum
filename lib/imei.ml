@@ -23,10 +23,10 @@ let validate number =
   if not (Utils.is_digits number) then raise Invalid_format;
 
   let len = String.length number in
-  if len = 15 then (
+  if len = 15 then
     (* Only 15-digit IMEI has check digit *)
     try ignore (Luhn.validate number)
-    with Luhn.Invalid_checksum -> raise Invalid_checksum)
+    with Luhn.Invalid_checksum -> raise Invalid_checksum
   else if len <> 14 && len <> 16 then
     (* Neither IMEI without check digit nor IMEISV *)
     raise Invalid_length;

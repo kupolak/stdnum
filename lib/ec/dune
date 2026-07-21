@@ -2,4 +2,4 @@
  (name ec)
  (public_name stdnum.ec)
  (modules ci ruc)
- (libraries tools stdnum))
+ (libraries tools))

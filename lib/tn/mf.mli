@@ -32,14 +32,14 @@ exception Invalid_format
 (** Exception raised when the MF number has an invalid format. *)
 
 val validate : string -> string
-(** Check if the number is a valid Tunisia MF number. This checks the length
-    and formatting. Returns the normalized number if valid.
+(** Check if the number is a valid Tunisia MF number. This checks the length and
+    formatting. Returns the normalized number if valid.
     @raise Invalid_length if the number length is not 8 or 13
     @raise Invalid_format if the number has invalid format or characters *)
 
 val is_valid : string -> bool
-(** Check if the number is a valid Tunisia MF number.
-    Returns true if valid, false otherwise. *)
+(** Check if the number is a valid Tunisia MF number. Returns true if valid,
+    false otherwise. *)
 
 val format : string -> string
 (** Reformat the number to the standard presentation format with slashes. *)

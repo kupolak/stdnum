@@ -7,8 +7,8 @@
     assigned for importing goods from a third country (through an intermediary).
 
     This is also called MOSS (mini One Stop Shop) and VoeS (VAT on e-Services).
-    The number under the import scheme is also called IOSS (Import One Stop Shop)
-    number.
+    The number under the import scheme is also called IOSS (Import One Stop
+    Shop) number.
 
     Numbers under the non-union scheme are in the format EUxxxyyyyyz. For the
     import scheme the format is IMxxxyyyyyyz. An intermediary will also get an

@@ -9,12 +9,13 @@ exception Invalid_length
 exception Invalid_checksum
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val validate : string -> string
-(** Check if the number provided is a valid bank account number.
-    Raises Invalid_format, Invalid_length, or Invalid_checksum if the number is not valid. *)
+(** Check if the number provided is a valid bank account number. Raises
+    Invalid_format, Invalid_length, or Invalid_checksum if the number is not
+    valid. *)
 
 val is_valid : string -> bool
 (** Check if the number provided is a valid bank account number. *)

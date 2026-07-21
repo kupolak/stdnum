@@ -13,12 +13,7 @@ let test_validate_invalid_length () =
   with Stdnum.Imsi.Invalid_length -> ()
 
 let test_is_valid () =
-  let test_cases =
-    [
-      ("429011234567890", true)
-    ; ("4290112345678", false)
-    ]
-  in
+  let test_cases = [ ("429011234567890", true); ("4290112345678", false) ] in
   List.iter
     (fun (input, expected_result) ->
       let result = Stdnum.Imsi.is_valid input in

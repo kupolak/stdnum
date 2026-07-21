@@ -1,0 +1,5 @@
+(library
+ (name iban_core)
+ (public_name stdnum.iban_core)
+ (modules iban_core)
+ (libraries tools stdnum.iso7064))

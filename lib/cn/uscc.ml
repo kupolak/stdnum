@@ -8,8 +8,8 @@ exception Invalid_checksum
 (* Excludes: I, O, Z, S, V *)
 let _alphabet = "0123456789ABCDEFGHJKLMNPQRTUWXY"
 
-(** Convert the number to the minimal representation. This strips
-    surrounding whitespace and separation characters. *)
+(** Convert the number to the minimal representation. This strips surrounding
+    whitespace and separation characters. *)
 let compact number =
   Utils.clean number "[ -]" |> String.uppercase_ascii |> String.trim
 
@@ -58,8 +58,8 @@ let all_valid_chars number start end_pos =
   in
   check start
 
-(** Check if the number is a valid USCC. This checks the length, formatting
-    and check digit. *)
+(** Check if the number is a valid USCC. This checks the length, formatting and
+    check digit. *)
 let validate number =
   let number = compact number in
   let len = String.length number in

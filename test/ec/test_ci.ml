@@ -32,11 +32,7 @@ let test_validate_invalid_component_third () =
 
 let test_is_valid () =
   let test_cases =
-    [
-      ("171430710-3", true)
-    ; ("1714307104", false)
-    ; ("171430710", false)
-    ]
+    [ ("171430710-3", true); ("1714307104", false); ("171430710", false) ]
   in
   List.iter
     (fun (input, expected_result) ->
@@ -50,8 +46,12 @@ let suite =
   ; ("test_validate", `Quick, test_validate)
   ; ("test_validate_invalid_checksum", `Quick, test_validate_invalid_checksum)
   ; ("test_validate_invalid_length", `Quick, test_validate_invalid_length)
-  ; ("test_validate_invalid_component_prov", `Quick, test_validate_invalid_component_prov)
-  ; ("test_validate_invalid_component_third", `Quick, test_validate_invalid_component_third)
+  ; ( "test_validate_invalid_component_prov"
+    , `Quick
+    , test_validate_invalid_component_prov )
+  ; ( "test_validate_invalid_component_third"
+    , `Quick
+    , test_validate_invalid_component_third )
   ; ("test_is_valid", `Quick, test_is_valid)
   ]
 

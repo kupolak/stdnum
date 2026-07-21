@@ -2,4 +2,4 @@
  (name dk)
  (public_name stdnum.dk)
  (modules cpr cvr)
- (libraries tools stdnum unix))
+ (libraries tools unix))

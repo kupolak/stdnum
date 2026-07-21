@@ -1,7 +1,7 @@
 (** MAC address (Media Access Control address).
 
-    A media access control address (MAC address, sometimes Ethernet address) of a
-    device is meant as a unique identifier within a network at the data link
+    A media access control address (MAC address, sometimes Ethernet address) of
+    a device is meant as a unique identifier within a network at the data link
     layer.
 
     More information:
@@ -16,22 +16,23 @@ exception Invalid_length
 exception Invalid_component
 
 let compact number =
-  let number = Utils.clean number " " |> String.trim |> String.lowercase_ascii in
+  let number =
+    Utils.clean number " " |> String.trim |> String.lowercase_ascii
+  in
   let number = String.concat ":" (String.split_on_char '-' number) in
   let parts = String.split_on_char ':' number in
   let pad_part n = if String.length n = 1 then "0" ^ n else n in
   String.concat ":" (List.map pad_part parts)
 
-let is_valid_hex c =
-  match c with
-  | '0' .. '9' | 'a' .. 'f' -> true
-  | _ -> false
+let is_valid_hex c = match c with '0' .. '9' | 'a' .. 'f' -> true | _ -> false
 
 let is_mac_re number =
   let parts = String.split_on_char ':' number in
   if List.length parts <> 6 then false
   else
-    List.for_all (fun p -> String.length p = 2 && is_valid_hex p.[0] && is_valid_hex p.[1]) parts
+    List.for_all
+      (fun p -> String.length p = 2 && is_valid_hex p.[0] && is_valid_hex p.[1])
+      parts
 
 let is_unicast number =
   let number = compact number in
@@ -40,8 +41,7 @@ let is_unicast number =
     first_byte land 1 = 0
   else false
 
-let is_multicast number =
-  not (is_unicast number)
+let is_multicast number = not (is_unicast number)
 
 let is_broadcast number =
   let number = compact number in
@@ -54,10 +54,9 @@ let is_universally_administered number =
     first_byte land 2 = 0
   else false
 
-let is_locally_administered number =
-  not (is_universally_administered number)
+let is_locally_administered number = not (is_universally_administered number)
 
-let validate ?(validate_manufacturer=false) number =
+let validate ?(validate_manufacturer = false) number =
   let number = compact number in
   if String.length number <> 17 then raise Invalid_length;
   if not (is_mac_re number) then raise Invalid_format;

@@ -13,7 +13,7 @@ let test_validate_invalid_checksum () =
   with Mx.Curp.Invalid_checksum -> ()
 
 let test_get_birth_date () =
-  let (y, m, d) = Mx.Curp.get_birth_date "BOXW310820HNERXN09" in
+  let y, m, d = Mx.Curp.get_birth_date "BOXW310820HNERXN09" in
   Alcotest.(check int) "test_get_birth_date_year" 1931 y;
   Alcotest.(check int) "test_get_birth_date_month" 8 m;
   Alcotest.(check int) "test_get_birth_date_day" 20 d
@@ -24,10 +24,7 @@ let test_get_gender () =
 
 let test_is_valid () =
   let test_cases =
-    [
-      ("BOXW310820HNERXN09", true)
-    ; ("BOXW310820HNERXN08", false)
-    ]
+    [ ("BOXW310820HNERXN09", true); ("BOXW310820HNERXN08", false) ]
   in
   List.iter
     (fun (input, expected_result) ->

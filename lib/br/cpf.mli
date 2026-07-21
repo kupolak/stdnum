@@ -9,8 +9,8 @@
 
     Example:
     {[
-      validate "390.533.447-05" (* returns "39053344705" *)
-      format "23100299900" (* returns "231.002.999-00" *)
+      validate "390.533.447-05" (* returns "39053344705" *) format
+        "23100299900" (* returns "231.002.999-00" *)
     ]} *)
 
 exception Invalid_format
@@ -28,17 +28,17 @@ val compact : string -> string
     whitespace. *)
 
 val validate : string -> string
-(** [validate number] checks if the number is a valid CPF.
-    This checks the length and whether the check digit is correct.
-    Returns the validated number in compact form.
-    
+(** [validate number] checks if the number is a valid CPF. This checks the
+    length and whether the check digit is correct. Returns the validated number
+    in compact form.
+
     @raise Invalid_format if the number contains non-digit characters or is zero
     @raise Invalid_length if the number length is not 11 digits
     @raise Invalid_checksum if the check digits are incorrect *)
 
 val is_valid : string -> bool
-(** [is_valid number] checks if the number is a valid CPF.
-    Returns [true] if valid, [false] otherwise. *)
+(** [is_valid number] checks if the number is a valid CPF. Returns [true] if
+    valid, [false] otherwise. *)
 
 val format : string -> string
 (** [format number] reformats the number to the standard presentation format

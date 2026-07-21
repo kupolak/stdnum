@@ -27,7 +27,8 @@ let test_validate () =
     (fun (input, expected_result) ->
       try
         let result = Stdnum.Imei.validate input in
-        Alcotest.(check string) ("test_validate_" ^ input) expected_result result
+        Alcotest.(check string)
+          ("test_validate_" ^ input) expected_result result
       with e ->
         Alcotest.fail
           (Printf.sprintf "validate failed for %s: %s" input
@@ -66,7 +67,8 @@ let test_imei_type () =
     (fun (input, expected_result) ->
       let result = Stdnum.Imei.imei_type input in
       Alcotest.(check (option string))
-        ("test_imei_type_" ^ input) expected_result result)
+        ("test_imei_type_" ^ input)
+        expected_result result)
     test_cases
 
 let test_is_valid () =
@@ -88,7 +90,8 @@ let test_is_valid () =
 
 let test_split () =
   let test_cases =
-    [ ("35686800-004141", ("35686800", "004141", ""))
+    [
+      ("35686800-004141", ("35686800", "004141", ""))
     ; ("354178036859789", ("35417803", "685978", "9"))
     ; ("3568680000414120", ("35686800", "004141", "20"))
     ]

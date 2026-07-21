@@ -1,7 +1,7 @@
 (** GRid (Global Release Identifier).
 
-    The Global Release Identifier is used to identify releases of digital
-    sound recordings and uses the ISO 7064 Mod 37, 36 algorithm to verify the
+    The Global Release Identifier is used to identify releases of digital sound
+    recordings and uses the ISO 7064 Mod 37, 36 algorithm to verify the
     correctness of the number.
 
     More information:

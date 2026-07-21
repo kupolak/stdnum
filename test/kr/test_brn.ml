@@ -63,9 +63,15 @@ let suite =
   ; ("test_validate", `Quick, test_validate)
   ; ("test_validate_invalid_length", `Quick, test_validate_invalid_length)
   ; ("test_validate_invalid_format", `Quick, test_validate_invalid_format)
-  ; ("test_validate_invalid_component_tax", `Quick, test_validate_invalid_component_tax)
-  ; ("test_validate_invalid_component_type", `Quick, test_validate_invalid_component_type)
-  ; ("test_validate_invalid_component_serial", `Quick, test_validate_invalid_component_serial)
+  ; ( "test_validate_invalid_component_tax"
+    , `Quick
+    , test_validate_invalid_component_tax )
+  ; ( "test_validate_invalid_component_type"
+    , `Quick
+    , test_validate_invalid_component_type )
+  ; ( "test_validate_invalid_component_serial"
+    , `Quick
+    , test_validate_invalid_component_serial )
   ; ("test_is_valid", `Quick, test_is_valid)
   ; ("test_format", `Quick, test_format)
   ]

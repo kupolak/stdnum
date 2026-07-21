@@ -27,12 +27,9 @@ let get_test_string number =
 let validate number =
   let number = compact number in
   let test_number =
-    try get_test_string number
-    with Invalid_format -> raise Invalid_format
+    try get_test_string number with Invalid_format -> raise Invalid_format
   in
-  begin try
-    ignore (Iso7064.Mod_97_10.validate test_number)
-  with
+  begin try ignore (Iso7064.Mod_97_10.validate test_number) with
   | Iso7064.Mod_97_10.Invalid_checksum -> raise Invalid_checksum
   | Iso7064.Mod_97_10.Invalid_format -> raise Invalid_format
   end;
@@ -48,7 +45,11 @@ let calc_check_digits number =
   let number = compact number in
   let len = String.length number in
   if len < 7 then raise Invalid_format;
-  let number_zero = String.sub number 0 2 ^ "00" ^ String.sub number 4 (len - 4) in
+  let number_zero =
+    String.sub number 0 2 ^ "00" ^ String.sub number 4 (len - 4)
+  in
   let test_string = get_test_string number_zero in
-  let test_string_no_zero = String.sub test_string 0 (String.length test_string - 2) in
+  let test_string_no_zero =
+    String.sub test_string 0 (String.length test_string - 2)
+  in
   Iso7064.Mod_97_10.calc_check_digits test_string_no_zero

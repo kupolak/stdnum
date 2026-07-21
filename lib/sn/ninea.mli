@@ -1,7 +1,8 @@
-(** NINEA (Numéro d'Identification Nationale des Entreprises et Associations, Senegal tax number).
+(** NINEA (Numéro d'Identification Nationale des Entreprises et Associations,
+    Senegal tax number).
 
-    The National Identification Number for Businesses and Associations (NINEA) is
-    a unique tax identifier for tax purposes in Senegal.
+    The National Identification Number for Businesses and Associations (NINEA)
+    is a unique tax identifier for tax purposes in Senegal.
 
     This number consists of 7 digits and is usually followed by a 3 digit tax
     identification code called COFI (Code d’Identification Fiscale) that is used
@@ -27,11 +28,12 @@ exception Invalid_component
 (** Exception raised when a component of the number is invalid. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val validate : string -> string
-(** Check if the number is a valid Senegal NINEA. This checks the length and formatting. *)
+(** Check if the number is a valid Senegal NINEA. This checks the length and
+    formatting. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid Senegal NINEA. *)

@@ -1,9 +1,9 @@
 (** IMO number (International Maritime Organization number).
 
     A number used to uniquely identify ships (the hull) for purposes of
-    registering owners and management companies. The ship identification
-    number consists of a six-digit sequentially assigned number and a check
-    digit. The number is usually prefixed with "IMO".
+    registering owners and management companies. The ship identification number
+    consists of a six-digit sequentially assigned number and a check digit. The
+    number is usually prefixed with "IMO".
 
     More information:
     - https://en.wikipedia.org/wiki/IMO_number *)
@@ -15,7 +15,9 @@ exception Invalid_length
 exception Invalid_checksum
 
 let compact number =
-  let number = Utils.clean number "[ ]" |> String.uppercase_ascii |> String.trim in
+  let number =
+    Utils.clean number "[ ]" |> String.uppercase_ascii |> String.trim
+  in
   if String.length number >= 3 && String.sub number 0 3 = "IMO" then
     String.sub number 3 (String.length number - 3) |> String.trim
   else number

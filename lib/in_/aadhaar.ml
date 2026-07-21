@@ -11,7 +11,8 @@
 
     More information:
     - https://en.wikipedia.org/wiki/Aadhaar
-    - https://web.archive.org/web/20140611025606/http://uidai.gov.in/UID_PDF/Working_Papers/A_UID_Numbering_Scheme.pdf *)
+    - https://web.archive.org/web/20140611025606/http://uidai.gov.in/UID_PDF/Working_Papers/A_UID_Numbering_Scheme.pdf
+*)
 
 open Tools
 
@@ -19,10 +20,10 @@ exception Invalid_format
 exception Invalid_length
 exception Invalid_checksum
 
-let aadhaar_re = Str.regexp "^[2-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$"
+let aadhaar_re =
+  Str.regexp "^[2-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$"
 
-let compact number =
-  Utils.clean number "[ -]" |> String.trim
+let compact number = Utils.clean number "[ -]" |> String.trim
 
 let reverse_string s =
   let len = String.length s in
@@ -48,7 +49,8 @@ let is_valid number =
 
 let format number =
   let number = compact number in
-  String.sub number 0 4 ^ " " ^ String.sub number 4 4 ^ " " ^ String.sub number 8 4
+  String.sub number 0 4 ^ " " ^ String.sub number 4 4 ^ " "
+  ^ String.sub number 8 4
 
 let mask number =
   let number = compact number in

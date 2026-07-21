@@ -15,18 +15,19 @@ exception Invalid_checksum
 (** Exception raised when the checksum validation fails. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding white space.
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding white space.
 
-    Example: [compact "213800KUD8LAJWSQ9D15"] returns ["213800KUD8LAJWSQ9D15"] *)
+    Example: [compact "213800KUD8LAJWSQ9D15"] returns ["213800KUD8LAJWSQ9D15"]
+*)
 
 val validate : string -> string
 (** Check if the number is valid. This checks the length, format and check
     digits. Returns the normalized number if valid.
 
-    @raise Invalid_format if the number contains invalid characters or has wrong length
+    @raise Invalid_format
+      if the number contains invalid characters or has wrong length
     @raise Invalid_checksum if the checksum validation fails *)
 
 val is_valid : string -> bool
-(** Check if the number is valid.
-    Returns [true] if valid, [false] otherwise. *)
+(** Check if the number is valid. Returns [true] if valid, [false] otherwise. *)

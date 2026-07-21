@@ -5,7 +5,8 @@
 
     More information:
     - https://www.oera.li/
-    - https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/tax-identification-numbers/LIECHTENSTEIN%20TIN.pdf *)
+    - https://www.oecd.org/tax/automatic-exchange/crs-implementation-and-assistance/tax-identification-numbers/LIECHTENSTEIN%20TIN.pdf
+*)
 
 open Tools
 
@@ -15,8 +16,7 @@ exception Invalid_length
 let remove_leading_zeros s =
   let len = String.length s in
   let rec loop i =
-    if i < len && s.[i] = '0' then loop (i + 1)
-    else String.sub s i (len - i)
+    if i < len && s.[i] = '0' then loop (i + 1) else String.sub s i (len - i)
   in
   let res = loop 0 in
   if res = "" && len > 0 then "0" else res

@@ -47,7 +47,9 @@ let suite =
   [
     ("test_compact", `Quick, test_compact)
   ; ("test_validate", `Quick, test_validate)
-  ; ("test_validate_invalid_component_type", `Quick, test_validate_invalid_component_type)
+  ; ( "test_validate_invalid_component_type"
+    , `Quick
+    , test_validate_invalid_component_type )
   ; ("test_validate_invalid_length", `Quick, test_validate_invalid_length)
   ; ("test_validate_invalid_format", `Quick, test_validate_invalid_format)
   ; ("test_is_valid", `Quick, test_is_valid)

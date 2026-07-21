@@ -20,11 +20,7 @@ let test_to_ruc () =
 
 let test_is_valid () =
   let test_cases =
-    [
-      ("10117410", true)
-    ; ("10117410-2", true)
-    ; ("10117410-3", false)
-    ]
+    [ ("10117410", true); ("10117410-2", true); ("10117410-3", false) ]
   in
   List.iter
     (fun (input, expected_result) ->

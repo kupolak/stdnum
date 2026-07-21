@@ -17,8 +17,8 @@ val tin_type : string -> string option
 (** Return a TIN type which this number is valid ("moa" or "pin"). *)
 
 val validate : string -> string
-(** Check if the number is a valid TIN. This searches for the proper
-    sub-type and validates using that. *)
+(** Check if the number is a valid TIN. This searches for the proper sub-type
+    and validates using that. *)
 
 val is_valid : string -> bool
 (** Check whether the number is valid. *)

@@ -2,4 +2,4 @@
  (name bg)
  (public_name stdnum.bg)
  (modules egn pnf vat)
- (libraries tools stdnum))
+ (libraries tools))

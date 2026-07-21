@@ -51,7 +51,9 @@ let suite =
   ; ("test_validate", `Quick, test_validate)
   ; ("test_validate_invalid_checksum", `Quick, test_validate_invalid_checksum)
   ; ("test_validate_invalid_component", `Quick, test_validate_invalid_component)
-  ; ("test_validate_invalid_checksum_pers_new", `Quick, test_validate_invalid_checksum_pers_new)
+  ; ( "test_validate_invalid_checksum_pers_new"
+    , `Quick
+    , test_validate_invalid_checksum_pers_new )
   ; ("test_is_valid", `Quick, test_is_valid)
   ]
 

@@ -1,0 +1,4 @@
+(test
+ (name test_tva)
+ (libraries alcotest stdnum stdnum.mc)
+ (modules test_tva))

@@ -1,14 +1,14 @@
 (** NPWP (Nomor Pokok Wajib Pajak, Indonesian VAT Number).
 
     The Nomor Pokok Wajib Pajak (NPWP) is assigned to organisations and
-    individuals (families) by the Indonesian Tax Office after registration by the
-    tax payers.
+    individuals (families) by the Indonesian Tax Office after registration by
+    the tax payers.
 
-    The number consists of 16 digits and is either a NIK (Nomor Induk Kependudukan)
-    or a number that starts with a 0, followed by 2 digits that denote the type of
-    entity, 6 digits to identify the tax payer, a check digit over the first 8
-    digits followed by 3 digits to identify the local tax office and 3 digits for
-    branch code.
+    The number consists of 16 digits and is either a NIK (Nomor Induk
+    Kependudukan) or a number that starts with a 0, followed by 2 digits that
+    denote the type of entity, 6 digits to identify the tax payer, a check digit
+    over the first 8 digits followed by 3 digits to identify the local tax
+    office and 3 digits for branch code.
 
     This module also accepts the old 15 digit format which is just the 16 digit
     format without the starting 0.

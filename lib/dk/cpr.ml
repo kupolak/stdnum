@@ -17,8 +17,7 @@ exception Invalid_format
 exception Invalid_length
 exception Invalid_component
 
-let compact number =
-  Utils.clean number "[ -]" |> String.trim
+let compact number = Utils.clean number "[ -]" |> String.trim
 
 let checksum number =
   let weights = [| 4; 3; 2; 7; 6; 5; 4; 3; 2; 1 |] in
@@ -38,7 +37,9 @@ let is_valid_date year month day =
       | 1 | 3 | 5 | 7 | 8 | 10 | 12 -> 31
       | 4 | 6 | 9 | 11 -> 30
       | 2 ->
-          let is_leap = (year mod 4 = 0 && year mod 100 <> 0) || (year mod 400 = 0) in
+          let is_leap =
+            (year mod 4 = 0 && year mod 100 <> 0) || year mod 400 = 0
+          in
           if is_leap then 29 else 28
       | _ -> 0
     in
@@ -50,16 +51,19 @@ let get_birth_date number =
   let month = int_of_string (String.sub number 2 2) in
   let year = int_of_string (String.sub number 4 2) in
   let seq_first = number.[6] in
-  
+
   let year_full =
-    if (seq_first = '5' || seq_first = '6' || seq_first = '7' || seq_first = '8') && year >= 58 then
-      year + 1800
-    else if (seq_first >= '0' && seq_first <= '3') || ((seq_first = '4' || seq_first = '9') && year >= 37) then
-      year + 1900
-    else
-      year + 2000
+    if
+      (seq_first = '5' || seq_first = '6' || seq_first = '7' || seq_first = '8')
+      && year >= 58
+    then year + 1800
+    else if
+      (seq_first >= '0' && seq_first <= '3')
+      || ((seq_first = '4' || seq_first = '9') && year >= 37)
+    then year + 1900
+    else year + 2000
   in
-  
+
   if not (is_valid_date year_full month day) then raise Invalid_component;
   (year_full, month, day)
 
@@ -72,14 +76,15 @@ let validate number =
   let number = compact number in
   if not (Utils.is_digits number) then raise Invalid_format;
   if String.length number <> 10 then raise Invalid_length;
-  
+
   let birth_date = get_birth_date number in
   let tm = Unix.localtime (Unix.time ()) in
-  let current_date = (tm.Unix.tm_year + 1900, tm.Unix.tm_mon + 1, tm.Unix.tm_mday) in
-  
-  if compare_dates birth_date current_date > 0 then
-    raise Invalid_component;
-    
+  let current_date =
+    (tm.Unix.tm_year + 1900, tm.Unix.tm_mon + 1, tm.Unix.tm_mday)
+  in
+
+  if compare_dates birth_date current_date > 0 then raise Invalid_component;
+
   number
 
 let is_valid number =

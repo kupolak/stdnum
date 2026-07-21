@@ -13,8 +13,7 @@ exception Invalid_length
 exception Invalid_component
 exception Invalid_checksum
 
-let compact number =
-  Utils.clean number "[ -]" |> String.trim
+let compact number = Utils.clean number "[ -]" |> String.trim
 
 let calc_check_digit number =
   let weights = [| 5; 4; 3; 2; 7; 6; 5; 4; 3; 2 |] in
@@ -31,22 +30,27 @@ let validate number =
   let number = compact number in
   if String.length number <> 11 then raise Invalid_length;
   if not (Utils.is_digits number) then raise Invalid_format;
-  
-  let valid_types = ["20"; "23"; "24"; "27"; "30"; "33"; "34"; "50"; "51"; "55"] in
+
+  let valid_types =
+    [ "20"; "23"; "24"; "27"; "30"; "33"; "34"; "50"; "51"; "55" ]
+  in
   let prefix = String.sub number 0 2 in
   if not (List.mem prefix valid_types) then raise Invalid_component;
-  
+
   if calc_check_digit (String.sub number 0 10) <> String.sub number 10 1 then
     raise Invalid_checksum;
-    
+
   number
 
 let is_valid number =
   try
     ignore (validate number);
     true
-  with Invalid_format | Invalid_length | Invalid_component | Invalid_checksum -> false
+  with
+  | Invalid_format | Invalid_length | Invalid_component | Invalid_checksum ->
+    false
 
 let format number =
   let number = compact number in
-  String.sub number 0 2 ^ "-" ^ String.sub number 2 8 ^ "-" ^ String.sub number 10 1
+  String.sub number 0 2 ^ "-" ^ String.sub number 2 8 ^ "-"
+  ^ String.sub number 10 1

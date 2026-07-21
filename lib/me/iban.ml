@@ -10,9 +10,8 @@ exception Invalid_length
 exception Invalid_checksum
 exception Invalid_component
 
-let compact number = Stdnum.Iban.compact number
-
-let format number = Stdnum.Iban.format number
+let compact number = Iban_core.compact number
+let format number = Iban_core.format number
 
 let checksum number =
   let rec mod97 acc s =
@@ -27,12 +26,12 @@ let checksum number =
   mod97 0 number
 
 let validate number =
-  let number = 
-    try Stdnum.Iban.validate ~check_country:false number
-    with Stdnum.Iban.Invalid_format -> raise Invalid_format
-       | Stdnum.Iban.Invalid_length -> raise Invalid_length
-       | Stdnum.Iban.Invalid_checksum -> raise Invalid_checksum
-       | Stdnum.Iban.Invalid_component -> raise Invalid_component
+  let number =
+    try Iban_core.validate ~check_country:false number with
+    | Iban_core.Invalid_format -> raise Invalid_format
+    | Iban_core.Invalid_length -> raise Invalid_length
+    | Iban_core.Invalid_checksum -> raise Invalid_checksum
+    | Iban_core.Invalid_component -> raise Invalid_component
   in
   if not (String.starts_with ~prefix:"ME" number) then raise Invalid_component;
   let numeric_part = String.sub number 4 (String.length number - 4) in
@@ -43,4 +42,6 @@ let is_valid number =
   try
     ignore (validate number);
     true
-  with Invalid_format | Invalid_length | Invalid_checksum | Invalid_component -> false
+  with
+  | Invalid_format | Invalid_length | Invalid_checksum | Invalid_component ->
+    false

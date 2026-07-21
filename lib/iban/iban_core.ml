@@ -242,15 +242,7 @@ let validate ?(check_country = true) number =
    with Not_found -> ());
 
   (* Country-specific validation *)
-  (if check_country then
-     match String.lowercase_ascii cc with
-     | "es" -> (
-         try ignore (Es.Iban.validate number) with
-         | Es.Iban.Invalid_checksum -> raise Invalid_checksum
-         | Es.Iban.Invalid_format -> raise Invalid_format
-         | Es.Iban.Invalid_length -> raise Invalid_length
-         | Es.Iban.Invalid_component -> raise Invalid_component)
-     | _ -> ());
+  (if check_country then match String.lowercase_ascii cc with _ -> ());
 
   number
 

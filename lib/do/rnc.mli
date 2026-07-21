@@ -8,15 +8,15 @@ exception Invalid_length
 exception Invalid_checksum
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val calc_check_digit : string -> string
 (** Calculate the check digit for the first 8 digits. *)
 
 val validate : string -> string
-(** Check if the number provided is a valid RNC.
-    Raises Invalid_format, Invalid_length, or Invalid_checksum if invalid. *)
+(** Check if the number provided is a valid RNC. Raises Invalid_format,
+    Invalid_length, or Invalid_checksum if invalid. *)
 
 val is_valid : string -> bool
 (** Check if the number provided is a valid RNC. *)

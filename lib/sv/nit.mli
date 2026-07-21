@@ -39,25 +39,26 @@ exception Invalid_checksum
 (** Exception raised when the check digit is invalid. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation.
-    This strips the number of any valid separators, removes "SV" prefix if present,
-    and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators, removes "SV" prefix if present, and removes
+    surrounding whitespace. *)
 
 val calc_check_digit : string -> string
-(** Calculate the check digit. Uses different algorithm for old NIT (sequential <= 100)
-    versus new NIT (sequential > 100). *)
+(** Calculate the check digit. Uses different algorithm for old NIT (sequential
+    <= 100) versus new NIT (sequential > 100). *)
 
 val validate : string -> string
-(** Check if the number is a valid El Salvador NIT number.
-    This checks the length, formatting and check digit. Returns the normalized number if valid.
+(** Check if the number is a valid El Salvador NIT number. This checks the
+    length, formatting and check digit. Returns the normalized number if valid.
     @raise Invalid_length if the number length is not 14
     @raise Invalid_format if the number contains non-digit characters
     @raise Invalid_component if the number does not start with 0, 1, or 9
     @raise Invalid_checksum if the check digit is invalid *)
 
 val is_valid : string -> bool
-(** Check if the number is a valid El Salvador NIT number.
-    Returns true if valid, false otherwise. *)
+(** Check if the number is a valid El Salvador NIT number. Returns true if
+    valid, false otherwise. *)
 
 val format : string -> string
-(** Reformat the number to the standard presentation format (XXXX-XXXXXX-XXX-X). *)
+(** Reformat the number to the standard presentation format (XXXX-XXXXXX-XXX-X).
+*)

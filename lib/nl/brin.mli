@@ -12,11 +12,12 @@ exception Invalid_format
 exception Invalid_length
 
 val compact : string -> string
-(** Remove any formatting characters from the number and return a clean string. *)
+(** Remove any formatting characters from the number and return a clean string.
+*)
 
 val validate : string -> string
-(** Check if the number is a valid BRIN number. This currently does not
-    check whether the number points to a registered school.
+(** Check if the number is a valid BRIN number. This currently does not check
+    whether the number points to a registered school.
     @raise Invalid_length if the number is not 4 or 6 characters
     @raise Invalid_format if the number format is invalid *)
 

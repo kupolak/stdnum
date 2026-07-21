@@ -1,7 +1,8 @@
-(** NINEA (Numéro d'Identification Nationale des Entreprises et Associations, Senegal tax number).
+(** NINEA (Numéro d'Identification Nationale des Entreprises et Associations,
+    Senegal tax number).
 
-    The National Identification Number for Businesses and Associations (NINEA) is
-    a unique tax identifier for tax purposes in Senegal.
+    The National Identification Number for Businesses and Associations (NINEA)
+    is a unique tax identifier for tax purposes in Senegal.
 
     This number consists of 7 digits and is usually followed by a 3 digit tax
     identification code called COFI (Code d’Identification Fiscale) that is used
@@ -26,13 +27,11 @@ let compact number =
 
 let validate_cofi cofi =
   match cofi.[0] with
-  | '0' .. '2' ->
-      (match cofi.[1] with
-       | 'A' .. 'H' | 'J' .. 'N' | 'P' .. 'W' | 'Z' ->
-           (match cofi.[2] with
-            | '0' .. '9' -> ()
-            | _ -> raise Invalid_component)
-       | _ -> raise Invalid_component)
+  | '0' .. '2' -> (
+      match cofi.[1] with
+      | 'A' .. 'H' | 'J' .. 'N' | 'P' .. 'W' | 'Z' -> (
+          match cofi.[2] with '0' .. '9' -> () | _ -> raise Invalid_component)
+      | _ -> raise Invalid_component)
   | _ -> raise Invalid_component
 
 let checksum number =
@@ -54,8 +53,7 @@ let validate number =
   let base_number, cofi =
     if len > 9 then
       (String.sub number 0 (len - 3), String.sub number (len - 3) 3)
-    else
-      (number, "")
+    else (number, "")
   in
   let base_len = String.length base_number in
   if base_len <> 7 && base_len <> 9 then raise Invalid_length;
@@ -68,7 +66,9 @@ let is_valid number =
   try
     ignore (validate number);
     true
-  with Invalid_format | Invalid_length | Invalid_checksum | Invalid_component -> false
+  with
+  | Invalid_format | Invalid_length | Invalid_checksum | Invalid_component ->
+    false
 
 let format number =
   let number = compact number in

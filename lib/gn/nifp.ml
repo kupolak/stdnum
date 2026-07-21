@@ -5,7 +5,8 @@
     pseudorandom manner. The last digit is the check digit.
 
     More information:
-    - https://dgi.gov.gn/wp-content/uploads/2022/09/N%C2%B0-12-Cahier-de-Charges-NIF-p.pdf *)
+    - https://dgi.gov.gn/wp-content/uploads/2022/09/N%C2%B0-12-Cahier-de-Charges-NIF-p.pdf
+*)
 
 open Tools
 
@@ -19,7 +20,7 @@ let validate number =
   let number = compact number in
   if String.length number <> 9 then raise Invalid_length;
   if not (Utils.is_digits number) then raise Invalid_format;
-  
+
   if not (Luhn.is_valid number) then raise Invalid_checksum;
   number
 
@@ -31,4 +32,5 @@ let is_valid number =
 
 let format number =
   let number = compact number in
-  String.sub number 0 3 ^ "-" ^ String.sub number 3 3 ^ "-" ^ String.sub number 6 3
+  String.sub number 0 3 ^ "-" ^ String.sub number 3 3 ^ "-"
+  ^ String.sub number 6 3

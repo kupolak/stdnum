@@ -18,8 +18,8 @@ exception Invalid_checksum
 exception Invalid_component
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips
-    surrounding whitespace and separators. *)
+(** Convert the number to the minimal representation. This strips surrounding
+    whitespace and separators. *)
 
 val validate : string -> string
 (** Check if the number is a valid VAT number. This checks the length,
@@ -33,4 +33,5 @@ val is_valid : string -> bool
 (** Check if the number is a valid VAT number. *)
 
 val format : string -> string
-(** Reformat the number to the standard presentation format (CHE-XXX.XXX.XXX SUFFIX). *)
+(** Reformat the number to the standard presentation format (CHE-XXX.XXX.XXX
+    SUFFIX). *)

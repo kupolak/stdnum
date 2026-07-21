@@ -16,8 +16,8 @@ exception Invalid_checksum
 (** Exception raised when the checksum validation fails. *)
 
 val compact : string -> string
-(** Convert the AT-02 number to the minimal representation. This strips
-    the number of any valid separators and removes invalid characters. *)
+(** Convert the AT-02 number to the minimal representation. This strips the
+    number of any valid separators and removes invalid characters. *)
 
 val validate : string -> string
 (** Check if the number provided is a valid AT-02.

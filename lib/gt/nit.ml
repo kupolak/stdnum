@@ -8,7 +8,8 @@
     usually omitted. Digits and check digit are usually separated with a hyphen.
 
     More information:
-    - https://portal.sat.gob.gt/portal/descarga/6524/factura-electronica-fel/25542/fel-reglas-y-validaciones.pdf (page 58)
+    - https://portal.sat.gob.gt/portal/descarga/6524/factura-electronica-fel/25542/fel-reglas-y-validaciones.pdf
+      (page 58)
     - https://portal.sat.gob.gt/portal/consulta-cui-nit/ *)
 
 open Tools
@@ -23,7 +24,8 @@ let rec remove_leading_zeros s =
   else s
 
 let compact number =
-  Utils.clean number "[ -]" |> String.trim |> String.uppercase_ascii |> remove_leading_zeros
+  Utils.clean number "[ -]" |> String.trim |> String.uppercase_ascii
+  |> remove_leading_zeros
 
 let calc_check_digit number =
   let c = ref 0 in
@@ -33,7 +35,7 @@ let calc_check_digit number =
     let multiplier = len + 1 - i in
     c := !c + (multiplier * n)
   done;
-  let result = (- !c) mod 11 in
+  let result = - !c mod 11 in
   let result = if result < 0 then result + 11 else result in
   if result = 10 then "K" else string_of_int result
 

@@ -33,9 +33,9 @@ val validate : string -> string
 (** [validate number] checks if the RNTRC number is valid.
     @param number The RNTRC number to validate.
     @return The compacted RNTRC number if valid.
-    @raises Invalid_format if the format is invalid.
-    @raises Invalid_length if the length is invalid.
-    @raises Invalid_checksum if the checksum is invalid. *)
+    @raise Invalid_format if the format is invalid.
+    @raise Invalid_length if the length is invalid.
+    @raise Invalid_checksum if the checksum is invalid. *)
 
 val is_valid : string -> bool
 (** [is_valid number] checks if the RNTRC number is valid.
@@ -43,6 +43,7 @@ val is_valid : string -> bool
     @return true if the RNTRC number is valid, false otherwise. *)
 
 val format : string -> string
-(** [format number] reformats the RNTRC number to the standard presentation format.
+(** [format number] reformats the RNTRC number to the standard presentation
+    format.
     @param number The RNTRC number.
     @return The formatted RNTRC number. *)

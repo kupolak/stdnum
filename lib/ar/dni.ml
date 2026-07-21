@@ -5,15 +5,15 @@
     the country.
 
     More information:
-    - https://en.wikipedia.org/wiki/Documento_Nacional_de_Identidad_(Argentina) *)
+    - https://en.wikipedia.org/wiki/Documento_Nacional_de_Identidad_(Argentina)
+*)
 
 open Tools
 
 exception Invalid_format
 exception Invalid_length
 
-let compact number =
-  Utils.clean number "[ .]" |> String.trim
+let compact number = Utils.clean number "[ .]" |> String.trim
 
 let validate number =
   let number = compact number in
@@ -31,6 +31,8 @@ let is_valid number =
 let format number =
   let number = compact number in
   let len = String.length number in
-  String.sub number 0 (len - 6) ^ "." ^
-  String.sub number (len - 6) 3 ^ "." ^
-  String.sub number (len - 3) 3
+  String.sub number 0 (len - 6)
+  ^ "."
+  ^ String.sub number (len - 6) 3
+  ^ "."
+  ^ String.sub number (len - 3) 3

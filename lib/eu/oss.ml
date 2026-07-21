@@ -7,8 +7,8 @@
     assigned for importing goods from a third country (through an intermediary).
 
     This is also called MOSS (mini One Stop Shop) and VoeS (VAT on e-Services).
-    The number under the import scheme is also called IOSS (Import One Stop Shop)
-    number.
+    The number under the import scheme is also called IOSS (Import One Stop
+    Shop) number.
 
     Numbers under the non-union scheme are in the format EUxxxyyyyyz. For the
     import scheme the format is IMxxxyyyyyyz. An intermediary will also get an
@@ -25,9 +25,36 @@ exception Invalid_length
 exception Invalid_component
 
 let iso_3166_1_member_states =
-  [ "040"; "056"; "100"; "191"; "196"; "203"; "208"; "233"; "246"; "250"; "276";
-    "300"; "348"; "372"; "380"; "428"; "440"; "442"; "470"; "528"; "616"; "620";
-    "642"; "703"; "705"; "724"; "752"; "900" ]
+  [
+    "040"
+  ; "056"
+  ; "100"
+  ; "191"
+  ; "196"
+  ; "203"
+  ; "208"
+  ; "233"
+  ; "246"
+  ; "250"
+  ; "276"
+  ; "300"
+  ; "348"
+  ; "372"
+  ; "380"
+  ; "428"
+  ; "440"
+  ; "442"
+  ; "470"
+  ; "528"
+  ; "616"
+  ; "620"
+  ; "642"
+  ; "703"
+  ; "705"
+  ; "724"
+  ; "752"
+  ; "900"
+  ]
 
 let compact number =
   Utils.clean number "[ -]" |> String.trim |> String.uppercase_ascii
@@ -37,15 +64,18 @@ let validate number =
   let len = String.length number in
   if String.starts_with ~prefix:"EU" number then begin
     if len <> 11 then raise Invalid_length
-  end else if String.starts_with ~prefix:"IM" number then begin
+  end
+  else if String.starts_with ~prefix:"IM" number then begin
     if len <> 12 then raise Invalid_length
-  end else
+  end
+  else raise Invalid_component;
+
+  if not (Utils.is_digits (String.sub number 2 (len - 2))) then
+    raise Invalid_format;
+
+  if not (List.mem (String.sub number 2 3) iso_3166_1_member_states) then
     raise Invalid_component;
-    
-  if not (Utils.is_digits (String.sub number 2 (len - 2))) then raise Invalid_format;
-  
-  if not (List.mem (String.sub number 2 3) iso_3166_1_member_states) then raise Invalid_component;
-  
+
   number
 
 let is_valid number =

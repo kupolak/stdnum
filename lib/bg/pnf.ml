@@ -25,10 +25,10 @@ let validate number =
   let number = compact number in
   if not (Utils.is_digits number) then raise Invalid_format;
   if String.length number <> 10 then raise Invalid_length;
-  
+
   if calc_check_digit (String.sub number 0 9) <> String.sub number 9 1 then
     raise Invalid_checksum;
-    
+
   number
 
 let is_valid number =

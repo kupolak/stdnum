@@ -11,7 +11,8 @@ exception Invalid_length
 exception Invalid_checksum
 
 val compact : string -> string
-(** Remove any formatting characters from the number and return a clean string. *)
+(** Remove any formatting characters from the number and return a clean string.
+*)
 
 val validate : string -> string
 (** Validate the cedula number and return the compacted version.

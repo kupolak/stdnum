@@ -1,7 +1,8 @@
 (** EC Number (European Community number).
 
     The EC Number is a unique seven-digit number assigned to chemical substances
-    for regulatory purposes within the European Union by the European Commission.
+    for regulatory purposes within the European Union by the European
+    Commission.
 
     More information:
     - https://en.wikipedia.org/wiki/European_Community_number *)
@@ -19,8 +20,8 @@ val compact : string -> string
 (** Convert the number to the minimal representation. *)
 
 val calc_check_digit : string -> string
-(** Calculate the check digit for the number. The passed number should not
-    have the check digit included. *)
+(** Calculate the check digit for the number. The passed number should not have
+    the check digit included. *)
 
 val validate : string -> string
 (** Check if the number provided is a valid EC Number.

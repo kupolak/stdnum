@@ -7,7 +7,8 @@
     The number consists of 9 digits and includes a check digit.
 
     More information:
-    - https://www.gazzettaufficiale.it/do/atto/serie_generale/caricaPdf?cdimg=14A0566800100010110001&dgu=2014-07-18&art.dataPubblicazioneGazzetta=2014-07-18&art.codiceRedazionale=14A05668&art.num=1&art.tiposerie=SG *)
+    - https://www.gazzettaufficiale.it/do/atto/serie_generale/caricaPdf?cdimg=14A0566800100010110001&dgu=2014-07-18&art.dataPubblicazioneGazzetta=2014-07-18&art.codiceRedazionale=14A05668&art.num=1&art.tiposerie=SG
+*)
 
 exception Invalid_format
 exception Invalid_length
@@ -15,7 +16,8 @@ exception Invalid_checksum
 exception Invalid_component
 
 val compact : string -> string
-(** Remove any formatting characters from the number and return a clean string. *)
+(** Remove any formatting characters from the number and return a clean string.
+*)
 
 val from_base32 : string -> string
 (** Convert a BASE32 representation of an AIC to a BASE10 one.

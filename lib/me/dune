@@ -2,4 +2,4 @@
  (name me)
  (public_name stdnum.me)
  (modules pib iban)
- (libraries tools stdnum))
+ (libraries tools stdnum.iban_core))

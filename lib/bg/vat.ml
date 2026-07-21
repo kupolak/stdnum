@@ -1,8 +1,8 @@
 (** VAT (Идентификационен номер по ДДС, Bulgarian VAT number).
 
-    The Bulgarian VAT (Данък върху добавената стойност) number is either 9
-    (for legal entities) or 10 digits (for physical persons, foreigners and
-    others) long. Each type of number has its own check digit algorithm.
+    The Bulgarian VAT (Данък върху добавената стойност) number is either 9 (for
+    legal entities) or 10 digits (for physical persons, foreigners and others)
+    long. Each type of number has its own check digit algorithm.
 
     More information:
     - https://en.wikipedia.org/wiki/VAT_identification_number *)
@@ -14,7 +14,9 @@ exception Invalid_length
 exception Invalid_checksum
 
 let compact number =
-  let number = Utils.clean number "[ -.]" |> String.trim |> String.uppercase_ascii in
+  let number =
+    Utils.clean number "[ -.]" |> String.trim |> String.uppercase_ascii
+  in
   if String.starts_with ~prefix:"BG" number then
     String.sub number 2 (String.length number - 2)
   else number
@@ -34,7 +36,8 @@ let calc_check_digit_legal number =
         sum2 := !sum2 + ((i + 3) * digit)
       done;
       !sum2 mod 11
-    end else check
+    end
+    else check
   in
   string_of_int (check mod 10)
 
@@ -51,21 +54,22 @@ let calc_check_digit_other number =
 let validate number =
   let number = compact number in
   if not (Utils.is_digits number) then raise Invalid_format;
-  
+
   let len = String.length number in
   if len = 9 then begin
-    if calc_check_digit_legal (String.sub number 0 8) <> String.sub number 8 1 then
-      raise Invalid_checksum
+    if calc_check_digit_legal (String.sub number 0 8) <> String.sub number 8 1
+    then raise Invalid_checksum
   end
   else if len = 10 then begin
     let is_egn_valid = Egn.is_valid number in
     let is_pnf_valid = Pnf.is_valid number in
-    if not is_egn_valid && not is_pnf_valid &&
-       calc_check_digit_other (String.sub number 0 9) <> String.sub number 9 1 then
-      raise Invalid_checksum
+    if
+      (not is_egn_valid) && (not is_pnf_valid)
+      && calc_check_digit_other (String.sub number 0 9) <> String.sub number 9 1
+    then raise Invalid_checksum
   end
   else raise Invalid_length;
-  
+
   number
 
 let is_valid number =

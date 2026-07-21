@@ -14,8 +14,7 @@ exception Invalid_format
 exception Invalid_length
 exception Invalid_component
 
-let compact number =
-  Utils.clean number "[-* ]" |> String.trim
+let compact number = Utils.clean number "[-* ]" |> String.trim
 
 let is_valid_date year month day =
   if year < 1 || month < 1 || month > 12 || day < 1 || day > 31 then false
@@ -24,7 +23,9 @@ let is_valid_date year month day =
       match month with
       | 4 | 6 | 9 | 11 -> 30
       | 2 ->
-          let is_leap = (year mod 4 = 0 && year mod 100 <> 0) || (year mod 400 = 0) in
+          let is_leap =
+            (year mod 4 = 0 && year mod 100 <> 0) || year mod 400 = 0
+          in
           if is_leap then 29 else 28
       | _ -> 31
     in
@@ -42,13 +43,96 @@ let get_birth_date number =
 let get_birth_place number =
   let number = compact number in
   let bp_code = String.sub number 6 2 in
-  let valid_bps = [
-    "01"; "02"; "03"; "04"; "05"; "06"; "07"; "08"; "09"; "10"; "11"; "12"; "13"; "14"; "15"; "16";
-    "21"; "22"; "23"; "24"; "25"; "26"; "27"; "28"; "29"; "30"; "31"; "32"; "33"; "34"; "35"; "36"; "37"; "38"; "39";
-    "40"; "41"; "42"; "43"; "44"; "45"; "46"; "47"; "48"; "49"; "50"; "51"; "52"; "53"; "54"; "55"; "56"; "57"; "58"; "59";
-    "60"; "61"; "62"; "63"; "64"; "65"; "66"; "67"; "68"; "71"; "72"; "74"; "75"; "76"; "77"; "78"; "79";
-    "82"; "83"; "84"; "85"; "86"; "87"; "88"; "89"; "90"; "91"; "92"; "93"; "98"; "99"
-  ] in
+  let valid_bps =
+    [
+      "01"
+    ; "02"
+    ; "03"
+    ; "04"
+    ; "05"
+    ; "06"
+    ; "07"
+    ; "08"
+    ; "09"
+    ; "10"
+    ; "11"
+    ; "12"
+    ; "13"
+    ; "14"
+    ; "15"
+    ; "16"
+    ; "21"
+    ; "22"
+    ; "23"
+    ; "24"
+    ; "25"
+    ; "26"
+    ; "27"
+    ; "28"
+    ; "29"
+    ; "30"
+    ; "31"
+    ; "32"
+    ; "33"
+    ; "34"
+    ; "35"
+    ; "36"
+    ; "37"
+    ; "38"
+    ; "39"
+    ; "40"
+    ; "41"
+    ; "42"
+    ; "43"
+    ; "44"
+    ; "45"
+    ; "46"
+    ; "47"
+    ; "48"
+    ; "49"
+    ; "50"
+    ; "51"
+    ; "52"
+    ; "53"
+    ; "54"
+    ; "55"
+    ; "56"
+    ; "57"
+    ; "58"
+    ; "59"
+    ; "60"
+    ; "61"
+    ; "62"
+    ; "63"
+    ; "64"
+    ; "65"
+    ; "66"
+    ; "67"
+    ; "68"
+    ; "71"
+    ; "72"
+    ; "74"
+    ; "75"
+    ; "76"
+    ; "77"
+    ; "78"
+    ; "79"
+    ; "82"
+    ; "83"
+    ; "84"
+    ; "85"
+    ; "86"
+    ; "87"
+    ; "88"
+    ; "89"
+    ; "90"
+    ; "91"
+    ; "92"
+    ; "93"
+    ; "98"
+    ; "99"
+    ]
+  in
   if not (List.mem bp_code valid_bps) then raise Invalid_component;
   bp_code
 
@@ -68,4 +152,5 @@ let is_valid number =
 
 let format number =
   let number = compact number in
-  String.sub number 0 6 ^ "-" ^ String.sub number 6 2 ^ "-" ^ String.sub number 8 4
+  String.sub number 0 6 ^ "-" ^ String.sub number 6 2 ^ "-"
+  ^ String.sub number 8 4

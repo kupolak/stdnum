@@ -2,12 +2,14 @@
 
     The CFI is a 6-character code used to classify financial instruments. It is
     issued alongside an ISIN and describes category such as equity or future and
-    category-specific properties such as underlying asset type or payment status.
+    category-specific properties such as underlying asset type or payment
+    status.
 
     More information:
     - https://en.wikipedia.org/wiki/ISO_10962
     - https://www.iso.org/standard/73564.html
-    - https://www.six-group.com/en/products-services/financial-information/data-standards.html *)
+    - https://www.six-group.com/en/products-services/financial-information/data-standards.html
+*)
 
 open Tools
 

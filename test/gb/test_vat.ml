@@ -25,12 +25,7 @@ let test_validate_invalid_component () =
   with Gb.Vat.Invalid_component -> ()
 
 let test_is_valid () =
-  let test_cases =
-    [
-      ("GB 980 7806 84", true)
-    ; ("802311781", false)
-    ]
-  in
+  let test_cases = [ ("GB 980 7806 84", true); ("802311781", false) ] in
   List.iter
     (fun (input, expected_result) ->
       let result = Gb.Vat.is_valid input in

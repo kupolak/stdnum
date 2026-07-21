@@ -16,14 +16,14 @@ exception Invalid_checksum
 (** Exception raised when the checksum validation fails. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This adds hyphens
-    if they are missing.
+(** Convert the number to the minimal representation. This adds hyphens if they
+    are missing.
 
     Example: [compact "8786  5"] returns ["87-86-5"] *)
 
 val calc_check_digit : string -> string
-(** Calculate the check digit for the number. The passed number should not
-    have the check digit included.
+(** Calculate the check digit for the number. The passed number should not have
+    the check digit included.
 
     Example: [calc_check_digit "87-86"] returns ["5"] *)
 
@@ -36,5 +36,4 @@ val validate : string -> string
     @raise Invalid_checksum if the checksum validation fails *)
 
 val is_valid : string -> bool
-(** Check if the number is valid.
-    Returns [true] if valid, [false] otherwise. *)
+(** Check if the number is valid. Returns [true] if valid, [false] otherwise. *)

@@ -13,12 +13,7 @@ let test_validate_invalid_checksum () =
   with Fi.Alv.Invalid_checksum -> ()
 
 let test_is_valid () =
-  let test_cases =
-    [
-      ("FI 20774740", true)
-    ; ("FI 20774741", false)
-    ]
-  in
+  let test_cases = [ ("FI 20774740", true); ("FI 20774741", false) ] in
   List.iter
     (fun (input, expected_result) ->
       let result = Fi.Alv.is_valid input in

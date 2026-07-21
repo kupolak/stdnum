@@ -13,12 +13,7 @@ let test_validate_invalid_checksum () =
   with Md.Idno.Invalid_checksum -> ()
 
 let test_is_valid () =
-  let test_cases =
-    [
-      ("1008600038413", true)
-    ; ("1008600038412", false)
-    ]
-  in
+  let test_cases = [ ("1008600038413", true); ("1008600038412", false) ] in
   List.iter
     (fun (input, expected_result) ->
       let result = Md.Idno.is_valid input in

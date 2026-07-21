@@ -14,8 +14,7 @@ exception Invalid_format
 exception Invalid_length
 exception Invalid_checksum
 
-let compact number =
-  Utils.clean number "[ ]"
+let compact number = Utils.clean number "[ ]"
 
 let calc_check_digit number =
   let weights = [| 3; 7; 9; 0; 5; 8; 4; 2; 1; 6 |] in
@@ -28,8 +27,8 @@ let calc_check_digit number =
 
 let validate number =
   let number = compact number in
-  if not (Utils.is_digits number) || String.starts_with ~prefix:"0" number then
-    raise Invalid_format;
+  if (not (Utils.is_digits number)) || String.starts_with ~prefix:"0" number
+  then raise Invalid_format;
   if String.length number <> 10 then raise Invalid_length;
   if calc_check_digit number <> String.sub number 3 1 then
     raise Invalid_checksum;

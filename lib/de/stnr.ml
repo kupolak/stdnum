@@ -1,8 +1,8 @@
 (** St.-Nr. (Steuernummer, German tax number).
 
     The Steuernummer (St.-Nr.) is a tax number assigned by regional tax offices
-    to taxable individuals and organisations. The number is being replaced by the
-    Steuerliche Identifikationsnummer (IdNr).
+    to taxable individuals and organisations. The number is being replaced by
+    the Steuerliche Identifikationsnummer (IdNr).
 
     The number has 10 or 11 digits for the regional form (per Bundesland) and 13
     digits for the number that is unique within Germany. *)

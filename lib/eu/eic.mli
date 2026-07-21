@@ -21,8 +21,8 @@ exception Invalid_checksum
 (** Exception raised when the checksum validation fails. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding white space. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding white space. *)
 
 val calc_check_digit : string -> string
 (** Calculate the check digit for the number. *)

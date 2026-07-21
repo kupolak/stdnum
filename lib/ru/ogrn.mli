@@ -1,4 +1,5 @@
-(** ОГРН, OGRN, PSRN, ОГРНИП, OGRNIP (Russian Primary State Registration Number).
+(** ОГРН, OGRN, PSRN, ОГРНИП, OGRNIP (Russian Primary State Registration
+    Number).
 
     The ОГРН (Основной государственный регистрационный номер, Primary State
     Registration Number) is a Russian identifier for legal entities. The number
@@ -10,7 +11,8 @@
 
     More information:
     - https://ru.wikipedia.org/wiki/Основной_государственный_регистрационный_номер
-    - https://ru.wikipedia.org/wiki/Основной_государственный_регистрационный_номер_индивидуального_предпринимателя *)
+    - https://ru.wikipedia.org/wiki/Основной_государственный_регистрационный_номер_индивидуального_предпринимателя
+*)
 
 exception Invalid_format
 (** Exception raised when the number has invalid format. *)
@@ -25,8 +27,8 @@ exception Invalid_component
 (** Exception raised when a component of the number is invalid. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val calc_check_digit : string -> string
 (** Calculate the control digit of the OGRN based on its length. *)

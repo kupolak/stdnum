@@ -22,15 +22,15 @@ exception Invalid_component
 (** Exception raised when a component of the FIGI is invalid. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace.
-    Converts to uppercase.
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. Converts to
+    uppercase.
 
     Example: [compact "bbg 000 blnq16"] returns ["BBG000BLNQ16"] *)
 
 val calc_check_digit : string -> string
-(** Calculate the check digit for the number. The passed number should not
-    have the check digit included.
+(** Calculate the check digit for the number. The passed number should not have
+    the check digit included.
 
     Example: [calc_check_digit "BBG000BLNQ1"] returns ["6"] *)
 
@@ -44,5 +44,4 @@ val validate : string -> string
     @raise Invalid_component if a component is invalid *)
 
 val is_valid : string -> bool
-(** Check if the number is valid.
-    Returns [true] if valid, [false] otherwise. *)
+(** Check if the number is valid. Returns [true] if valid, [false] otherwise. *)

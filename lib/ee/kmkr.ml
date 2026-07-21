@@ -7,7 +7,9 @@ exception Invalid_length
 exception Invalid_checksum
 
 let compact number =
-  let cleaned = Utils.clean number " " |> String.trim |> String.uppercase_ascii in
+  let cleaned =
+    Utils.clean number " " |> String.trim |> String.uppercase_ascii
+  in
   if String.length cleaned >= 2 && String.sub cleaned 0 2 = "EE" then
     String.sub cleaned 2 (String.length cleaned - 2)
   else cleaned

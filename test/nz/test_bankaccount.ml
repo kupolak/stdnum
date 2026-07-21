@@ -14,10 +14,7 @@ let test_validate_invalid_checksum () =
 
 let test_is_valid () =
   let test_cases =
-    [
-      ("01-0242-0100194-00", true)
-    ; ("01-0242-0100195-00", false)
-    ]
+    [ ("01-0242-0100194-00", true); ("01-0242-0100195-00", false) ]
   in
   List.iter
     (fun (input, expected_result) ->

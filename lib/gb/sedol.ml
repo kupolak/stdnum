@@ -30,8 +30,7 @@ let calc_check_digit number =
   let weights = [| 1; 3; 1; 7; 3; 9 |] in
   let sum = ref 0 in
   for i = 0 to 5 do
-    try
-      sum := !sum + (weights.(i) * index_of number.[i])
+    try sum := !sum + (weights.(i) * index_of number.[i])
     with Not_found -> raise Invalid_format
   done;
   string_of_int ((10 - (!sum mod 10)) mod 10)
@@ -48,11 +47,11 @@ let validate number =
   in
   if not (check_chars number) then raise Invalid_format;
   if String.length number <> 7 then raise Invalid_length;
-  
+
   let is_digit c = c >= '0' && c <= '9' in
   if is_digit number.[0] && not (Utils.is_digits number) then
     raise Invalid_format;
-    
+
   if calc_check_digit (String.sub number 0 6) <> String.sub number 6 1 then
     raise Invalid_checksum;
   number
@@ -63,5 +62,4 @@ let is_valid number =
     true
   with Invalid_format | Invalid_length | Invalid_checksum -> false
 
-let to_isin number =
-  Stdnum.Isin.from_natid "GB" number
+let to_isin number = Isin_core.from_natid "GB" number

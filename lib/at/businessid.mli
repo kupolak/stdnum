@@ -8,13 +8,13 @@ exception Invalid_format
 (** Exception raised when the Company Register Number has invalid format. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace.
-    Preceding "FN" is also removed. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. Preceding "FN" is
+    also removed. *)
 
 val validate : string -> string
-(** Check if the number is a valid company register number. This only
-    checks the formatting.
+(** Check if the number is a valid company register number. This only checks the
+    formatting.
 
     @raise Invalid_format if the number is improperly formatted *)
 

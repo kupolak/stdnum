@@ -5,7 +5,8 @@
     the country.
 
     More information:
-    - https://en.wikipedia.org/wiki/Documento_Nacional_de_Identidad_(Argentina) *)
+    - https://en.wikipedia.org/wiki/Documento_Nacional_de_Identidad_(Argentina)
+*)
 
 exception Invalid_format
 (** Exception raised when the DNI has invalid format. *)
@@ -14,8 +15,8 @@ exception Invalid_length
 (** Exception raised when the DNI has invalid length. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val validate : string -> string
 (** Check if the number is a valid DNI.

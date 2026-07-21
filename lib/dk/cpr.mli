@@ -18,26 +18,29 @@ exception Invalid_length
 (** Exception raised when the CPR has invalid length. *)
 
 exception Invalid_component
-(** Exception raised when the CPR has an invalid birth date component or the date is in the future. *)
+(** Exception raised when the CPR has an invalid birth date component or the
+    date is in the future. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val checksum : string -> int
-(** Calculate the checksum. Note that the checksum isn't actually used
-    any more. Valid numbers used to have a checksum of 0. *)
+(** Calculate the checksum. Note that the checksum isn't actually used any more.
+    Valid numbers used to have a checksum of 0. *)
 
 val get_birth_date : string -> int * int * int
-(** Split the date parts from the number and return the birth date (year, month, day). *)
+(** Split the date parts from the number and return the birth date (year, month,
+    day). *)
 
 val validate : string -> string
-(** Check if the number provided is a valid CPR number. This checks the
-    length, formatting, and embedded date.
+(** Check if the number provided is a valid CPR number. This checks the length,
+    formatting, and embedded date.
 
     @raise Invalid_format if the number contains invalid characters
     @raise Invalid_length if the length is not 10
-    @raise Invalid_component if the date component is invalid or in the future *)
+    @raise Invalid_component if the date component is invalid or in the future
+*)
 
 val is_valid : string -> bool
 (** Check if the number provided is a valid CPR number. *)

@@ -36,11 +36,7 @@ let test_validate_invalid_component () =
 
 let test_is_valid () =
   let test_cases =
-    [
-      ("CY-10259033P", true)
-    ; ("CY-10259033Z", false)
-    ; ("10259033P", true)
-    ]
+    [ ("CY-10259033P", true); ("CY-10259033Z", false); ("10259033P", true) ]
   in
   List.iter
     (fun (input, expected_result) ->

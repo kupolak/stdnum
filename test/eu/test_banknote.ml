@@ -13,12 +13,7 @@ let test_validate_invalid_checksum () =
   with Eu.Banknote.Invalid_checksum -> ()
 
 let test_is_valid () =
-  let test_cases =
-    [
-      ("P36007033744", true)
-    ; ("P36007033743", false)
-    ]
-  in
+  let test_cases = [ ("P36007033744", true); ("P36007033743", false) ] in
   List.iter
     (fun (input, expected_result) ->
       let result = Eu.Banknote.is_valid input in

@@ -31,9 +31,7 @@ let test_validate_invalid_format () =
 let test_is_valid () =
   let test_cases =
     [
-      ("83 914 571 673", true)
-    ; ("99 999 999 999", false)
-    ; ("83914571673", true)
+      ("83 914 571 673", true); ("99 999 999 999", false); ("83914571673", true)
     ]
   in
   List.iter

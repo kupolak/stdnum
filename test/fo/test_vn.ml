@@ -19,13 +19,7 @@ let test_validate_invalid_format () =
   with Fo.Vn.Invalid_format -> ()
 
 let test_is_valid () =
-  let test_cases =
-    [
-      ("623857", true)
-    ; ("1234", false)
-    ; ("12345X", false)
-    ]
-  in
+  let test_cases = [ ("623857", true); ("1234", false); ("12345X", false) ] in
   List.iter
     (fun (input, expected_result) ->
       let result = Fo.Vn.is_valid input in

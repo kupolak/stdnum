@@ -8,9 +8,11 @@ let test_validate () =
   let result2 = Mx.Rfc.validate "MAB-930714-8T4" in
   Alcotest.(check string) "test_validate_company" "MAB9307148T4" result2;
   let result3 = Mx.Rfc.validate "COMG-600703" in
-  Alcotest.(check string) "test_validate_personal_no_serial" "COMG600703" result3;
+  Alcotest.(check string)
+    "test_validate_personal_no_serial" "COMG600703" result3;
   let result4 = Mx.Rfc.validate "VACE-460910-SX6" in
-  Alcotest.(check string) "test_validate_invalid_checksum_allowed" "VACE460910SX6" result4
+  Alcotest.(check string)
+    "test_validate_invalid_checksum_allowed" "VACE460910SX6" result4
 
 let test_validate_invalid_checksum () =
   try

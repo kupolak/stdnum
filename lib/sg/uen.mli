@@ -7,12 +7,12 @@
     - Business (ROB): 8 digits followed by a check letter
     - Local Company (ROC): 9 digits (first 4 digits represent year of issuance)
       followed by a check letter
-    - Others: 10 characters starting with R/S/T, followed by 2 digits (year),
-      2 letters (entity type), 4 digits, and a check letter
-*)
+    - Others: 10 characters starting with R/S/T, followed by 2 digits (year), 2
+      letters (entity type), 4 digits, and a check letter *)
 
 exception Invalid_length
-(** Exception raised when the UEN has an invalid length (not 9 or 10 characters). *)
+(** Exception raised when the UEN has an invalid length (not 9 or 10
+    characters). *)
 
 exception Invalid_format
 (** Exception raised when the UEN contains invalid characters or format. *)
@@ -35,8 +35,9 @@ val calc_business_check_digit : string -> string
 val validate_business : string -> string
 (** Validate a 9-digit Business (ROB) UEN number.
 
-    @raise Invalid_format if the first 8 characters are not digits or the last
-           character is not alphabetic
+    @raise Invalid_format
+      if the first 8 characters are not digits or the last character is not
+      alphabetic
     @raise Invalid_checksum if the check digit is invalid *)
 
 val calc_local_company_check_digit : string -> string
@@ -57,8 +58,9 @@ val calc_other_check_digit : string -> string
 val validate_other : string -> string
 (** Validate a 10-character other entity UEN number.
 
-    @raise Invalid_component if the first character is not R/S/T, or if the
-           entity type is invalid, or if year validation fails for T entities
+    @raise Invalid_component
+      if the first character is not R/S/T, or if the entity type is invalid, or
+      if year validation fails for T entities
     @raise Invalid_format if the format is invalid
     @raise Invalid_checksum if the check digit is invalid *)
 
@@ -73,8 +75,8 @@ val validate : string -> string
     @raise Invalid_checksum if the check digit is invalid *)
 
 val is_valid : string -> bool
-(** Check if the number is a valid Singapore UEN number.
-    Returns [true] if valid, [false] otherwise. *)
+(** Check if the number is a valid Singapore UEN number. Returns [true] if
+    valid, [false] otherwise. *)
 
 val format : string -> string
 (** Reformat the number to the standard presentation format. *)

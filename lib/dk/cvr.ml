@@ -10,7 +10,9 @@ exception Invalid_length
 exception Invalid_checksum
 
 let compact number =
-  let cleaned = Utils.clean number "[ -.,/:]" |> String.trim |> String.uppercase_ascii in
+  let cleaned =
+    Utils.clean number "[ -.,/:]" |> String.trim |> String.uppercase_ascii
+  in
   if String.length cleaned >= 2 && String.sub cleaned 0 2 = "DK" then
     String.sub cleaned 2 (String.length cleaned - 2)
   else cleaned
@@ -26,8 +28,10 @@ let checksum number =
 
 let validate number =
   let number = compact number in
-  if not (Utils.is_digits number) || (String.length number > 0 && number.[0] = '0') then
-    raise Invalid_format;
+  if
+    (not (Utils.is_digits number))
+    || (String.length number > 0 && number.[0] = '0')
+  then raise Invalid_format;
   if String.length number <> 8 then raise Invalid_length;
   if checksum number <> 0 then raise Invalid_checksum;
   number

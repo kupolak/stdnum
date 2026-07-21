@@ -1,8 +1,8 @@
 (** VID (Indian personal virtual identity number).
 
-    VID is a temporary, revocable 16-digit random number mapped with the Aadhaar number.
-    VID is used in lieu of Aadhaar number whenever authentication or e-KYC services
-    are performed.
+    VID is a temporary, revocable 16-digit random number mapped with the Aadhaar
+    number. VID is used in lieu of Aadhaar number whenever authentication or
+    e-KYC services are performed.
 
     VID is made up of 16 digits where the last digits is a check digit
     calculated using the Verhoeff algorithm. The numbers are generated in a
@@ -18,10 +18,11 @@ exception Invalid_format
 exception Invalid_length
 exception Invalid_checksum
 
-let vid_re = Str.regexp "^[2-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$"
+let vid_re =
+  Str.regexp
+    "^[2-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]$"
 
-let compact number =
-  Utils.clean number "[ -]" |> String.trim
+let compact number = Utils.clean number "[ -]" |> String.trim
 
 let reverse_string s =
   let len = String.length s in
@@ -47,7 +48,8 @@ let is_valid number =
 
 let format number =
   let number = compact number in
-  String.sub number 0 4 ^ " " ^ String.sub number 4 4 ^ " " ^ String.sub number 8 4 ^ " " ^ String.sub number 12 4
+  String.sub number 0 4 ^ " " ^ String.sub number 4 4 ^ " "
+  ^ String.sub number 8 4 ^ " " ^ String.sub number 12 4
 
 let mask number =
   let number = compact number in

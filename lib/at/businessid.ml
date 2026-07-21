@@ -18,16 +18,16 @@ let validate number =
   let number = compact number in
   let len = String.length number in
   if len < 2 then raise Invalid_format;
-  
+
   let is_digit c = c >= '0' && c <= '9' in
   let is_lower_letter c = c >= 'a' && c <= 'z' in
-  
+
   let rec check_digits i =
     if i = len - 1 then ()
     else if not (is_digit number.[i]) then raise Invalid_format
     else check_digits (i + 1)
   in
-  
+
   check_digits 0;
   if not (is_lower_letter number.[len - 1]) then raise Invalid_format;
   number

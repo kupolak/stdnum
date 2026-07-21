@@ -1,9 +1,10 @@
 (** PIN (Personal Identification Number, Kenya tax number).
 
-    The Personal Identification Number (KRA PIN) is an 11 digit unique number that
-    is issued by Kenya Revenue Authority (KRA) for purposes of transacting business
-    with KRA, other Government agencies and service providers. It can be issued for
-    individuals and non-individuals like companies, schools, organisations, etc.
+    The Personal Identification Number (KRA PIN) is an 11 digit unique number
+    that is issued by Kenya Revenue Authority (KRA) for purposes of transacting
+    business with KRA, other Government agencies and service providers. It can
+    be issued for individuals and non-individuals like companies, schools,
+    organisations, etc.
 
     The number consists of 11 characters, where the first one is an A (for
     individuals) or a P (for non-individuals), the last one is a letter, and the
@@ -20,8 +21,8 @@ exception Invalid_length
 (** Exception raised when the number has invalid length. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val validate : string -> string
 (** Check if the number is a valid Kenya PIN number.

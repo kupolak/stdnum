@@ -59,9 +59,13 @@ let suite =
     ("test_compact", `Quick, test_compact)
   ; ("test_validate", `Quick, test_validate)
   ; ("test_validate_invalid_checksum", `Quick, test_validate_invalid_checksum)
-  ; ("test_validate_invalid_format_start", `Quick, test_validate_invalid_format_start)
+  ; ( "test_validate_invalid_format_start"
+    , `Quick
+    , test_validate_invalid_format_start )
   ; ("test_validate_invalid_length", `Quick, test_validate_invalid_length)
-  ; ("test_validate_invalid_format_palindrome", `Quick, test_validate_invalid_format_palindrome)
+  ; ( "test_validate_invalid_format_palindrome"
+    , `Quick
+    , test_validate_invalid_format_palindrome )
   ; ("test_is_valid", `Quick, test_is_valid)
   ; ("test_format", `Quick, test_format)
   ; ("test_mask", `Quick, test_mask)

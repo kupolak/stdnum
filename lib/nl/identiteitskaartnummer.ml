@@ -1,11 +1,12 @@
 (** Identiteitskaartnummer, Paspoortnummer (the Dutch passport number).
 
-    Each Dutch passport has an unique number of 9 alphanumerical characters.
-    The first 2 characters are always letters and the last character is a number.
+    Each Dutch passport has an unique number of 9 alphanumerical characters. The
+    first 2 characters are always letters and the last character is a number.
     The 6 characters in between can be either.
 
-    The letter "O" is never used to prevent it from being confused with the number "0".
-    Zeros are allowed, but are not used in numbers issued after December 2019.
+    The letter "O" is never used to prevent it from being confused with the
+    number "0". Zeros are allowed, but are not used in numbers issued after
+    December 2019.
 
     More information:
     - https://www.rvig.nl/node/356

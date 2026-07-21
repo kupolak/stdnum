@@ -4,13 +4,14 @@
     company with commercial activity when created. It is required for most of
     administrative procedures.
 
-    The number consists of "RCS" letters followed by name of the city where the company was registered
-    followed by letter A for a retailer or B for society
+    The number consists of "RCS" letters followed by name of the city where the
+    company was registered followed by letter A for a retailer or B for society
     followed by the SIREN number
 
     More information:
     - https://entreprendre.service-public.fr/vosdroits/F31190
-    - https://fr.wikipedia.org/wiki/Registre_du_commerce_et_des_soci%C3%A9t%C3%A9s_(France) *)
+    - https://fr.wikipedia.org/wiki/Registre_du_commerce_et_des_soci%C3%A9t%C3%A9s_(France)
+*)
 
 open Tools
 
@@ -20,7 +21,11 @@ exception Invalid_checksum
 
 let parse number =
   let number = Utils.clean number "" |> String.trim in
-  let re = Str.regexp "^[ \t]*\\(RCS\\|rcs\\)[ \t]+\\(.+\\)[ \t]+\\([AB]\\)[ \t]*\\([0-9][0-9 \t]*\\)[ \t]*$" in
+  let re =
+    Str.regexp
+      "^[ \t]*\\(RCS\\|rcs\\)[ \t]+\\(.+\\)[ \t]+\\([AB]\\)[ \t]*\\([0-9][0-9 \
+       \t]*\\)[ \t]*$"
+  in
   if Str.string_match re number 0 then
     let tag = Str.matched_group 1 number |> String.uppercase_ascii in
     let city = Str.matched_group 2 number in
@@ -41,7 +46,7 @@ let compact number =
 let validate number =
   match parse number with
   | Some (tag, city, letter, siren) ->
-      let _ = 
+      let _ =
         try Siren.validate siren with
         | Siren.Invalid_format -> raise Invalid_format
         | Siren.Invalid_length -> raise Invalid_length

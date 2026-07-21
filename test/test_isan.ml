@@ -1,5 +1,7 @@
 let test_compact () =
-  let test_cases = [ ("0000-0000-D07A-0090-Q-0000-0000-X", "00000000D07A009000000000") ] in
+  let test_cases =
+    [ ("0000-0000-D07A-0090-Q-0000-0000-X", "00000000D07A009000000000") ]
+  in
   List.iter
     (fun (input, expected_result) ->
       let result = Stdnum.Isan.compact input in
@@ -17,7 +19,8 @@ let test_validate () =
     (fun (input, expected_result) ->
       try
         let result = Stdnum.Isan.validate input in
-        Alcotest.(check string) ("test_validate_" ^ input) expected_result result
+        Alcotest.(check string)
+          ("test_validate_" ^ input) expected_result result
       with e ->
         Alcotest.fail
           (Printf.sprintf "validate failed for %s: %s" input
@@ -42,7 +45,9 @@ let test_format () =
 
 let test_to_urn () =
   let test_cases =
-    [ ("00000000D07A009000000000", "URN:ISAN:0000-0000-D07A-0090-Q-0000-0000-X") ]
+    [
+      ("00000000D07A009000000000", "URN:ISAN:0000-0000-D07A-0090-Q-0000-0000-X")
+    ]
   in
   List.iter
     (fun (input, expected_result) ->
@@ -54,7 +59,8 @@ let test_to_xml () =
   let test_cases =
     [
       ( "1881-66C7-3420-6541-Y-9F3A-0245-O"
-      , "<ISAN root=\"1881-66C7-3420\" episode=\"6541\" version=\"9F3A-0245\" />" )
+      , "<ISAN root=\"1881-66C7-3420\" episode=\"6541\" version=\"9F3A-0245\" \
+         />" )
     ]
   in
   List.iter

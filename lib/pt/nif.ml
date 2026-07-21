@@ -11,7 +11,9 @@ exception Invalid_length
 exception Invalid_checksum
 
 let compact number =
-  let number = Utils.clean number "[ -.]" |> String.uppercase_ascii |> String.trim in
+  let number =
+    Utils.clean number "[ -.]" |> String.uppercase_ascii |> String.trim
+  in
   if String.starts_with ~prefix:"PT" number then
     String.sub number 2 (String.length number - 2)
   else number
@@ -29,8 +31,10 @@ let calc_check_digit number =
 
 let validate number =
   let number = compact number in
-  if not (Utils.is_digits number) || (String.length number > 0 && number.[0] = '0') then
-    raise Invalid_format;
+  if
+    (not (Utils.is_digits number))
+    || (String.length number > 0 && number.[0] = '0')
+  then raise Invalid_format;
   if String.length number <> 9 then raise Invalid_length;
   let base = String.sub number 0 8 in
   let check = String.sub number 8 1 in

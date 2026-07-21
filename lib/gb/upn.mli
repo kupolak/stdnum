@@ -19,21 +19,22 @@ exception Invalid_length
 (** Exception raised when the UPN has invalid length. *)
 
 exception Invalid_component
-(** Exception raised when the UPN has an invalid component (e.g. unknown LA number). *)
+(** Exception raised when the UPN has an invalid component (e.g. unknown LA
+    number). *)
 
 exception Invalid_checksum
 (** Exception raised when the checksum validation fails. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val calc_check_digit : string -> string
 (** Calculate the check digit for the number. *)
 
 val validate : string -> string
-(** Check if the number is a valid UPN. This checks length, formatting and
-    check digits.
+(** Check if the number is a valid UPN. This checks length, formatting and check
+    digits.
 
     @raise Invalid_format if the number contains invalid characters
     @raise Invalid_length if the length is not 13

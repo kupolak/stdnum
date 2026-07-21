@@ -10,7 +10,8 @@
 
     More information:
     - https://www.hacienda.go.cr/consultapagos/ayuda_cedulas.htm
-    - https://www.procomer.com/downloads/quiero/guia_solicitud_vuce.pdf (page 11)
+    - https://www.procomer.com/downloads/quiero/guia_solicitud_vuce.pdf (page
+      11)
     - https://www.hacienda.go.cr/ATV/frmConsultaSituTributaria.aspx *)
 
 exception Invalid_format
@@ -29,7 +30,7 @@ val compact : string -> string
 val validate : string -> string
 (** [validate number] checks if the number is a valid Costa Rica CPF number.
     Returns the validated number in compact form.
-    
+
     @raise Invalid_length if the number length is not 10 digits after compacting
     @raise Invalid_format if the number contains non-digit characters
     @raise Invalid_component if the first digit is not 0 *)

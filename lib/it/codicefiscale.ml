@@ -6,8 +6,8 @@
 
     The 16 digit number consists of three characters derived from the person's
     last name, three from the person's first name, five that hold information on
-    the person's gender and birth date, four that represent the person's place of
-    birth and one check digit.
+    the person's gender and birth date, four that represent the person's place
+    of birth and one check digit.
 
     More information:
     - https://it.m.wikipedia.org/wiki/Codice_fiscale *)

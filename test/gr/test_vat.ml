@@ -13,12 +13,7 @@ let test_validate_invalid_checksum () =
   with Gr.Vat.Invalid_checksum -> ()
 
 let test_is_valid () =
-  let test_cases =
-    [
-      ("EL 094259216 ", true)
-    ; ("EL 123456781", false)
-    ]
-  in
+  let test_cases = [ ("EL 094259216 ", true); ("EL 123456781", false) ] in
   List.iter
     (fun (input, expected_result) ->
       let result = Gr.Vat.is_valid input in

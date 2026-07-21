@@ -2,4 +2,4 @@
  (name ee)
  (public_name stdnum.ee)
  (modules ik kmkr registrikood)
- (libraries tools stdnum))
+ (libraries tools))

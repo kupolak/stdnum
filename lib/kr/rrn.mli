@@ -1,7 +1,7 @@
 (** RRN (South Korean resident registration number).
 
-    The RRN (resident registration number, 주민등록번호) is a 13-digit number
-    issued to all residents of the Republic of Korea. Foreigners residing in the
+    The RRN (resident registration number, 주민등록번호) is a 13-digit number issued
+    to all residents of the Republic of Korea. Foreigners residing in the
     Republic of Korea receive an alien registration number (ARN) which follows
     the same encoding pattern.
 
@@ -28,8 +28,8 @@ exception Invalid_checksum
 (** Exception raised when the checksum validation fails. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val calc_check_digit : string -> string
 (** Calculate the check digit. *)
@@ -39,8 +39,8 @@ val get_birth_date : ?allow_future:bool -> string -> int * int * int
     allow_future is False birth dates in the future are rejected. *)
 
 val validate : ?allow_future:bool -> string -> string
-(** Check if the number is a valid RNN. This checks the length, formatting
-    and check digit. If allow_future is False birth dates in the future are
+(** Check if the number is a valid RNN. This checks the length, formatting and
+    check digit. If allow_future is False birth dates in the future are
     rejected.
 
     @raise Invalid_format if the number contains invalid characters

@@ -16,7 +16,8 @@ let test_validate () =
     (fun (input, expected_result) ->
       try
         let result = Stdnum.Upi.validate input in
-        Alcotest.(check string) ("test_validate_" ^ input) expected_result result
+        Alcotest.(check string)
+          ("test_validate_" ^ input) expected_result result
       with e ->
         Alcotest.fail
           (Printf.sprintf "validate failed for %s: %s" input
@@ -49,11 +50,7 @@ let test_validate_invalid_component () =
 
 let test_is_valid () =
   let test_cases =
-    [
-      ("QZK12RNSP6P6", true)
-    ; ("QZK12RNSP6P7", false)
-    ; ("QZK12RNSP6P", false)
-    ]
+    [ ("QZK12RNSP6P6", true); ("QZK12RNSP6P7", false); ("QZK12RNSP6P", false) ]
   in
   List.iter
     (fun (input, expected_result) ->

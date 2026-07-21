@@ -13,27 +13,45 @@ exception Invalid_length
 exception Invalid_component
 
 let country_codes =
-  Isin.iso_3166_1_country_codes
+  Isin_core.iso_3166_1_country_codes
   @ [
-      "BC"; (* Pro-música Brazil - Brasil *)
-      "BK"; (* Pro-música Brazil - Brasil *)
-      "BP"; (* Pro-música Brazil - Brasil *)
-      "BX"; (* Pro-música Brazil - Brasil *)
-      "CB"; (* Connect - Canada *)
-      "CP"; (* reserved for further overflow *)
-      "DG"; (* reserved for further overflow *)
-      "FX"; (* SCPP - France *)
-      "GX"; (* PPL UK - United Kingdom *)
-      "KS"; (* KMCA - South Korea *)
-      "QM"; (* US new registrants due to US codes became exhausted *)
-      "QN"; (* International ISRC Agency codes - Worldwide *)
-      "QT"; (* RIAA - US *)
-      "QZ"; (* RIAA - US *)
-      "UK"; (* PPL UK - United Kingdom *)
-      "XK"; (* International ISRC Agency codes - Kosovo *)
-      "YU"; (* International ISRC Agency codes - Former Yugoslavia before 2006 *)
-      "ZB"; (* RISA - South Africa *)
-      "ZZ"; (* International ISRC Agency codes - Worldwide *)
+      "BC"
+    ; (* Pro-música Brazil - Brasil *)
+      "BK"
+    ; (* Pro-música Brazil - Brasil *)
+      "BP"
+    ; (* Pro-música Brazil - Brasil *)
+      "BX"
+    ; (* Pro-música Brazil - Brasil *)
+      "CB"
+    ; (* Connect - Canada *)
+      "CP"
+    ; (* reserved for further overflow *)
+      "DG"
+    ; (* reserved for further overflow *)
+      "FX"
+    ; (* SCPP - France *)
+      "GX"
+    ; (* PPL UK - United Kingdom *)
+      "KS"
+    ; (* KMCA - South Korea *)
+      "QM"
+    ; (* US new registrants due to US codes became exhausted *)
+      "QN"
+    ; (* International ISRC Agency codes - Worldwide *)
+      "QT"
+    ; (* RIAA - US *)
+      "QZ"
+    ; (* RIAA - US *)
+      "UK"
+    ; (* PPL UK - United Kingdom *)
+      "XK"
+    ; (* International ISRC Agency codes - Kosovo *)
+      "YU"
+    ; (* International ISRC Agency codes - Former Yugoslavia before 2006 *)
+      "ZB"
+    ; (* RISA - South Africa *)
+      "ZZ" (* International ISRC Agency codes - Worldwide *)
     ]
 
 let compact number =
@@ -60,13 +78,21 @@ let validate number =
 
   if not (is_upper_alpha country.[0] && is_upper_alpha country.[1]) then
     raise Invalid_format;
-  if not (is_alnum registrant.[0] && is_alnum registrant.[1] && is_alnum registrant.[2]) then
-    raise Invalid_format;
-  if not (is_digit year.[0] && is_digit year.[1]) then
-    raise Invalid_format;
-  if not (is_digit record.[0] && is_digit record.[1] && is_digit record.[2] &&
-          is_digit record.[3] && is_digit record.[4]) then
-    raise Invalid_format;
+  if
+    not
+      (is_alnum registrant.[0]
+      && is_alnum registrant.[1]
+      && is_alnum registrant.[2])
+  then raise Invalid_format;
+  if not (is_digit year.[0] && is_digit year.[1]) then raise Invalid_format;
+  if
+    not
+      (is_digit record.[0]
+      && is_digit record.[1]
+      && is_digit record.[2]
+      && is_digit record.[3]
+      && is_digit record.[4])
+  then raise Invalid_format;
 
   if not (List.mem country country_codes) then raise Invalid_component;
 

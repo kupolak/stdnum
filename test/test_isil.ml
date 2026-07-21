@@ -25,9 +25,7 @@ let test_format () =
 let test_is_valid () =
   let test_cases =
     [
-      ("IT-RM0267", true)
-    ; ("IT-RM0267-12345678", false)
-    ; ("IT-RM0267!", false)
+      ("IT-RM0267", true); ("IT-RM0267-12345678", false); ("IT-RM0267!", false)
     ]
   in
   List.iter

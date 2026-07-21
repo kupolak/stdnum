@@ -3,7 +3,8 @@
     The OGM-VCS is used in bank transfer as structured communication.
 
     More information:
-    - https://febelfin.be/en/publications/2023/febelfin-banking-standards-for-online-banking *)
+    - https://febelfin.be/en/publications/2023/febelfin-banking-standards-for-online-banking
+*)
 
 exception Invalid_format
 (** Exception raised when the OGM-VCS has invalid format. *)
@@ -15,8 +16,8 @@ exception Invalid_checksum
 (** Exception raised when the checksum validation fails. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the number
-    of any invalid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any invalid separators and removes surrounding whitespace. *)
 
 val calc_check_digits : string -> string
 (** Calculate the check digit that should be added. *)

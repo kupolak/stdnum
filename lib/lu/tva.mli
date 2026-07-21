@@ -1,8 +1,8 @@
 (** TVA (taxe sur la valeur ajoutée, Luxembourgian VAT number).
 
-    The n° TVA (Numéro d'identification à la taxe sur la valeur ajoutée) is
-    used for tax purposes in Luxembourg. The number consists of 8 digits of
-    which the last two are check digits. *)
+    The n° TVA (Numéro d'identification à la taxe sur la valeur ajoutée) is used
+    for tax purposes in Luxembourg. The number consists of 8 digits of which the
+    last two are check digits. *)
 
 exception Invalid_format
 (** Exception raised when the number has invalid format. *)
@@ -14,8 +14,8 @@ exception Invalid_checksum
 (** Exception raised when the checksum validation fails. *)
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val calc_check_digits : string -> string
 (** Calculate the check digits for the number. *)

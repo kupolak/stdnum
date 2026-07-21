@@ -14,12 +14,12 @@ United States. A TIN may be:
 exception Invalid_format
 
 val compact : string -> string
-(** Convert the number to the minimal representation. This strips the
-    number of any valid separators and removes surrounding whitespace. *)
+(** Convert the number to the minimal representation. This strips the number of
+    any valid separators and removes surrounding whitespace. *)
 
 val validate : string -> string
-(** Check if the number is a valid TIN. This searches for the proper
-    sub-type and validates using that. *)
+(** Check if the number is a valid TIN. This searches for the proper sub-type
+    and validates using that. *)
 
 val is_valid : string -> bool
 (** Check if the number is a valid TIN. *)

@@ -13,7 +13,8 @@ val compact : string -> string
 (** [compact number] converts the number to the minimal representation. *)
 
 val checksum : string -> int
-(** [checksum number] calculates the checksum. Valid numbers should have a checksum of 0. *)
+(** [checksum number] calculates the checksum. Valid numbers should have a
+    checksum of 0. *)
 
 val validate : string -> string
 (** [validate number] checks if the number is a valid VAT number. *)

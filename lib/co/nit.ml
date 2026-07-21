@@ -4,13 +4,13 @@ exception Invalid_format
 exception Invalid_length
 exception Invalid_checksum
 
-(** Convert the number to the minimal representation. This strips
-    surrounding whitespace and separation characters. *)
+(** Convert the number to the minimal representation. This strips surrounding
+    whitespace and separation characters. *)
 let compact number =
   Utils.clean number "[., -]" |> String.uppercase_ascii |> String.trim
 
-(** Calculate the check digit. The number passed should not have the
-    check digit included. *)
+(** Calculate the check digit. The number passed should not have the check digit
+    included. *)
 let calc_check_digit number =
   let weights =
     [| 3; 7; 13; 17; 19; 23; 29; 37; 41; 43; 47; 53; 59; 67; 71 |]
@@ -26,8 +26,8 @@ let calc_check_digit number =
   let s = !sum mod 11 in
   String.make 1 "01987654321".[s]
 
-(** Check if the number is a valid NIT. This checks the length, formatting
-    and check digit. *)
+(** Check if the number is a valid NIT. This checks the length, formatting and
+    check digit. *)
 let validate number =
   let number = compact number in
   let len = String.length number in

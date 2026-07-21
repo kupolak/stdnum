@@ -1,8 +1,8 @@
 (** Btw-identificatienummer (Omzetbelastingnummer, the Dutch VAT number).
 
     The btw-identificatienummer (previously the btw-nummer) is the Dutch number
-    for identifying parties in a transaction for which VAT is due. The btw-nummer
-    is used in communication with the tax agency while the
+    for identifying parties in a transaction for which VAT is due. The
+    btw-nummer is used in communication with the tax agency while the
     btw-identificatienummer (EORI-nummer) can be used when dealing with other
     companies though they are used interchangeably.
 
@@ -20,8 +20,8 @@ exception Invalid_length
 exception Invalid_checksum
 
 val compact : string -> string
-(** Remove any formatting characters from the number, strip NL prefix if present,
-    and return a clean string. *)
+(** Remove any formatting characters from the number, strip NL prefix if
+    present, and return a clean string. *)
 
 val validate : string -> string
 (** Check if the number is a valid btw number. This checks the length,

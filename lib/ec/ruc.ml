@@ -25,10 +25,8 @@ let validate_natural number =
   let len = String.length number in
   let last_3 = String.sub number (len - 3) 3 in
   if last_3 = "000" then raise Invalid_component;
-  
-  begin try
-    ignore (Ci.validate (String.sub number 0 10))
-  with
+
+  begin try ignore (Ci.validate (String.sub number 0 10)) with
   | Ci.Invalid_component -> raise Invalid_component
   | Ci.Invalid_checksum -> raise Invalid_checksum
   | Ci.Invalid_format -> raise Invalid_format
@@ -56,25 +54,27 @@ let validate number =
   let number = compact number in
   if String.length number <> 13 then raise Invalid_length;
   if not (Utils.is_digits number) then raise Invalid_format;
-  
+
   let prov_code = String.sub number 0 2 in
-  if (prov_code < "01" || prov_code > "24") && prov_code <> "30" && prov_code <> "50" then
-    raise Invalid_component;
-    
+  if
+    (prov_code < "01" || prov_code > "24")
+    && prov_code <> "30" && prov_code <> "50"
+  then raise Invalid_component;
+
   let third = number.[2] in
-  if third < '6' then
-    validate_natural number
+  if third < '6' then validate_natural number
   else if third = '6' then
     try validate_public number
     with Invalid_component | Invalid_checksum -> validate_natural number
   else if third = '9' then
     try validate_public number
     with Invalid_component | Invalid_checksum -> validate_juridical number
-  else
-    raise Invalid_component
+  else raise Invalid_component
 
 let is_valid number =
   try
     ignore (validate number);
     true
-  with Invalid_format | Invalid_length | Invalid_component | Invalid_checksum -> false
+  with
+  | Invalid_format | Invalid_length | Invalid_component | Invalid_checksum ->
+    false

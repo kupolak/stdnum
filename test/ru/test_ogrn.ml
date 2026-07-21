@@ -41,8 +41,12 @@ let suite =
   ; ("test_validate_15", `Quick, test_validate_15)
   ; ("test_validate_invalid_checksum", `Quick, test_validate_invalid_checksum)
   ; ("test_validate_invalid_length", `Quick, test_validate_invalid_length)
-  ; ("test_validate_invalid_component_0", `Quick, test_validate_invalid_component_0)
-  ; ("test_validate_invalid_component_15", `Quick, test_validate_invalid_component_15)
+  ; ( "test_validate_invalid_component_0"
+    , `Quick
+    , test_validate_invalid_component_0 )
+  ; ( "test_validate_invalid_component_15"
+    , `Quick
+    , test_validate_invalid_component_15 )
   ]
 
 let () = Alcotest.run "Stdnum.Ru.Ogrn" [ ("suite", suite) ]

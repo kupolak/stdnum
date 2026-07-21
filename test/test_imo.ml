@@ -23,14 +23,13 @@ let test_calc_check_digit () =
     test_cases
 
 let test_validate () =
-  let test_cases =
-    [ ("IMO 9319466", "9319466"); ("IMO 8814275", "8814275") ]
-  in
+  let test_cases = [ ("IMO 9319466", "9319466"); ("IMO 8814275", "8814275") ] in
   List.iter
     (fun (input, expected_result) ->
       try
         let result = Stdnum.Imo.validate input in
-        Alcotest.(check string) ("test_validate_" ^ input) expected_result result
+        Alcotest.(check string)
+          ("test_validate_" ^ input) expected_result result
       with e ->
         Alcotest.fail
           (Printf.sprintf "validate failed for %s: %s" input

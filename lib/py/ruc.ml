@@ -27,7 +27,7 @@ let calc_check_digit number =
     let n = int_of_char number.[len - 1 - i] - int_of_char '0' in
     s := !s + ((i + 2) * n)
   done;
-  let rem = (- !s) mod 11 in
+  let rem = - !s mod 11 in
   let rem = if rem < 0 then rem + 11 else rem in
   let rem = rem mod 10 in
   string_of_int rem
