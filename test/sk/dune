@@ -1,4 +1,9 @@
 (test
  (name test_dph)
- (libraries alcotest sk)
+ (libraries alcotest stdnum sk)
  (modules test_dph))
+
+(test
+ (name test_rc)
+ (libraries alcotest stdnum sk)
+ (modules test_rc))
