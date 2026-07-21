@@ -2,3 +2,8 @@
  (name test_vat)
  (libraries alcotest stdnum stdnum.ie)
  (modules test_vat))
+
+(test
+ (name test_pps)
+ (libraries alcotest stdnum stdnum.ie)
+ (modules test_pps))

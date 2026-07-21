@@ -1,5 +1,5 @@
 (library
  (name ie)
  (public_name stdnum.ie)
- (modules vat)
+ (modules vat pps)
  (libraries tools))
