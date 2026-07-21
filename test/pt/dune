@@ -1,0 +1,9 @@
+(test
+ (name test_cc)
+ (libraries alcotest stdnum pt)
+ (modules test_cc))
+
+(test
+ (name test_nif)
+ (libraries alcotest stdnum pt)
+ (modules test_nif))
