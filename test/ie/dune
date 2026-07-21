@@ -1,0 +1,4 @@
+(test
+ (name test_vat)
+ (libraries alcotest stdnum stdnum.ie)
+ (modules test_vat))
