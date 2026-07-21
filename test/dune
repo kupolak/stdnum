@@ -89,6 +89,11 @@
  (modules test_meid))
 
 (test
+ (name test_imsi)
+ (libraries alcotest stdnum)
+ (modules test_imsi))
+
+(test
  (name test_isan)
  (libraries alcotest stdnum)
  (modules test_isan))
