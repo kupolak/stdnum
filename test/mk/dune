@@ -1,0 +1,4 @@
+(test
+ (name test_edb)
+ (libraries alcotest stdnum stdnum.mk)
+ (modules test_edb))

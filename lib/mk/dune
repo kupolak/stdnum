@@ -1,0 +1,5 @@
+(library
+ (name mk)
+ (public_name stdnum.mk)
+ (modules edb)
+ (libraries tools))
