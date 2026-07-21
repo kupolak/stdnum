@@ -1,0 +1,5 @@
+(library
+ (name sn)
+ (public_name stdnum.sn)
+ (modules ninea)
+ (libraries tools))
