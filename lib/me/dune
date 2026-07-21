@@ -1,5 +1,5 @@
 (library
  (name me)
  (public_name stdnum.me)
- (modules pib)
- (libraries tools))
+ (modules pib iban)
+ (libraries tools stdnum))

@@ -1,4 +1,9 @@
 (test
  (name test_pib)
- (libraries alcotest stdnum stdnum.me)
+ (libraries alcotest stdnum me)
  (modules test_pib))
+
+(test
+ (name test_iban)
+ (libraries alcotest stdnum me)
+ (modules test_iban))
