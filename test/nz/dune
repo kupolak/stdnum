@@ -1,0 +1,4 @@
+(test
+ (name test_bankaccount)
+ (libraries alcotest stdnum stdnum.nz)
+ (modules test_bankaccount))
