@@ -1,5 +1,5 @@
 (library
  (name in_)
  (public_name stdnum.in_)
- (modules aadhaar epic pan gstin)
+ (modules aadhaar epic pan gstin vid)
  (libraries tools))
