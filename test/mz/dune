@@ -1,0 +1,4 @@
+(test
+ (name test_nuit)
+ (libraries alcotest stdnum stdnum.mz)
+ (modules test_nuit))
