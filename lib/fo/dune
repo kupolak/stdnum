@@ -1,0 +1,5 @@
+(library
+ (name fo)
+ (public_name stdnum.fo)
+ (modules vn)
+ (libraries tools))
