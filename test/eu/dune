@@ -32,3 +32,8 @@
  (name test_oss)
  (libraries alcotest stdnum stdnum.eu)
  (modules test_oss))
+
+(test
+ (name test_vat)
+ (libraries alcotest stdnum stdnum.eu)
+ (modules test_vat))
