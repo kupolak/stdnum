@@ -1,0 +1,4 @@
+(test
+ (name test_amka)
+ (libraries alcotest stdnum stdnum.gr)
+ (modules test_amka))
