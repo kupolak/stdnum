@@ -8,7 +8,8 @@ exception Invalid_format
 exception Invalid_checksum
 
 (** Exception raised when the IČ DPH contains non-digit characters or has
-    invalid format (starts with 0, or third digit is not in {2,3,4,7,8,9}). *)
+    invalid format (starts with 0, or third digit is not 2, 3, 4, 7, 8, or 9).
+*)
 
 val compact : string -> string
 (** Convert the number to the minimal representation. This strips the number of
@@ -23,10 +24,7 @@ val checksum : string -> int
 
 val validate : string -> string
 (** Check if the number is a valid IČ DPH. This checks the length, formatting,
-    and checksum. Returns the normalized number if valid.
-
-           with 0, or the third digit is not in {2,3,4,7,8,9}
-    @raise Invalid_checksum if the checksum (number mod 11) is not 0 *)
+    and checksum. Returns the normalized number if valid. *)
 
 val validate_result : string -> (string, Tools.Error.t) result
 (** Same as {!validate} but returns a [result] instead of raising exceptions. *)

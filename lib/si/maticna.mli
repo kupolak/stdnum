@@ -34,10 +34,7 @@ val calc_check_digit : string -> string
 val validate : string -> string
 (** Check if the number is a valid Corporate Registration number. This checks
     the length, format, and check digit. Returns the normalized number if valid.
-
-           business unit (last 3 chars when length is 10) doesn't match the
-           pattern [A-Z0-9][0-9]{2}
-           remainder is 0 *)
+*)
 
 val validate_result : string -> (string, Tools.Error.t) result
 (** Same as {!validate} but returns a [result] instead of raising exceptions. *)
