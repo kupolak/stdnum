@@ -2,3 +2,8 @@
  (name test_bankaccount)
  (libraries alcotest stdnum stdnum.nz)
  (modules test_bankaccount))
+
+(test
+ (name test_ird)
+ (libraries alcotest stdnum stdnum.nz)
+ (modules test_ird))
