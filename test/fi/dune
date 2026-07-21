@@ -1,0 +1,4 @@
+(test
+ (name test_alv)
+ (libraries alcotest stdnum stdnum.fi)
+ (modules test_alv))
