@@ -2,4 +2,4 @@
  (name ru)
  (public_name stdnum.ru)
  (libraries tools)
- (modules inn))
+ (modules inn ogrn))
