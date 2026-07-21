@@ -1,0 +1,5 @@
+(library
+ (name ma)
+ (public_name stdnum.ma)
+ (modules ice)
+ (libraries tools))
