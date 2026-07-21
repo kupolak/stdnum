@@ -1,0 +1,5 @@
+(library
+ (name gn)
+ (public_name stdnum.gn)
+ (modules nifp)
+ (libraries tools))

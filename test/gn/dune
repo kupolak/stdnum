@@ -1,0 +1,4 @@
+(test
+ (name test_nifp)
+ (libraries alcotest stdnum stdnum.gn)
+ (modules test_nifp))
