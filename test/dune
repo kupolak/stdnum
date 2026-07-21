@@ -127,3 +127,8 @@
  (name test_upi)
  (libraries alcotest stdnum)
  (modules test_upi))
+
+(test
+ (name test_verhoeff)
+ (libraries alcotest stdnum)
+ (modules test_verhoeff))
