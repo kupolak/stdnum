@@ -1,0 +1,4 @@
+(test
+ (name test_kennitala)
+ (libraries alcotest stdnum stdnum.is_)
+ (modules test_kennitala))
