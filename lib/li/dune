@@ -1,0 +1,5 @@
+(library
+ (name li)
+ (public_name stdnum.li)
+ (modules peid)
+ (libraries tools))
