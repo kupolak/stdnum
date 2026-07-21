@@ -1,0 +1,9 @@
+(test
+ (name test_nik)
+ (libraries alcotest stdnum stdnum.id)
+ (modules test_nik))
+
+(test
+ (name test_npwp)
+ (libraries alcotest stdnum stdnum.id)
+ (modules test_npwp))
