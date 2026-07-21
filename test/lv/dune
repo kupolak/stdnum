@@ -1,0 +1,4 @@
+(test
+ (name test_pvn)
+ (libraries alcotest stdnum stdnum.lv)
+ (modules test_pvn))

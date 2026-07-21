@@ -1,0 +1,5 @@
+(library
+ (name lv)
+ (public_name stdnum.lv)
+ (modules pvn)
+ (libraries tools))
