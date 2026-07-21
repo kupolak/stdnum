@@ -1,5 +1,5 @@
 (library
  (name lt)
  (public_name stdnum.lt)
- (modules asmens)
+ (modules asmens pvm)
  (libraries tools ee))

@@ -2,3 +2,8 @@
  (name test_asmens)
  (libraries alcotest stdnum stdnum.lt)
  (modules test_asmens))
+
+(test
+ (name test_pvm)
+ (libraries alcotest stdnum stdnum.lt)
+ (modules test_pvm))
