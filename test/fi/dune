@@ -17,3 +17,8 @@
  (name test_veronumero)
  (libraries alcotest stdnum stdnum.fi)
  (modules test_veronumero))
+
+(test
+ (name test_ytunnus)
+ (libraries alcotest stdnum stdnum.fi)
+ (modules test_ytunnus))

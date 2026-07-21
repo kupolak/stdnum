@@ -1,5 +1,5 @@
 (library
  (name fi)
  (public_name stdnum.fi)
- (modules alv associationid hetu veronumero)
+ (modules alv associationid hetu veronumero ytunnus)
  (libraries tools))
