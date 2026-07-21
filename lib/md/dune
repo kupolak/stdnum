@@ -1,0 +1,5 @@
+(library
+ (name md)
+ (public_name stdnum.md)
+ (modules idno)
+ (libraries tools))
