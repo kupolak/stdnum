@@ -1,0 +1,5 @@
+(library
+ (name lu)
+ (public_name stdnum.lu)
+ (modules tva)
+ (libraries tools))
