@@ -1,5 +1,5 @@
 (library
  (name fi)
  (public_name stdnum.fi)
- (modules alv associationid)
+ (modules alv associationid hetu)
  (libraries tools))

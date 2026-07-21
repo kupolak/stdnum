@@ -7,3 +7,8 @@
  (name test_associationid)
  (libraries alcotest stdnum stdnum.fi)
  (modules test_associationid))
+
+(test
+ (name test_hetu)
+ (libraries alcotest stdnum stdnum.fi)
+ (modules test_hetu))
